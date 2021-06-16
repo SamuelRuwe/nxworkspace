@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "projects": {
+    "stores": {
+      "projectType": "application",
+      "root": "apps/stores",
+      "sourceRoot": "apps/stores/src",
+      "prefix": "stores",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/stores",
+            "index": "apps/stores/src/index.html",
+            "main": "apps/stores/src/main.ts",
+            "polyfills": "apps/stores/src/polyfills.ts",
+            "tsConfig": "apps/stores/tsconfig.app.json",
+            "assets": ["apps/stores/src/favicon.ico", "apps/stores/src/assets"],
+            "styles": ["apps/stores/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/stores/src/environments/environment.ts",
+                  "with": "apps/stores/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "stores:build:production"
+            },
+            "development": {
+              "browserTarget": "stores:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "stores:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/stores/src/**/*.ts",
+              "apps/stores/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/stores"],
+          "options": {
+            "jestConfig": "apps/stores/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "stores-e2e": {
+      "root": "apps/stores-e2e",
+      "sourceRoot": "apps/stores-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/stores-e2e/cypress.json",
+            "tsConfig": "apps/stores-e2e/tsconfig.e2e.json",
+            "devServerTarget": "stores:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "stores:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/stores-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "defaultProject": "stores"
+}
