@@ -5,19 +5,26 @@
       "projectType": "application",
       "root": "apps/ngrx",
       "sourceRoot": "apps/ngrx/src",
-      "prefix": "stores",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/ngrx",
             "index": "apps/ngrx/src/index.html",
             "main": "apps/ngrx/src/main.ts",
             "polyfills": "apps/ngrx/src/polyfills.ts",
             "tsConfig": "apps/ngrx/tsconfig.app.json",
-            "assets": ["apps/ngrx/src/favicon.ico", "apps/ngrx/src/assets"],
-            "styles": ["apps/ngrx/src/styles.css"],
+            "assets": [
+              "apps/ngrx/src/favicon.ico",
+              "apps/ngrx/src/assets"
+            ],
+            "styles": [
+              "apps/ngrx/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -82,7 +89,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ngrx"],
+          "outputs": [
+            "coverage/apps/ngrx"
+          ],
           "options": {
             "jestConfig": "apps/ngrx/jest.config.js",
             "passWithNoTests": true
@@ -111,7 +120,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/ngrx-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/ngrx-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
