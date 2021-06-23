@@ -12,18 +12,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid purple;
+  flex: 0 1 33%;
+  width: 100%;
+}
+
+.checkboxText {
+  color: #0094ba;
+}
+
+.formTitle {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 1 50%;
   width: 100%;
 }
 
-/*mat-grid-tile {*/
-/*  border: 2px solid #0094ba;*/
-/*}*/
-/**/
-/*.fieldTitle {*/
-/*  border-bottom: 1px solid #e0e0e0;*/
-/*}*/
+.fieldTitle {
+  font-weight: 500;
+}
+
+.fieldData {
+}
 /**/
 /*.blue {*/
 /*  background: #0094ba;*/
