@@ -1,5 +1,5 @@
 {
-  "npmScope": "stores",
+  "npmScope": "nx-workspace",
   "affected": {
     "defaultBase": "master"
   },
@@ -25,6 +25,19 @@
     }
   },
   "projects": {
+    "forms": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
+    },
+    "matgrid": {
+      "tags": []
+    },
+    "matgrid-e2e": {
+      "tags": [],
+      "implicitDependencies": ["matgrid"]
+    },
     "ngrx": {
       "tags": []
     },

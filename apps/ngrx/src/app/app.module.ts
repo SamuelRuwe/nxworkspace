@@ -11,13 +11,19 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { booksReducer } from './state/books.reducer';
 import { collectionReducer } from './state/collection.reducer';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@nx-workspace/material';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, BooksListComponent, BookCollectionComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([], {initialNavigation: 'enabled'}),
-    StoreModule.forRoot({count: counterReducer, books: booksReducer, collection: collectionReducer})
+    StoreModule.forRoot({count: counterReducer, books: booksReducer, collection: collectionReducer}),
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   bootstrap: [AppComponent],
 })

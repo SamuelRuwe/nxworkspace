@@ -1,6 +1,177 @@
 {
   "version": 1,
   "projects": {
+    "forms": {
+      "projectType": "library",
+      "root": "libs/forms",
+      "sourceRoot": "libs/forms/src",
+      "prefix": "nx-workspace",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/forms"],
+          "options": {
+            "jestConfig": "libs/forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/forms/src/**/*.ts",
+              "libs/forms/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "nx-workspace",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/material"],
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/material/src/**/*.ts",
+              "libs/material/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "matgrid": {
+      "projectType": "application",
+      "root": "apps/matgrid",
+      "sourceRoot": "apps/matgrid/src",
+      "prefix": "nx-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/matgrid",
+            "index": "apps/matgrid/src/index.html",
+            "main": "apps/matgrid/src/main.ts",
+            "polyfills": "apps/matgrid/src/polyfills.ts",
+            "tsConfig": "apps/matgrid/tsconfig.app.json",
+            "assets": [
+              "apps/matgrid/src/favicon.ico",
+              "apps/matgrid/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/matgrid/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/matgrid/src/environments/environment.ts",
+                  "with": "apps/matgrid/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "matgrid:build:production"
+            },
+            "development": {
+              "browserTarget": "matgrid:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "matgrid:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/matgrid/src/**/*.ts",
+              "apps/matgrid/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/matgrid"],
+          "options": {
+            "jestConfig": "apps/matgrid/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "matgrid-e2e": {
+      "root": "apps/matgrid-e2e",
+      "sourceRoot": "apps/matgrid-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/matgrid-e2e/cypress.json",
+            "tsConfig": "apps/matgrid-e2e/tsconfig.e2e.json",
+            "devServerTarget": "matgrid:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "matgrid:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/matgrid-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "ngrx": {
       "projectType": "application",
       "root": "apps/ngrx",
@@ -9,20 +180,16 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/ngrx",
             "index": "apps/ngrx/src/index.html",
             "main": "apps/ngrx/src/main.ts",
             "polyfills": "apps/ngrx/src/polyfills.ts",
             "tsConfig": "apps/ngrx/tsconfig.app.json",
-            "assets": [
-              "apps/ngrx/src/favicon.ico",
-              "apps/ngrx/src/assets"
-            ],
+            "assets": ["apps/ngrx/src/favicon.ico", "apps/ngrx/src/assets"],
             "styles": [
+              "apps/ngrx/src/custom-theme.scss",
               "apps/ngrx/src/styles.css"
             ],
             "scripts": []
@@ -89,9 +256,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/ngrx"
-          ],
+          "outputs": ["coverage/apps/ngrx"],
           "options": {
             "jestConfig": "apps/ngrx/jest.config.js",
             "passWithNoTests": true
@@ -120,9 +285,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ngrx-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ngrx-e2e/**/*.{js,ts}"]
           }
         }
       }

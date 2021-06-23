@@ -12,9 +12,7 @@ import { Book } from './books-list/books.model';
 })
 export class AppComponent implements OnInit {
 
-  // @ts-ignore
   books$ = this._store.pipe(select(selectBooks));
-  // @ts-ignore
   bookCollection$ = this._store.pipe(select(selectBookCollection));
 
   onAdd(bookId: keyof Book) {
