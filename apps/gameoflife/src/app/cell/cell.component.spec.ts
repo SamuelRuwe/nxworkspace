@@ -24,4 +24,17 @@ describe('CellComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  test('toggleAlive should make a dead cell alive', () => {
+    component.alive = false;
+    component.toggleAlive();
+    expect(component.alive).toBeTruthy();
+  });
+
+  test('toggleAlive should make an alive cell dead', () => {
+    component.alive = true;
+    component.toggleAlive();
+    expect(component.alive).toBeFalsy();
+  });
+
 });

@@ -1,5 +1,5 @@
-<mat-grid-list [cols]="board.length" rowHeight="1:1" class="container">
-  <ng-container *ngFor="let row of board">
+<mat-grid-list [cols]="boardSize.x" rowHeight="1:1" class="container">
+  <ng-container *ngFor="let row of domBoard">
     <ng-container *ngFor="let cell of row">
       <mat-grid-tile class="cell">
         <ng-container #viewContainerRef></ng-container>

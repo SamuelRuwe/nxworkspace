@@ -1,8 +1,9 @@
 import {
-  AfterViewInit, ChangeDetectorRef,
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ComponentFactory,
-  ComponentFactoryResolver, ComponentRef,
+  ComponentFactoryResolver,
   Input,
   OnInit,
   QueryList,
@@ -20,14 +21,17 @@ import { CellComponent } from '../cell/cell.component';
 })
 export class BoardComponent implements OnInit, AfterViewInit {
 
+  constructor(private _resolver: ComponentFactoryResolver, private _cd: ChangeDetectorRef) {}
+
   @Input() boardSize!: { x: number, y: number };
   @ViewChildren('viewContainerRef', {read: ViewContainerRef}) viewContainerRef!: QueryList<ViewContainerRef>;
 
-  board: Array<Array<ComponentRef<CellComponent>>> = [];
-
-  constructor(private _resolver: ComponentFactoryResolver, private _cd: ChangeDetectorRef) {}
+  factory!: ComponentFactory<CellComponent>;
+  board: Array<Array<CellComponent>> = [];
+  domBoard: Array<Array<null>> = [];
 
   ngOnInit(): void {
+    this.factory = this._resolver.resolveComponentFactory(CellComponent);
     this.createBoard();
   }
 
@@ -36,32 +40,40 @@ export class BoardComponent implements OnInit, AfterViewInit {
   }
 
   private createBoard() {
-    this.board = [];
+    this.domBoard = [];
     const {x, y} = this.boardSize;
     for (let i = 0; i < x; i++) {
-      this.board.push([]);
-      for (let ii = y; ii > 0; ii--) {
-        const factory = this._resolver.resolveComponentFactory(CellComponent);
-        this.board[i].push(factory);
-      }
+      this.domBoard.push([]);
+      for (let j = 0; j < y; j++)
+        this.domBoard[i].push(null);
     }
   }
 
   private displayBoard() {
     const {x, y} = this.boardSize;
     for (let i = 0; i < x; i++) {
+      this.board.push([]);
       for (let ii = 0; ii < y; ii++) {
         const vc = this.viewContainerRef.get(i * x + ii);
-        const cell = vc?.createComponent(this.board[i][ii]);
-        if (cell) cell.instance.alive = false;
+        const cell = vc?.createComponent(this.factory).instance;
+        if (cell) {
+          this.board[i].push(cell);
+          cell.alive = false;
+        } else {
+          throw new Error('Cell is null');
+        }
       }
     }
 
     this._cd.detectChanges();
   }
 
-  // private calculateNextCycle() {
-  //
-  // }
+  reset() {
+    this.board.flat().forEach(cell => cell.alive = false);
+  }
+
+  nextCycle() {
+    console.log('calculate next cycle called');
+  }
 
 }
