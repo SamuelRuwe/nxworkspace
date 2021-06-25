@@ -2,7 +2,7 @@ import {
   AfterViewInit, ChangeDetectorRef,
   Component,
   ComponentFactory,
-  ComponentFactoryResolver,
+  ComponentFactoryResolver, ComponentRef,
   Input,
   OnInit,
   QueryList,
@@ -23,7 +23,7 @@ export class BoardComponent implements OnInit, AfterViewInit {
   @Input() boardSize!: { x: number, y: number };
   @ViewChildren('viewContainerRef', {read: ViewContainerRef}) viewContainerRef!: QueryList<ViewContainerRef>;
 
-  board: Array<Array<ComponentFactory<CellComponent>>> = [];
+  board: Array<Array<ComponentRef<CellComponent>>> = [];
 
   constructor(private _resolver: ComponentFactoryResolver, private _cd: ChangeDetectorRef) {}
 
@@ -56,6 +56,7 @@ export class BoardComponent implements OnInit, AfterViewInit {
         if (cell) cell.instance.alive = false;
       }
     }
+
     this._cd.detectChanges();
   }
 

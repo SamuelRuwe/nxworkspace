@@ -35,9 +35,6 @@
       "tags": [],
       "implicitDependencies": ["gameoflife"]
     },
-    "material": {
-      "tags": []
-    },
     "matgrid": {
       "tags": []
     },

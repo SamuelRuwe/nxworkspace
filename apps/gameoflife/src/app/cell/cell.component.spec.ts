@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CellComponent } from './cell.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('CellComponent', () => {
   let component: CellComponent;
@@ -8,9 +9,10 @@ describe('CellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CellComponent ]
+      declarations: [CellComponent],
+      imports: [MatIconModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

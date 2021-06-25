@@ -100,3 +100,7 @@ advanced code generation and project dependency graph, plus a unified experience
 developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+# Remove
+
+Run `ng g @nrwl/workspace:remove {lib/app}`

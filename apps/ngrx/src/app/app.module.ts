@@ -13,7 +13,6 @@ import { collectionReducer } from './state/collection.reducer';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@nx-workspace/material';
 
 @NgModule({
   declarations: [AppComponent, CounterComponent, BooksListComponent, BookCollectionComponent],
@@ -22,8 +21,7 @@ import { MaterialModule } from '@nx-workspace/material';
     RouterModule.forRoot([], {initialNavigation: 'enabled'}),
     StoreModule.forRoot({count: counterReducer, books: booksReducer, collection: collectionReducer}),
     HttpClientModule,
-    BrowserAnimationsModule,
-    MaterialModule
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
 })
