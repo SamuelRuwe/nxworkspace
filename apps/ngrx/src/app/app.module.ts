@@ -2,26 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './state/counter.reducer';
-import { CounterComponent } from './counter/counter.component';
-import { BooksListComponent } from './books-list/books-list.component';
-import { booksReducer } from './state/books.reducer';
-import { collectionReducer } from './state/collection.reducer';
-import { BookCollectionComponent } from './book-collection/book-collection.component';
+import { counterReducer } from './state/counter/counter.reducer';
+import { booksReducer } from './state/books/books.reducer';
+import { collectionReducer } from './state/books/collection.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@nx-workspace/layout';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, CounterComponent, BooksListComponent, BookCollectionComponent],
+  declarations: [AppComponent],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    RouterModule.forRoot([], {initialNavigation: 'enabled'}),
     StoreModule.forRoot({count: counterReducer, books: booksReducer, collection: collectionReducer}),
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule
   ],
   bootstrap: [AppComponent],
 })
