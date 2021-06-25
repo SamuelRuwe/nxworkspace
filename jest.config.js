@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/libs/material',
     '<rootDir>/libs/forms',
     '<rootDir>/apps/matgrid',
+    '<rootDir>/apps/gameoflife',
   ],
 };

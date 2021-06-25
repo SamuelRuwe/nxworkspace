@@ -33,18 +33,12 @@
   font-weight: 500;
 }
 
-.fieldData {
+.innerForm {
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
 }
-/**/
-/*.blue {*/
-/*  background: #0094ba;*/
-/*  flex: 0 1 50%;*/
-/*  width: 100%;*/
-/*}*/
-/**/
-/*.orange {*/
-/*  background: orange;*/
-/*  flex: 0 1 50%;*/
-/*  align-items: center;*/
-/*  width: 100%;*/
-/*}*/
+
+.innerForm > * {
+  /*border: 2px solid purple;*/
+}

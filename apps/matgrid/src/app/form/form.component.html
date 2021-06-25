@@ -1,4 +1,4 @@
-<mat-grid-list cols="2" rowHeight="4:1">
+<mat-grid-list cols="2" rowHeight="">
   <form [formGroup]="form">
     <mat-grid-tile rowspan="1" colspan="2">
       <div class="tileContainer">
@@ -62,22 +62,33 @@
         <mat-divider></mat-divider>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile rowspan="2" colspan="1">
+    <mat-grid-tile rowspan="2" colspan="2">
       <div class="tileContainer">
         <mat-accordion>
-          <mat-expansion-panel #expansionPanel hideToggle [disabled]="true" [class.mat-elevation-z0]="true" [expanded]="checkbox.checked">
+          <mat-expansion-panel
+            #expansionPanel
+            hideToggle
+            [disabled]="true"
+            [class.mat-elevation-z0]="true"
+          >
             <mat-expansion-panel-header>
-              <mat-checkbox #checkbox>
+              <mat-checkbox formControlName="isSpecialRequest" matTooltip="text">
                 <span class="checkboxText">Special Request</span>
               </mat-checkbox>
             </mat-expansion-panel-header>
-            <mat-form-field>
-              <mat-checkbox>Charge</mat-checkbox>
-              <input matInput type="text">
-            </mat-form-field>
+            <form class="innerForm" formGroupName="specialRequest">
+              <mat-checkbox formControlName="charge">Charge</mat-checkbox>
+              <mat-form-field>
+                <input formControlName="comment" matInput type="text">
+              </mat-form-field>
+            </form>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
     </mat-grid-tile>
   </form>
 </mat-grid-list>
+
+<pre>
+  {{form.value | json}}
+</pre>

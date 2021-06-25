@@ -28,6 +28,13 @@
     "forms": {
       "tags": []
     },
+    "gameoflife": {
+      "tags": []
+    },
+    "gameoflife-e2e": {
+      "tags": [],
+      "implicitDependencies": ["gameoflife"]
+    },
     "material": {
       "tags": []
     },

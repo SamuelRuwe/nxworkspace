@@ -1,0 +1,14 @@
+.alive {
+  background: green;
+  color: #e6ebf1;
+}
+
+.dead {
+  background: #24292e;
+  color: #e6ebf1;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+}
