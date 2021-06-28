@@ -10,7 +10,8 @@ export class AppComponent {
   NavOptions = {
     routes: [
       {name: 'Books', route: '/books'},
-      {name: 'Counter', route: '/counter'}
+      {name: 'Counter', route: '/counter'},
+      {name: 'Pokemon', route: '/pokemon'}
     ]
   }
 
