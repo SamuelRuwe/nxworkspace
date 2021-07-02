@@ -144,6 +144,124 @@
         }
       }
     },
+    "jest-demo": {
+      "projectType": "application",
+      "root": "apps/jest-demo",
+      "sourceRoot": "apps/jest-demo/src",
+      "prefix": "nx-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/jest-demo",
+            "index": "apps/jest-demo/src/index.html",
+            "main": "apps/jest-demo/src/main.ts",
+            "polyfills": "apps/jest-demo/src/polyfills.ts",
+            "tsConfig": "apps/jest-demo/tsconfig.app.json",
+            "assets": [
+              "apps/jest-demo/src/favicon.ico",
+              "apps/jest-demo/src/assets"
+            ],
+            "styles": ["apps/jest-demo/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/jest-demo/src/environments/environment.ts",
+                  "with": "apps/jest-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "jest-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "jest-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "jest-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/jest-demo/src/**/*.ts",
+              "apps/jest-demo/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/jest-demo"],
+          "options": {
+            "jestConfig": "apps/jest-demo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "jest-demo-e2e": {
+      "root": "apps/jest-demo-e2e",
+      "sourceRoot": "apps/jest-demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/jest-demo-e2e/cypress.json",
+            "tsConfig": "apps/jest-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "jest-demo:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jest-demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/jest-demo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "layout": {
       "projectType": "library",
       "root": "libs/layout",

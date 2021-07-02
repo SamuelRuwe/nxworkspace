@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/apps/gameoflife',
     '<rootDir>/libs/layout',
     '<rootDir>/libs/material',
+    '<rootDir>/apps/jest-demo',
   ],
 };

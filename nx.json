@@ -35,6 +35,13 @@
       "tags": [],
       "implicitDependencies": ["gameoflife"]
     },
+    "jest-demo": {
+      "tags": []
+    },
+    "jest-demo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["jest-demo"]
+    },
     "layout": {
       "tags": []
     },
