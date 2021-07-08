@@ -31,29 +31,20 @@
     "gameoflife": {
       "tags": []
     },
-    "gameoflife-e2e": {
-      "tags": [],
-      "implicitDependencies": ["gameoflife"]
-    },
     "layout": {
       "tags": []
     },
     "material": {
       "tags": []
     },
+    "materialtheme": {
+      "tags": []
+    },
     "matgrid": {
       "tags": []
     },
-    "matgrid-e2e": {
-      "tags": [],
-      "implicitDependencies": ["matgrid"]
-    },
     "ngrx": {
       "tags": []
-    },
-    "ngrx-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ngrx"]
     }
   }
 }
