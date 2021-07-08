@@ -448,7 +448,7 @@
             "main": "apps/wasm/src/main.ts",
             "polyfills": "apps/wasm/src/polyfills.ts",
             "tsConfig": "apps/wasm/tsconfig.app.json",
-            "assets": ["apps/wasm/src/favicon.ico", "apps/wasm/src/assets"],
+            "assets": ["apps/wasm/src/favicon.ico", "apps/wasm/src/assets", "apps/wasm/src/sam-wasm"],
             "styles": ["apps/wasm/src/styles.css"],
             "scripts": []
           },
