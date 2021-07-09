@@ -12,3 +12,11 @@ const temp2 = `<p>I am good programmer</p>`;
 export class AppComponent {
   title = 'Example Title';
 }
+
+/** ToDo
+ * Dockerize wasm
+ * Add more wasm
+ * Dockerize application
+ * ???
+ * Profit
+ */

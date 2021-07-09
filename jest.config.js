@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/layout',
     '<rootDir>/libs/material',
     '<rootDir>/apps/materialtheme',
+    '<rootDir>/apps/routes',
   ],
 };
