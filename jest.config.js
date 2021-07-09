@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/libs/material',
     '<rootDir>/apps/materialtheme',
     '<rootDir>/apps/routes',
+    '<rootDir>/apps/wasm'
   ],
 };
