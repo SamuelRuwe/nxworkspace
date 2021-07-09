@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="webflux" />
+        <module name="oauth2" />
+        <module name="webflux-00-controller-approach" />
+        <module name="project-reactor" />
+        <module name="memorymanagement" />
+        <module name="FunctionalLogging" />
+        <module name="webflux-01-functional-approach" />
+        <module name="vault" />
+        <module name="BasicRestCorsConfig" />
+        <module name="MapLocation" />
+        <module name="Weather" />
+        <module name="webflux-03-mongo-rest-controller-approach" />
+        <module name="webflux-02-mongo-rest-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aggregator" target="1.5" />
+      <module name="authorization-server" target="13" />
+      <module name="client-server" target="11" />
+      <module name="jwt-auth-server" target="13" />
+      <module name="jwt-resource-server" target="13" />
+      <module name="oauth-authorization-server" target="13" />
+      <module name="oauth-resource-server" target="13" />
+      <module name="oidc" target="1.8" />
+      <module name="okta-spring-boot-oauth-code-flow-custom-login-example" target="1.8" />
+      <module name="okta-spring-boot-oauth-code-flow-example" target="1.8" />
+      <module name="okta-spring-boot-oauth-front-end" target="1.8" />
+      <module name="okta-spring-boot-oauth-resource-server" target="1.8" />
+      <module name="reactive-mongo-example-1" target="1.8" />
+      <module name="resource-server" target="11" />
+      <module name="resource-server-jwt" target="13" />
+      <module name="resource-server-opaque" target="13" />
+      <module name="sam-spring-project" target="11" />
+      <module name="simplewebapp" target="11" />
+      <module name="spring-authorization-server" target="11" />
+      <module name="spring-security-oauth" target="1.8" />
+      <module name="spring-webflux-tutorial" target="11" />
+      <module name="sso-authorization-server" target="13" />
+      <module name="sso-client-app-1" target="13" />
+      <module name="sso-client-app-2" target="13" />
+      <module name="sso-resource-server" target="13" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BasicRestCorsConfig" options="-parameters" />
+      <module name="FunctionalLogging" options="-parameters" />
+      <module name="MapLocation" options="-parameters" />
+      <module name="Weather" options="-parameters" />
+      <module name="authorization-server" options="-parameters" />
+      <module name="client-server" options="-parameters" />
+      <module name="jwt-auth-server" options="-parameters" />
+      <module name="jwt-resource-server" options="-parameters" />
+      <module name="memorymanagement" options="-parameters" />
+      <module name="oauth-authorization-server" options="-parameters" />
+      <module name="oauth-resource-server" options="-parameters" />
+      <module name="oauth2" options="-parameters" />
+      <module name="oidc" options="-parameters" />
+      <module name="okta-spring-boot-oauth-code-flow-custom-login-example" options="-parameters" />
+      <module name="okta-spring-boot-oauth-code-flow-example" options="-parameters" />
+      <module name="okta-spring-boot-oauth-front-end" options="-parameters" />
+      <module name="okta-spring-boot-oauth-resource-server" options="-parameters" />
+      <module name="resource-server" options="-parameters" />
+      <module name="resource-server-jwt" options="-parameters" />
+      <module name="resource-server-opaque" options="-parameters" />
+      <module name="simplewebapp" options="-parameters" />
+      <module name="spring-authorization-server" options="-parameters" />
+      <module name="sso-authorization-server" options="-parameters" />
+      <module name="sso-client-app-1" options="-parameters" />
+      <module name="sso-client-app-2" options="-parameters" />
+      <module name="sso-resource-server" options="-parameters" />
+      <module name="vault" options="-parameters" />
+      <module name="webflux" options="-parameters" />
+      <module name="webflux-00-controller-approach" options="-parameters" />
+      <module name="webflux-01-functional-approach" options="-parameters" />
+      <module name="webflux-02-mongo-rest-api" options="-parameters" />
+      <module name="webflux-03-mongo-rest-controller-approach" options="-parameters" />
+    </option>
+  </component>
+</project>

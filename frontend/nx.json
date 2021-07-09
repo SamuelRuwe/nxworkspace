@@ -51,10 +51,6 @@
     },
     "wasm": {
       "tags": []
-    },
-    "wasm-e2e": {
-      "tags": [],
-      "implicitDependencies": ["wasm"]
     }
   }
 }
