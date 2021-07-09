@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/CodeCamp/MapLocation/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/CodeCamp/Weather/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/FunctionalLogging/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/MemoryManagement/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/OAuth2/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/Rest/BasicRestCorsConfig/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/Vault/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/SamDoesSpring/WebFlux/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/Spring-WebFlux-Tutorial/project-reactor/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/Spring-WebFlux-Tutorial/webflux-00-controller-approach/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/Spring-WebFlux-Tutorial/webflux-01-functional-approach/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/Spring-WebFlux-Tutorial/webflux-02-mongo-rest-api/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/reactive-mongo-example-2/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/samdoesspring/simplewebapp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/java/src/main/java" charset="UTF-8" />
   </component>
 </project>

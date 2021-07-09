@@ -6,47 +6,56 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="webflux" />
-        <module name="oauth2" />
-        <module name="webflux-00-controller-approach" />
-        <module name="project-reactor" />
-        <module name="memorymanagement" />
-        <module name="FunctionalLogging" />
-        <module name="webflux-01-functional-approach" />
-        <module name="vault" />
-        <module name="BasicRestCorsConfig" />
-        <module name="MapLocation" />
-        <module name="Weather" />
-        <module name="webflux-03-mongo-rest-controller-approach" />
-        <module name="webflux-02-mongo-rest-api" />
+        <module name="parent" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aggregator" target="1.5" />
       <module name="authorization-server" target="13" />
+      <module name="AuthorizationServerApplication" target="1.8" />
+      <module name="BasicRestCorsConfig" target="11" />
       <module name="client-server" target="11" />
+      <module name="CodeCamp" target="11" />
+      <module name="FunctionalLogging" target="11" />
       <module name="jwt-auth-server" target="13" />
       <module name="jwt-resource-server" target="13" />
+      <module name="MapLocation" target="11" />
+      <module name="memorymanagement" target="11" />
       <module name="oauth-authorization-server" target="13" />
       <module name="oauth-resource-server" target="13" />
+      <module name="oauth2" target="11" />
       <module name="oidc" target="1.8" />
       <module name="okta-spring-boot-oauth-code-flow-custom-login-example" target="1.8" />
       <module name="okta-spring-boot-oauth-code-flow-example" target="1.8" />
       <module name="okta-spring-boot-oauth-front-end" target="1.8" />
       <module name="okta-spring-boot-oauth-resource-server" target="1.8" />
+      <module name="OktaOAuthClient" target="1.8" />
+      <module name="parent" target="11" />
+      <module name="project-reactor" target="11" />
       <module name="reactive-mongo-example-1" target="1.8" />
       <module name="resource-server" target="11" />
       <module name="resource-server-jwt" target="13" />
       <module name="resource-server-opaque" target="13" />
+      <module name="Rest" target="11" />
+      <module name="sam-does-spring" target="11" />
       <module name="sam-spring-project" target="11" />
+      <module name="sams-backend" target="1.6" />
       <module name="simplewebapp" target="11" />
       <module name="spring-authorization-server" target="11" />
       <module name="spring-security-oauth" target="1.8" />
       <module name="spring-webflux-tutorial" target="11" />
+      <module name="SpringBootOAuthClient" target="1.8" />
       <module name="sso-authorization-server" target="13" />
       <module name="sso-client-app-1" target="13" />
       <module name="sso-client-app-2" target="13" />
       <module name="sso-resource-server" target="13" />
+      <module name="vault" target="11" />
+      <module name="Weather" target="11" />
+      <module name="webflux" target="11" />
+      <module name="webflux-00-controller-approach" target="11" />
+      <module name="webflux-01-functional-approach" target="11" />
+      <module name="webflux-02-mongo-rest-api" target="11" />
+      <module name="webflux-03-mongo-rest-controller-approach" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -68,6 +77,7 @@
       <module name="okta-spring-boot-oauth-code-flow-example" options="-parameters" />
       <module name="okta-spring-boot-oauth-front-end" options="-parameters" />
       <module name="okta-spring-boot-oauth-resource-server" options="-parameters" />
+      <module name="parent" options="-parameters" />
       <module name="resource-server" options="-parameters" />
       <module name="resource-server-jwt" options="-parameters" />
       <module name="resource-server-opaque" options="-parameters" />
