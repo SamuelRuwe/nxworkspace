@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3"
 
 networks:
     monitor-net:
@@ -21,8 +21,6 @@ services:
         ports:
             - 8080:8080
             - 50000:50000
-        expose:
-            - 8080
         container_name: jenkins
         volumes:
             - ../../monitoring/jenkins:/var/jenkins_home
@@ -41,6 +39,6 @@ services:
         volumes:
             - ../../monitoring/prometheus:/etc/prometheus
         command:
-            - '--config.file=/etc/prometheus/prometheus.yml'
+            - --config.file=/etc/prometheus/prometheus.yml
         networks:
             - monitor-net
