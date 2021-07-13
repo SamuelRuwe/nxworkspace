@@ -17,7 +17,6 @@ const initialPokemon: Pokemon[] = [
   }
 ];
 
-
 @Injectable({
   providedIn: 'root'
 })

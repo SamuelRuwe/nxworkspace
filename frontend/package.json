@@ -25,7 +25,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "server:store": "json-server -p 8000 apps/ngrx/db.json"
   },
   "private": true,
   "dependencies": {
@@ -81,6 +82,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.3",
+    "json-server": "^0.16.3",
     "prettier": "2.2.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",

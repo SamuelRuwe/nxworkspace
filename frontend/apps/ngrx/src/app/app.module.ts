@@ -13,6 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PokemonEffects } from './state/pokemon/pokemon.effects';
 import { NxModule } from '@nrwl/angular';
+import { ItemsEffects } from './state/items/items.effects';
+import { ItemsFacade } from './state/items/items.facade';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,13 +32,15 @@ import { NxModule } from '@nrwl/angular';
     StoreDevtoolsModule.instrument({maxAge: 10}),
     // Stores all effects in the application
     EffectsModule.forRoot([
-      PokemonEffects
+      PokemonEffects,
+      ItemsEffects
     ]),
     HttpClientModule,
     NxModule.forRoot(),
     BrowserAnimationsModule,
     LayoutModule
   ],
+  providers: [ItemsFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
