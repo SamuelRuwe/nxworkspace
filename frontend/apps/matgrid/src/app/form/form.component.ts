@@ -18,6 +18,7 @@ export class FormComponent implements OnInit, OnDestroy {
   isSpecialRequest$!: Subscription;
 
   form = this.fb.group({
+    firstName: '',
     controlOne: '',
     controlTwo: '',
     controlThree: '',
@@ -30,16 +31,17 @@ export class FormComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
-    if (this.form.controls.isSpecialRequest.value) this.matExpansionPanel.open();
-    this.isSpecialRequest$ = this.form.controls.isSpecialRequest.valueChanges.subscribe(val => {
-      if (val) {
-        this.form.controls.specialRequest.enable();
-        this.matExpansionPanel.open();
-      } else {
-        this.form.controls.specialRequest.disable();
-        this.matExpansionPanel.close();
-      }
-    });
+    // if (this.form.controls.isSpecialRequest.value) this.matExpansionPanel.open();
+    // this.isSpecialRequest$ = this.form.controls.isSpecialRequest.valueChanges.subscribe(val => {
+    //   if (val) {
+    //     this.form.controls.specialRequest.enable();
+    //     this.matExpansionPanel.open();
+    //   } else {
+    //     this.form.controls.specialRequest.disable();
+    //     this.matExpansionPanel.close();
+    //   }
+    // });
+
   }
 
   ngOnDestroy(): void {

@@ -1,8 +1,10 @@
 <mat-grid-list cols="2" rowHeight="">
   <form [formGroup]="form">
+<!--  <form>-->
     <mat-grid-tile rowspan="1" colspan="2">
       <div class="tileContainer">
         <div class="formTitle">Form Title</div>
+        <input type="text" formControlName="controlOne">
         <mat-divider></mat-divider>
       </div>
     </mat-grid-tile>
@@ -10,6 +12,7 @@
       <div class="tileContainer">
         <div class="fieldTitle">One</div>
         <div class="fieldData">Result</div>
+        <nx-workspace-name></nx-workspace-name>
         <mat-divider></mat-divider>
       </div>
     </mat-grid-tile>
@@ -62,30 +65,30 @@
         <mat-divider></mat-divider>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile rowspan="2" colspan="2">
-      <div class="tileContainer">
-        <mat-accordion>
-          <mat-expansion-panel
-            #expansionPanel
-            hideToggle
-            [disabled]="true"
-            [class.mat-elevation-z0]="true"
-          >
-            <mat-expansion-panel-header>
-              <mat-checkbox formControlName="isSpecialRequest" matTooltip="text">
-                <span class="checkboxText">Special Request</span>
-              </mat-checkbox>
-            </mat-expansion-panel-header>
-            <form class="innerForm" formGroupName="specialRequest">
-              <mat-checkbox formControlName="charge">Charge</mat-checkbox>
-              <mat-form-field>
-                <input formControlName="comment" matInput type="text">
-              </mat-form-field>
-            </form>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-    </mat-grid-tile>
+<!--    <mat-grid-tile rowspan="2" colspan="2">-->
+<!--      <div class="tileContainer">-->
+<!--        <mat-accordion>-->
+<!--          <mat-expansion-panel-->
+<!--            #expansionPanel-->
+<!--            hideToggle-->
+<!--            [disabled]="true"-->
+<!--            [class.mat-elevation-z0]="true"-->
+<!--          >-->
+<!--            <mat-expansion-panel-header>-->
+<!--              <mat-checkbox formControlName="isSpecialRequest" matTooltip="text">-->
+<!--                <span class="checkboxText">Special Request</span>-->
+<!--              </mat-checkbox>-->
+<!--            </mat-expansion-panel-header>-->
+<!--            <form class="innerForm" formGroupName="specialRequest">-->
+<!--              <mat-checkbox formControlName="charge">Charge</mat-checkbox>-->
+<!--              <mat-form-field>-->
+<!--                <input formControlName="comment" matInput type="text">-->
+<!--              </mat-form-field>-->
+<!--            </form>-->
+<!--          </mat-expansion-panel>-->
+<!--        </mat-accordion>-->
+<!--      </div>-->
+<!--    </mat-grid-tile>-->
   </form>
 </mat-grid-list>
 

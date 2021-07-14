@@ -14,9 +14,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NameComponent } from './name/name.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent],
+  declarations: [AppComponent, FormComponent, NameComponent, AddressComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,7 +1,21 @@
-import { createSelector } from '@ngrx/store';
-import { AppState } from '../index';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromItems from './items.reducer';
+import { selectEntities, selectIds, selectTotal } from './items.reducer';
 
-export const selectItems = createSelector(
-  (state: AppState) => state.items,
-  (items: Array<{ id: number, name: string }>) => items
+
+export const selectItemsState = createFeatureSelector<fromItems.ItemsState>('items');
+
+export const selectItemsIds = createSelector(
+  selectItemsState,
+  selectIds
+);
+
+export const selectItemEntities = createSelector(
+  selectItemsState,
+  selectEntities
+);
+
+export const selectItemsTotal = createSelector(
+  selectItemsState,
+  selectTotal
 );

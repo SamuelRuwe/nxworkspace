@@ -35,7 +35,8 @@ export const itemActions = {
 }
 
 export const deleteItemSuccess = createAction(
-  '[API DeleteItem] Delete Item Successful'
+  '[API DeleteItem] Delete Item Successful',
+  props<{ id: number; }>()
 );
 
 /**

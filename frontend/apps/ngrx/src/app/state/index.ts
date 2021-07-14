@@ -12,7 +12,7 @@ export interface AppState {
   books: ReadonlyArray<Book>;
   collection: ReadonlyArray<string>;
   pokemon: fromPokemon.PokemonState;
-  items: Array<any>;
+  items: fromItems.ItemsState;
 }
 
 // Add feature reducers into combined reducer

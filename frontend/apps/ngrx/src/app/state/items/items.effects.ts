@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DataPersistence, optimisticUpdate } from '@nrwl/angular';
 import { ItemsService } from '../../items/items.service';
-import { deleteItem, deleteItemSuccess, itemsLoadedSuccess, appLoaded, } from './items.action';
-import { map } from 'rxjs/operators';
-import { TypedAction } from '@ngrx/store/src/models';
+import { appLoaded, deleteItem, deleteItemSuccess, itemsLoadedSuccess, } from './items.action';
+import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Injectable({providedIn: 'root'})
@@ -13,37 +13,19 @@ export class ItemsEffects {
   constructor(
     private dataPersistence: DataPersistence<Array<{ id: number, name: string }>>,
     private itemsService: ItemsService,
-    private actions: Actions) {}
+    private actions: Actions,
+    private router: Router) {}
 
   loadItems$ = createEffect(() => {
     return this.dataPersistence.fetch(appLoaded, {
-      run: (action: { id: number; name: string } & TypedAction<''>, state: Array<{ id: number, name: string }>) => {
-        return this.itemsService.loadItems()
-          .pipe(map(res => itemsLoadedSuccess({items: res})));
-      },
-      onError(action: any, error: Error) {
+      run: () => this.itemsService.loadItems()
+        .pipe(map(res => itemsLoadedSuccess({items: res})),
+          tap(() => this.router.navigate(['/items']))),
+      onError(action: ReturnType<typeof appLoaded>, error: Error) {
         console.error(error);
       }
     });
   });
-
-  // export const deleteItem = createAction(
-  //   '[Items] Delete Item',
-  //   props<{ id: number; name: string; }>()
-  // );
-
-  // deleteItem$ = createEffect(() => {
-  //   return this.dataPersistence.fetch(deleteItem, {
-  //     run: (action: { id: number, name: string } & typeof deleteItem) => {
-  //       return this.itemsService.deleteItem({id: action.id, name: action.name})
-  //         .pipe(
-  //           map(() => {
-  //             return deleteItemSuccess();
-  //           })
-  //         );
-  //     }
-  //   });
-  // });
 
   // Implement with Optimistic Update
   deleteItem$ = createEffect(() =>
@@ -52,14 +34,11 @@ export class ItemsEffects {
       optimisticUpdate({
         run: (a: ReturnType<typeof deleteItem>) => {
           return this.itemsService.deleteItem({id: a.id, name: a.name})
-            .pipe(map(() => {
-                return deleteItemSuccess();
-              })
-            );
+            .pipe(map(() => deleteItemSuccess({id: a.id})));
         },
         undoAction() {
           // This should be an undo action, not just what I have here
-          return deleteItemSuccess();
+          return deleteItemSuccess({id: 1});
         }
       })
     )

@@ -1,3 +1,15 @@
 <div class="container">
   <button (click)="openForm()">Open Form</button>
 </div>
+
+<form>
+  <div>
+    <label>Firstname:</label>
+    <input type="text" name="firstName" ngModel>
+  </div>
+  <div>
+    <label>Lastname:</label>
+    <input type="text" name="lastName" ngModel>
+  </div>
+  <nx-workspace-address></nx-workspace-address>
+</form>
