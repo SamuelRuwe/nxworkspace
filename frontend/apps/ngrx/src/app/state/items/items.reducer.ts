@@ -1,4 +1,4 @@
-import { deleteItemSuccess, itemsLoadedSuccess } from './items.action';
+import { deleteItemSuccess, itemsLoadedSuccess, selectItem } from './items.action';
 import { createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
@@ -7,7 +7,11 @@ export interface ItemsState extends EntityState<{ id: number; name: string; }> {
   selectedItemId: number | null;
 }
 
-export const adapter: EntityAdapter<{ id: number; name: string; }> = createEntityAdapter<{ id: number; name: string; }>();
+export const adapter: EntityAdapter<{ id: number; name: string; }> = createEntityAdapter<{ id: number; name: string; }>({
+    // sortComparer: (a: any, b: any) => a.name.localeCompare(b.name),
+    // selectId
+  }
+);
 
 export const initialState: ItemsState = adapter.getInitialState({
   selectedItemId: null
@@ -21,8 +25,13 @@ export const itemsReducer = createReducer(
     }
   ),
   on(
-    deleteItemSuccess, (state, { id }) => {
+    deleteItemSuccess, (state, {id}) => {
       return adapter.removeOne(id, state);
+    }
+  ),
+  on(
+    selectItem, (state, {id}) => {
+      return {...state, selectedItemId: id}
     }
   )
 );

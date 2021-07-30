@@ -28,3 +28,7 @@ If a project is used instead of a reference then state would be stored in two pl
 The initial state must conform to the defined shape of state.
    
 3. Build the simplest reducer possible
+
+## Container Component
+Contains all the state needed for child components in their view. 
+Template made entirely of child components and data binding.

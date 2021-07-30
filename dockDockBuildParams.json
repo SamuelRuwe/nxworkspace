@@ -1,0 +1,1 @@
+{"dockerExe":"/usr/local/bin/docker","dockerfileDir":"/home/sam/devl/workspace/nxworkspace.git/main/frontend/apps/wasm/src/sam-wasm/emmake/docker","dockerImgUrl":"","isImage":false,"makefilePath":"../frontend/apps/wasm/src/sam-wasm/emmake","makefileFile":"makefile","target":"$(PROJ).html","codePath":"","m2Path":"/home/sam/.m2","envScript":"","advancedDockerSettings":""}

@@ -563,7 +563,7 @@
               "apps/wasm/src/assets",
               "apps/wasm/src/sam-wasm"
             ],
-            "styles": ["apps/wasm/src/styles.css"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/wasm/src/styles.css"],
             "scripts": []
           },
           "configurations": {
