@@ -2,9 +2,16 @@ import { createAction, props } from '@ngrx/store';
 
 export const appLoaded = createAction('[App Component] App Loaded');
 
+export const loadItems = createAction('[App Component] App Loaded');
+
 export const itemsLoadedSuccess = createAction(
   '[App Component] Items Loaded Successfully',
   props<{ items: Array<{ id: number; name: string; }> }>()
+);
+
+export const selectItem = createAction(
+  '[Items Component] Select Item',
+  props<{ id: number }>()
 );
 
 export const deleteItem = createAction(

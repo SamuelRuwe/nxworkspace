@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'nx-workspace-root',
-  template: `{{value}}`,
+  template: `
+    <nx-workspace-navbar [navOptions]="navOptions"></nx-workspace-navbar>`,
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  value: any = 'first value';
+  navOptions = {
 
-  minusOne: any = () => 2;
-
-  ngOnInit(): void {
-    this.loadWasm();
-  }
-
-  async loadWasm() {
-    const response = await fetch('sam-wasm/optimized.wasm');
-    const {instance} = await WebAssembly.instantiateStreaming(response);
-    console.log(instance.exports);
-    this.minusOne = instance.exports?.minusOne;
-    this.value = this.minusOne(10);
+    routes: [
+      {name: 'Basic Wasm', route: '/basicwasm'},
+      {name: 'Hello World', route: '/helloworld'},
+      {name: 'LL WASM', route: '/wasm'},
+      {name: 'Import Object WASM', route: '/importobj'},
+      {name: 'Memory Object', route: 'memobj'},
+      {name: 'QuickSort', route: 'quicksort'},
+      {name: 'Matrix', route: 'matrix'},
+      {name: 'Webp', route: 'webp'}
+    ]
   }
 
 }
