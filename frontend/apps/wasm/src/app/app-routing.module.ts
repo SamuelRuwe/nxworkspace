@@ -1,23 +1,27 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FirstWasmComponent } from './first-wasm/first-wasm.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { LinkedinLearningWasmComponent } from './linkedin-learning-wasm/linkedin-learning-wasm.component';
-import { ImportObjComponent } from './import-obj/import-obj.component';
-import { MemoryObjectComponent } from './memory-object/memory-object.component';
-import { QuickSortComponent } from './quicksort/quick-sort.component';
-import { MatrixComponent } from './matrix/matrix.component';
-import { LibwebpComponent } from './libwebp/libwebp.component';
+import { LinkedinLearningWasmComponent } from './wasm/instantiate-streaming/linkedin-learning-wasm/linkedin-learning-wasm.component';
+import { MemoryObjectComponent } from './wasm/instantiate-streaming/memory-object/memory-object.component';
+import { MatrixComponent } from './wasm/instantiate-streaming/matrix/matrix.component';
+import { FirstWasmComponent } from './wasm/instantiate-streaming/first-wasm/first-wasm.component';
+import { ImportObjComponent } from './wasm/instantiate-streaming/import-obj/import-obj.component';
+import { HelloWorldComponent } from './wasm/instantiate-streaming/hello-world/hello-world.component';
+import { StarfieldComponent } from './wasm/instantiate-streaming/starfield/starfield.component';
+import { QuickSortComponent } from './wasm/instantiate-streaming/quicksort/quick-sort.component';
+import { LibwebpComponent } from './wasm/instantiate-streaming/libwebp/libwebp.component';
+import { WasmConsoleLoggerComponent } from './wasm/js-glue-code/console-logger/console-logger.component';
 
 const routes: Routes = [
-  {path: 'basicwasm', component: FirstWasmComponent},
-  {path: 'helloworld', component: HelloWorldComponent},
-  {path: 'wasm', component: LinkedinLearningWasmComponent},
-  {path: 'importobj', component: ImportObjComponent},
-  {path: 'memobj', component: MemoryObjectComponent},
-  {path: 'quicksort', component: QuickSortComponent},
-  {path: 'matrix', component: MatrixComponent},
-  {path: 'webp', component: LibwebpComponent}
+  {path: 'basicwasm', component: FirstWasmComponent, data: {name: 'Basic WASM'}},
+  {path: 'helloworld', component: HelloWorldComponent, data: {name: 'Hello World'}},
+  {path: 'wasm', component: LinkedinLearningWasmComponent, data: {name: 'LL WASM'}},
+  {path: 'importobj', component: ImportObjComponent, data: {name: 'Import Object'}},
+  {path: 'memobj', component: MemoryObjectComponent, data: {name: "Memory Object"}},
+  {path: 'quicksort', component: QuickSortComponent, data: {name: "QuickSort"}},
+  {path: 'matrix', component: MatrixComponent, data: {name: "Matrix"}},
+  {path: 'webp', component: LibwebpComponent, data: {name: "Webp"}},
+  {path: 'starfield', component: StarfieldComponent, data: {name: "StarField"}},
+  {path: 'consolelogger', component: WasmConsoleLoggerComponent, data: {name: 'Console Logger'}}
 ];
 
 @NgModule({

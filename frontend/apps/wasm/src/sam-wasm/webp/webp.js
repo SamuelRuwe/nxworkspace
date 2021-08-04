@@ -1,4 +1,12 @@
 var Module = typeof Module !== "undefined" ? Module : {};
+var Module = {
+  "print": function (text) {
+    alert("stdout: " + text)
+  }, "printErr": function (text) {
+    alert("stderr: " + text)
+  }
+};
+Module.print();
 var moduleOverrides = {};
 var key;
 for (key in Module) {
@@ -151,69 +159,6 @@ function assert(condition, text) {
   }
 }
 
-function getCFunc(ident) {
-  var func = Module["_" + ident];
-  assert(func, "Cannot call unknown function " + ident + ", make sure it is exported");
-  return func
-}
-
-function ccall(ident, returnType, argTypes, args, opts) {
-  var toC = {
-    "string": function (str) {
-      var ret = 0;
-      if (str !== null && str !== undefined && str !== 0) {
-        var len = (str.length << 2) + 1;
-        ret = stackAlloc(len);
-        stringToUTF8(str, ret, len)
-      }
-      return ret
-    }, "array": function (arr) {
-      var ret = stackAlloc(arr.length);
-      writeArrayToMemory(arr, ret);
-      return ret
-    }
-  };
-
-  function convertReturnValue(ret) {
-    if (returnType === "string") return UTF8ToString(ret);
-    if (returnType === "boolean") return Boolean(ret);
-    return ret
-  }
-
-  var func = getCFunc(ident);
-  var cArgs = [];
-  var stack = 0;
-  if (args) {
-    for (var i = 0; i < args.length; i++) {
-      var converter = toC[argTypes[i]];
-      if (converter) {
-        if (stack === 0) stack = stackSave();
-        cArgs[i] = converter(args[i])
-      } else {
-        cArgs[i] = args[i]
-      }
-    }
-  }
-  var ret = func.apply(null, cArgs);
-  ret = convertReturnValue(ret);
-  if (stack !== 0) stackRestore(stack);
-  return ret
-}
-
-function cwrap(ident, returnType, argTypes, opts) {
-  argTypes = argTypes || [];
-  var numericArgs = argTypes.every(function (type) {
-    return type === "number"
-  });
-  var numericRet = returnType !== "string";
-  if (numericRet && numericArgs && !opts) {
-    return getCFunc(ident)
-  }
-  return function () {
-    return ccall(ident, returnType, argTypes, arguments, opts)
-  }
-}
-
 var UTF8Decoder = typeof TextDecoder !== "undefined" ? new TextDecoder("utf8") : undefined;
 
 function UTF8ArrayToString(heap, idx, maxBytesToRead) {
@@ -254,48 +199,6 @@ function UTF8ArrayToString(heap, idx, maxBytesToRead) {
 
 function UTF8ToString(ptr, maxBytesToRead) {
   return ptr ? UTF8ArrayToString(HEAPU8, ptr, maxBytesToRead) : ""
-}
-
-function stringToUTF8Array(str, heap, outIdx, maxBytesToWrite) {
-  if (!(maxBytesToWrite > 0)) return 0;
-  var startIdx = outIdx;
-  var endIdx = outIdx + maxBytesToWrite - 1;
-  for (var i = 0; i < str.length; ++i) {
-    var u = str.charCodeAt(i);
-    if (u >= 55296 && u <= 57343) {
-      var u1 = str.charCodeAt(++i);
-      u = 65536 + ((u & 1023) << 10) | u1 & 1023
-    }
-    if (u <= 127) {
-      if (outIdx >= endIdx) break;
-      heap[outIdx++] = u
-    } else if (u <= 2047) {
-      if (outIdx + 1 >= endIdx) break;
-      heap[outIdx++] = 192 | u >> 6;
-      heap[outIdx++] = 128 | u & 63
-    } else if (u <= 65535) {
-      if (outIdx + 2 >= endIdx) break;
-      heap[outIdx++] = 224 | u >> 12;
-      heap[outIdx++] = 128 | u >> 6 & 63;
-      heap[outIdx++] = 128 | u & 63
-    } else {
-      if (outIdx + 3 >= endIdx) break;
-      heap[outIdx++] = 240 | u >> 18;
-      heap[outIdx++] = 128 | u >> 12 & 63;
-      heap[outIdx++] = 128 | u >> 6 & 63;
-      heap[outIdx++] = 128 | u & 63
-    }
-  }
-  heap[outIdx] = 0;
-  return outIdx - startIdx
-}
-
-function stringToUTF8(str, outPtr, maxBytesToWrite) {
-  return stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite)
-}
-
-function writeArrayToMemory(array, buffer) {
-  HEAP8.set(array, buffer)
 }
 
 function alignUp(x, multiple) {
@@ -605,16 +508,7 @@ var _get_result_pointer = Module["_get_result_pointer"] = function () {
 var _get_result_size = Module["_get_result_size"] = function () {
   return (_get_result_size = Module["_get_result_size"] = Module["asm"]["l"]).apply(null, arguments)
 };
-var stackSave = Module["stackSave"] = function () {
-  return (stackSave = Module["stackSave"] = Module["asm"]["m"]).apply(null, arguments)
-};
-var stackRestore = Module["stackRestore"] = function () {
-  return (stackRestore = Module["stackRestore"] = Module["asm"]["n"]).apply(null, arguments)
-};
-var stackAlloc = Module["stackAlloc"] = function () {
-  return (stackAlloc = Module["stackAlloc"] = Module["asm"]["o"]).apply(null, arguments)
-};
-Module["cwrap"] = cwrap;
+Module["print"] = out;
 var calledRun;
 
 function ExitStatus(status) {

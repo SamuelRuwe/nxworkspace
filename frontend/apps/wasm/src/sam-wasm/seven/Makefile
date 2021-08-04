@@ -8,11 +8,11 @@ endif
 
 CC=emcc
 
-CFLAGS=-O3 --no-entry -s EXPORTED_FUNCTIONS="['_$(PROJ)']"
+CFLAGS=-O0 --no-entry -s EXPORTED_FUNCTIONS="['_$(PROJ)']"
 
-$(PROJ).wasm: $(PROJ).c
+$(PROJ).js: $(PROJ).c
 	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: clean
 clean:
-	$(RM) $(PROJ).wasm
+	$(RM) $(PROJ).wasm $(PROJ).js

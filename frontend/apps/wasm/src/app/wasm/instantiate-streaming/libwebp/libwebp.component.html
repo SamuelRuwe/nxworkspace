@@ -1,0 +1,13 @@
+<button mat-raised-button [disabled]="!uploadedFile" (click)=convertToWebP()>Convert Image to WebP</button>
+<a [href]="imgURL" download="img.webp">Download Photo</a>
+
+<div class="form-group">
+  <label for="file">Choose File</label>
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event)">
+</div>
+
+<div>
+  <canvas #canvasElement></canvas>
+</div>

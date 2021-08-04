@@ -1,25 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nx-workspace-root',
   template: `
-    <nx-workspace-navbar [navOptions]="navOptions"></nx-workspace-navbar>`,
+    <x-dropdown [title]="myTitle" (show)="toggle($event)">
+      Web Component
+    </x-dropdown>
+    <nx-workspace-navbar [navOptions]="navOptions"></nx-workspace-navbar>
+  `,
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  navOptions = {
+  myTitle = 'web component test title';
+  open = false;
 
-    routes: [
-      {name: 'Basic Wasm', route: '/basicwasm'},
-      {name: 'Hello World', route: '/helloworld'},
-      {name: 'LL WASM', route: '/wasm'},
-      {name: 'Import Object WASM', route: '/importobj'},
-      {name: 'Memory Object', route: 'memobj'},
-      {name: 'QuickSort', route: 'quicksort'},
-      {name: 'Matrix', route: 'matrix'},
-      {name: 'Webp', route: 'webp'}
-    ]
+  constructor(private router: Router) {}
+
+
+  navOptions: { routes: Array<{ name: string, route: string }> } = {routes: []}
+
+  toggle(event: any) {
+    this.open = event.detail;
   }
 
+  ngOnInit(): void {
+    this.router.config.filter((r) => r.data && r.data.name)
+      .map((r) => this.navOptions.routes.push({name: r.data?.name, route: r.path ?? ''}));
+  }
 }
