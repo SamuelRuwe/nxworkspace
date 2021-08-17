@@ -6,10 +6,10 @@ import { MatrixComponent } from './wasm/instantiate-streaming/matrix/matrix.comp
 import { FirstWasmComponent } from './wasm/instantiate-streaming/first-wasm/first-wasm.component';
 import { ImportObjComponent } from './wasm/instantiate-streaming/import-obj/import-obj.component';
 import { HelloWorldComponent } from './wasm/instantiate-streaming/hello-world/hello-world.component';
-import { StarfieldComponent } from './wasm/instantiate-streaming/starfield/starfield.component';
 import { QuickSortComponent } from './wasm/instantiate-streaming/quicksort/quick-sort.component';
 import { LibwebpComponent } from './wasm/instantiate-streaming/libwebp/libwebp.component';
 import { WasmConsoleLoggerComponent } from './wasm/js-glue-code/console-logger/console-logger.component';
+import { StarfieldComponent } from './wasm/js-glue-code/starfield/starfield.component';
 
 const routes: Routes = [
   {path: 'basicwasm', component: FirstWasmComponent, data: {name: 'Basic WASM'}},
