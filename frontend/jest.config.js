@@ -1,13 +1,3 @@
-module.exports = {
-  projects: [
-    '<rootDir>/apps/ngrx',
-    '<rootDir>/libs/forms',
-    '<rootDir>/apps/matgrid',
-    '<rootDir>/apps/gameoflife',
-    '<rootDir>/libs/layout',
-    '<rootDir>/libs/material',
-    '<rootDir>/apps/materialtheme',
-    '<rootDir>/apps/routes',
-    '<rootDir>/apps/wasm'
-  ],
-};
+const { getJestProjects } = require('@nrwl/jest');
+
+module.exports = { projects: getJestProjects() };
