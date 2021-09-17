@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinkedinLearningWasmComponent implements OnInit {
 
-
-
   ngOnInit(): void {
     if ('WebAssembly' in window) {
       this.loadWasm();
@@ -35,3 +33,16 @@ export class LinkedinLearningWasmComponent implements OnInit {
  *   }
  *   Use underscores in Javascript, but not in C/C++ code
  */
+
+// export interface BaseOptions<T> {
+//   item: T;
+// }
+//
+// export interface child extends BaseOptions<string> {
+//   itemPrice: number;
+// }
+//
+// export interface BaseModel<T extends U, U extends BaseOptions<?>> extends T {
+//   someOtherProperty: string;
+// }
+//

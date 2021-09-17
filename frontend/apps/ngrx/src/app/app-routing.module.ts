@@ -3,20 +3,12 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: 'books',
-    loadChildren: () => import('./books/books.module').then(m => m.BooksModule)
-  },
-  {
     path: 'counter',
     loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule)
   },
   {
-    path: 'pokemon',
-    loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
-  },
-  {
-    path: 'items',
-    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+    path: 'users',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: '**',

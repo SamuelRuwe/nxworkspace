@@ -1,15 +1,19 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { decrement, increment, reset } from './counter.action';
+import { createReducer, on } from '@ngrx/store';
+import { decrement, increment, reset } from './counter.actions';
 
-export const initialState = 0;
+export const COUNTER_FEATURE_KEY = 'count';
 
-const _countReducer = createReducer(
-  initialState,
-  on(increment, (state) => state + 1),
-  on(decrement, (state) => state - 1),
-  on(reset, (state) => 0)
-);
-
-export function counterReducer(state: number | undefined, action: Action) {
-  return _countReducer(state, action);
+export interface CounterState {
+  count: number;
 }
+
+export const initialState: CounterState = {
+  count: 0
+};
+
+export const counterReducer = createReducer(
+  initialState,
+  on(increment, (state) => ({count: state.count + 1})),
+  on(decrement, (state) => ({count: state.count - 1})),
+  on(reset, (state) => ({count: 0}))
+);

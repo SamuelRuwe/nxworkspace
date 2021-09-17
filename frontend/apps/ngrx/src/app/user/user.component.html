@@ -1,0 +1,5 @@
+<ng-container *ngFor="let user of users$ | async">
+  <div>{{user.id}}</div>
+  <div>{{user.firstName}}</div>
+  <div>{{user.lastName}}</div>
+</ng-container>

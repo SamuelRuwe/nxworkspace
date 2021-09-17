@@ -7,16 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from '@nx-workspace/material';
 import { LayoutModule } from '@nx-workspace/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContentProjectComponent } from './content-project/content-project.component';
 
 @NgModule({
-  declarations: [AppComponent, UsersComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
-    LayoutModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [AppComponent, UsersComponent, ContentProjectComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MaterialModule,
+        LayoutModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

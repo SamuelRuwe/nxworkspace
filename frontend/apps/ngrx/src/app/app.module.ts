@@ -8,13 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@nx-workspace/layout';
 import { AppRoutingModule } from './app-routing.module';
-import { reducers } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { PokemonEffects } from './state/pokemon/pokemon.effects';
-import { NxModule } from '@nrwl/angular';
-import { ItemsEffects } from './state/items/items.effects';
-import { ItemsFacade } from './state/items/items.facade';
+import { effects, reducers } from './state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,19 +24,14 @@ import { ItemsFacade } from './state/items/items.facade';
      * Mainly two methods used: Select (for querying for state) and Dispatch (for handling commands)
      */
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
     // Allows us to know state of application at any given time
     StoreDevtoolsModule.instrument({maxAge: 10}),
     // Stores all effects in the application
-    EffectsModule.forRoot([
-      PokemonEffects,
-      ItemsEffects
-    ]),
     HttpClientModule,
-    NxModule.forRoot(),
     BrowserAnimationsModule,
     LayoutModule
   ],
-  providers: [ItemsFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
