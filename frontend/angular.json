@@ -122,7 +122,7 @@
       "projectType": "library",
       "root": "libs/layout",
       "sourceRoot": "libs/layout/src",
-      "prefix": "nx-workspace",
+      "prefix": "pg-layout",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -455,7 +455,6 @@
       "projectType": "application",
       "root": "apps/routes",
       "sourceRoot": "apps/routes/src",
-      "prefix": "nx-workspace",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -1,5 +1,18 @@
-<ng-container *ngFor="let user of users$ | async">
-  <div>{{user.id}}</div>
-  <div>{{user.firstName}}</div>
-  <div>{{user.lastName}}</div>
-</ng-container>
+<div class="userContainer">
+  <ng-container *ngFor="let user of users$ | async">
+    <pg-layout-card-wrapper title="User">
+      <div class="content">
+        <div>First Name: {{user.firstName}}</div>
+        <mat-divider></mat-divider>
+        <span>Last Name: {{user.lastName}}</span>
+      </div>
+      <div class="actions">
+        <button mat-raised-button color="primary" (click)="editUser(user)">Edit</button>
+        <button mat-raised-button color="primary" (click)="deleteUser(user.id)">Delete</button>
+      </div>
+    </pg-layout-card-wrapper>
+  </ng-container>
+</div>
+<div class="addUserBtn">
+  <button mat-raised-button color="primary" (click)="createUser()">Add New User</button>
+</div>

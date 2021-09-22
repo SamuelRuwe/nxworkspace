@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { RouterModule } from '@angular/router';
+import { CardWrapperComponent } from './card/card-wrapper.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports: [
@@ -11,8 +13,10 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    CardWrapperComponent,
+    TableComponent
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent, CardWrapperComponent, TableComponent]
 })
 export class LayoutModule {}

@@ -11,9 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { effects, reducers } from './state';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { MaterialModule } from '@nx-workspace/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserDialogComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -25,12 +28,12 @@ import { effects, reducers } from './state';
      */
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
-    // Allows us to know state of application at any given time
     StoreDevtoolsModule.instrument({maxAge: 10}),
-    // Stores all effects in the application
     HttpClientModule,
     BrowserAnimationsModule,
-    LayoutModule
+    LayoutModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent],
 })
