@@ -22,7 +22,8 @@
               "libs/forms/src/**/*.ts",
               "libs/forms/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -137,7 +138,8 @@
               "apps/gameoflife/src/**/*.ts",
               "apps/gameoflife/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -170,7 +172,8 @@
               "libs/layout/src/**/*.ts",
               "libs/layout/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -226,7 +229,8 @@
               "libs/material/src/**/*.ts",
               "libs/material/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -314,7 +318,8 @@
               "apps/materialtheme/src/**/*.ts",
               "apps/materialtheme/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -409,7 +414,8 @@
               "apps/matgrid/src/**/*.ts",
               "apps/matgrid/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -501,7 +507,8 @@
               "apps/ngrx/src/**/*.ts",
               "apps/ngrx/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -592,7 +599,8 @@
               "apps/routes/src/**/*.ts",
               "apps/routes/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -688,7 +696,8 @@
               "apps/wasm/src/**/*.ts",
               "apps/wasm/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
