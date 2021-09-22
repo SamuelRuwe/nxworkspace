@@ -1,4 +1,4 @@
-// import { moduleMetadata, Story, Meta } from '@storybook/angular';
+// import { Meta, moduleMetadata, Story } from '@storybook/angular';
 // import { NavbarComponent } from './navbar.component';
 //
 // export default {
@@ -6,7 +6,7 @@
 //   component: NavbarComponent,
 //   decorators: [
 //     moduleMetadata({
-//       imports: [],
+//       imports: [LayoutModule],
 //     })
 //   ],
 // } as Meta<NavbarComponent>;
@@ -16,8 +16,12 @@
 //   props: args,
 // });
 //
-//
 // export const Primary = Template.bind({});
 // Primary.args = {
-//     navOptions:  ,
+//   navOptions: {
+//     routes: [
+//       {name: 'Counter', route: '/counter'},
+//       {name: 'Users', route: '/users'}
+//     ]
+//   }
 // }

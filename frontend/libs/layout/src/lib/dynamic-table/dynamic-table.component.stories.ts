@@ -1,14 +1,14 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { ButtonComponent } from './button.component';
+import { DynamicTableComponent } from './dynamic-table.component';
 
 export default {
-  title: 'ButtonComponent',
-  component: ButtonComponent,
+  title: 'DynamicTableComponent',
+  component: DynamicTableComponent,
   decorators: [
     moduleMetadata({
       imports: [],
     })
   ],
-} as Meta<ButtonComponent>;
+} as Meta<DynamicTableComponent<any>>;
 
 export const Primary = () => ({});

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'pg-layout-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent<T> {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  dataSource!: MatTableDataSource<T>;
+  // @In
+  // constructor() { }
+  //
+  // ngOnInit(): void {
+  // }
+  //
+  // ngAfterViewInit(): void {
+  // }
+  //
+  // ngOnDestroy(): void {
+  // }
 
 }

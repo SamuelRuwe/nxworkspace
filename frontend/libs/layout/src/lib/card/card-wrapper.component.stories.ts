@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { CardWrapperComponent } from './card-wrapper.component';
 import { LayoutModule } from '../layout.module';
 
@@ -17,7 +17,8 @@ const Template: Story<CardWrapperComponent> = (args: CardWrapperComponent) => ({
   props: args,
 });
 
+
 export const Primary = Template.bind({});
 Primary.args = {
-  title: '',
+    title:  '',
 }

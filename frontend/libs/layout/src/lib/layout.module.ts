@@ -5,6 +5,7 @@ import { MaterialModule } from '@nx-workspace/material';
 import { RouterModule } from '@angular/router';
 import { CardWrapperComponent } from './card/card-wrapper.component';
 import { TableComponent } from './table/table.component';
+import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TableComponent } from './table/table.component';
   declarations: [
     NavbarComponent,
     CardWrapperComponent,
-    TableComponent
+    TableComponent,
+    DynamicTableComponent
   ],
   exports: [NavbarComponent, CardWrapperComponent, TableComponent]
 })
