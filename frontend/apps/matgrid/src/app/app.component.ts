@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
-import { Cell, CellButtonComponent, CellCallbackComponent, CellDateComponent } from '@nx-workspace/layout';
+import { callbackCell, callbackIconCell, Column, ColumnModel, iconCell, stringCell } from '@nx-workspace/layout';
 
-const genCell = (prop: string, cb?: any) => new Cell(CellCallbackComponent, {value: prop, cb});
-const genCellDays = (prop: string) => new Cell(CellDateComponent, {value: prop});
-const genCellButton = (prop: string) => new Cell(CellButtonComponent, {value: prop});
+type element = { position: number, name: string, weight: number, symbol: string }
 
 @Component({
   selector: 'nx-workspace-root',
@@ -36,12 +34,23 @@ export class AppComponent {
     {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
     {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
   ];
-  columns = [
-    {columnDef: 'position', header: 'No.', cell: (ele: any) => genCell('open', this.log)},
-    {columnDef: 'name', header: 'Name', cell: (ele: any) => genCell(ele.name, this.log)},
-    {columnDef: 'weight', header: 'Weight', cell: (ele: any) => genCell(ele.weight, this.log)},
-    {columnDef: 'symbol', header: 'Symbol', cell: (ele: any) => genCellDays(ele.symbol)},
-    {columnDef: 'icon', header: 'icon', cell: (ele: any) => genCellButton('home')}
+  columns: Array<ColumnModel<element>> = [
+    new Column({
+      columnDef: 'position',
+      header: 'No.',
+      cell: (ele) => callbackCell({value: ele.position, callback: this.log, returnValue: ele.position})
+    }),
+    new Column({
+      columnDef: 'name', header: 'Name', cell: ele => stringCell({value: ele.name}), isSortable: true
+    }),
+    new Column({columnDef: 'weight', header: 'Weight', cell: ele => stringCell({value: ele.weight})}),
+    new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
+    new Column({columnDef: 'icon', header: 'icon', cell: () => iconCell({value: 'home'})}),
+    new Column({
+      columnDef: 'iconCall',
+      header: 'callIcon',
+      cell: (ele) => callbackIconCell({value: 'phone', callback: this.delete, returnValue: ele.position})
+    }),
   ];
 
   constructor(public dialog: MatDialog) {}
@@ -53,8 +62,12 @@ export class AppComponent {
     });
   }
 
-  log(input: string) {
-    console.log(input);
+  log(input: string | number) {
+    console.log(`log ${input}`);
+  }
+
+  delete(input: string | number) {
+    console.log(`delete ${input}`);
   }
 
 }

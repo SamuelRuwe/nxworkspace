@@ -1,39 +1,44 @@
 import { Component, Input } from '@angular/core';
+import { CallbackData, CellData, STRING_NUM } from './cell';
 
-@Component({
-  template: `{{data.value}}`,
-  styleUrls: ['./cell.component.css']
-})
-export class CellComponent {
-  @Input() data!: { value: string };
+@Component({template: ``})
+export class AbstractCellComponent<T> {
+  @Input() data!: T;
 }
 
-@Component({
-  template: `<mat-icon>{{data.value}}</mat-icon>`,
-  styleUrls: ['./cell.component.css']
-})
-export class CellButtonComponent {
-  @Input() data!: { value: string };
+@Component({template: ``})
+export class AbstractCallbackCellComponent<T> extends AbstractCellComponent<CallbackData<T>> {
+  callback() {
+    return this.data.callback(this.data.returnValue);
+  }
 }
 
-@Component({
-  template: `{{data.value}} days`,
-  styleUrls: ['./cell.component.css']
-})
-export class CellDateComponent {
-  @Input() data!: { value: string };
-}
+@Component({template: `{{data.value}}`, styleUrls: ['./cell.component.css']})
+export class CellComponent extends AbstractCellComponent<CellData<STRING_NUM>> {}
 
 @Component({
   template: `
-    <button mat-raised-button color="primary" (click)="cbFunc()">{{data.value}}</button>`,
+    <mat-icon>{{data.value}}</mat-icon>
+  `,
   styleUrls: ['./cell.component.css']
 })
-export class CellCallbackComponent {
-  @Input() data!: { value: string, cb?: (data: string) => void };
+export class CellIconComponent extends AbstractCellComponent<CellData<string>> {}
 
-  cbFunc() {
-    if (this.data.cb) this.data.cb(this.data.value);
-  }
-}
+@Component({
+  template: `
+    <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>
+  `,
+  styleUrls: ['./cell.component.css']
+})
+export class CellCallbackButtonComponent extends AbstractCallbackCellComponent<CallbackData<STRING_NUM>> {}
+
+@Component({
+  template: `
+    <button mat-raised-button color="primary" (click)="callback()">
+      <mat-icon>{{data.value}}</mat-icon>
+    </button>
+  `,
+  styleUrls: ['./cell.component.css']
+})
+export class CellCallbackIconComponent extends AbstractCallbackCellComponent<CallbackData<STRING_NUM>> {}
 

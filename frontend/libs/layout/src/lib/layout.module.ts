@@ -6,7 +6,14 @@ import { RouterModule } from '@angular/router';
 import { CardWrapperComponent } from './card/card-wrapper.component';
 import { TableComponent } from './table/table.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
-import { CellButtonComponent, CellCallbackComponent, CellComponent, CellDateComponent } from './cell/cell.component';
+import {
+  AbstractCallbackCellComponent,
+  AbstractCellComponent,
+  CellCallbackButtonComponent,
+  CellCallbackIconComponent,
+  CellComponent,
+  CellIconComponent,
+} from './cell/cell.component';
 import { CellHostDirective } from './cell-host.directive';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
 
@@ -22,11 +29,13 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     TableComponent,
     DynamicTableComponent,
     CellComponent,
-    CellButtonComponent,
+    CellIconComponent,
     CellHostDirective,
-    CellDateComponent,
-    CellCallbackComponent,
-    AbstractTableComponent
+    CellCallbackButtonComponent,
+    AbstractTableComponent,
+    AbstractCellComponent,
+    AbstractCallbackCellComponent,
+    CellCallbackIconComponent
   ],
   exports: [
     NavbarComponent,
@@ -35,9 +44,10 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     DynamicTableComponent,
     CellHostDirective,
     CellComponent,
-    CellButtonComponent,
-    CellDateComponent,
-    CellCallbackComponent
+    CellIconComponent,
+    CellCallbackButtonComponent,
+    AbstractCallbackCellComponent,
+    CellCallbackIconComponent
   ]
 })
 export class LayoutModule {}
