@@ -9,14 +9,9 @@ export default {
       imports: [],
     })
   ],
-} as Meta<TableComponent>;
-
-const Template: Story<TableComponent> = (args: TableComponent) => ({
-  component: TableComponent,
-  props: args,
-});
+} as Meta<TableComponent<any>>;
 
 
-export const Primary = Template.bind({});
+export const Primary = () => ({});
 Primary.args = {
 }

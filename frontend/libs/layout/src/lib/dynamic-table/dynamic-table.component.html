@@ -4,11 +4,15 @@
 
 <mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-    <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
-    <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
+    <mat-header-cell mat-sort-header *matHeaderCellDef>{{ column.header }}</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <ng-container [cell]="column.cell(row)"></ng-container>
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 </mat-table>
+
+<mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>

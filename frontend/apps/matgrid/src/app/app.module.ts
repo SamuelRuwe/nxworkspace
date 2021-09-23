@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NameComponent } from './name/name.component';
 import { AddressComponent } from './address/address.component';
+import { LayoutModule } from '@nx-workspace/layout';
 
 @NgModule({
   declarations: [AppComponent, FormComponent, NameComponent, AddressComponent],
@@ -32,7 +33,8 @@ import { AddressComponent } from './address/address.component';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

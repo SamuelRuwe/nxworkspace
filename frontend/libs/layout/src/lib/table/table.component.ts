@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'pg-layout-table',
@@ -8,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TableComponent<T> {
 
-  dataSource!: MatTableDataSource<T>;
+  // dataSource!: MatTableDataSource<T>;
   // @In
   // constructor() { }
   //
