@@ -10,10 +10,12 @@ import {
   CellCallbackButtonComponent,
   CellCallbackIconComponent,
   CellComponent,
+  CellDaysComponent,
   CellIconComponent,
 } from './cell/cell.component';
 import { CellHostDirective } from './cell-host.directive';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
+import { DaysPipe } from './days.pipe';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     CellHostDirective,
     CellCallbackButtonComponent,
     AbstractTableComponent,
-    CellCallbackIconComponent
+    CellCallbackIconComponent,
+    CellDaysComponent,
+    DaysPipe
   ],
   exports: [
     NavbarComponent,
@@ -42,7 +46,8 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     CellComponent,
     CellIconComponent,
     CellCallbackButtonComponent,
-    CellCallbackIconComponent
+    CellCallbackIconComponent,
+    CellDaysComponent,
   ]
 })
 export class LayoutModule {}

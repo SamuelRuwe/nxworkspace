@@ -3,34 +3,32 @@ import {
   CanCallback,
   CanCallbackCtor,
   CellData,
-  CellIcon,
   CellIconCtor,
   mixinCallback,
   mixinIcon,
+  mixinValue,
   STRING_NUM
 } from './cell';
 
-export class CellBase {}
-
-const _callbackCellBase = mixinCallback(CellBase);
-const _callbackIconCell: CanCallbackCtor & CellIconCtor & typeof CellBase = mixinIcon(mixinCallback(CellBase));
-
-@Component({template: ``})
-export class AbstractCellComponent<T> {
-  data!: T;
+export class CellBase<T> {
+  data!: CellData<T>;
 }
 
+const _valueCell = mixinValue(CellBase);
+const _iconCell = mixinIcon(CellBase);
+const _callbackCellBase = mixinCallback(CellBase);
+const _callbackIconCell: CanCallbackCtor & CellIconCtor<STRING_NUM> & typeof CellBase = mixinIcon(mixinCallback(CellBase));
 
 @Component({template: `{{data.value}}`, styleUrls: ['./cell.component.css']})
-export class CellComponent extends AbstractCellComponent<CellData<STRING_NUM>> {}
+export class CellComponent extends _callbackCellBase<STRING_NUM> {}
 
 @Component({
   template: `
-    <mat-icon>{{data.value}}</mat-icon>
+    <mat-icon>{{icon}}</mat-icon>
   `,
   styleUrls: ['./cell.component.css']
 })
-export class CellIconComponent extends AbstractCellComponent<CellData<string>> {}
+export class CellIconComponent extends _iconCell<string> {}
 
 @Component({
   template: `
@@ -38,19 +36,19 @@ export class CellIconComponent extends AbstractCellComponent<CellData<string>> {
   `,
   styleUrls: ['./cell.component.css']
 })
-export class CellCallbackButtonComponent extends _callbackCellBase implements CanCallback {
-  data!: CellData<STRING_NUM>;
-}
+export class CellCallbackButtonComponent extends _callbackCellBase<STRING_NUM> implements CanCallback {}
 
 @Component({
   template: `
     <button mat-raised-button color="primary" (click)="callback()">
-      <mat-icon>{{data.value}}</mat-icon>
+      <mat-icon>{{icon}}</mat-icon>
     </button>
   `,
   styleUrls: ['./cell.component.css']
 })
-export class CellCallbackIconComponent extends _callbackIconCell implements CellIcon, CanCallback {
-  data!: CellData<STRING_NUM>;
-  icon!: string;
-}
+export class CellCallbackIconComponent extends _callbackIconCell<string> implements CanCallback {}
+
+@Component({
+  template: `{{value | days}}`
+})
+export class CellDaysComponent extends _valueCell<STRING_NUM> {}

@@ -3,9 +3,9 @@ import {
   CellCallbackButtonComponent,
   CellCallbackIconComponent,
   CellComponent,
+  CellDaysComponent,
   CellIconComponent
 } from './cell.component';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 export type STRING_NUM = string | number;
 export type VALID_RETURN_TYPES = string | number;
@@ -16,46 +16,53 @@ export class Cell<T> {
   constructor(public component: Type<any>, public data: CellData<T>) {}
 }
 
-export interface CellData<T> {value: T, icon?: string}
+export interface CellData<T> {
+  readonly value?: T;
+}
+
+export interface RequiredCellValue<T> extends CellData<T> {
+  readonly value: T;
+}
 
 export interface CallbackData<T> extends CellData<T> {
   callback: (arg: VALID_RETURN_TYPES) => void;
   returnValue: VALID_RETURN_TYPES;
 }
 
-export interface CellIcon {
-  icon: string;
+export interface CellIcon<T> extends CellData<T> {
+  readonly icon: string;
 }
 
 export interface CanDisable {
   disabled: boolean;
 }
 
+export type HasValueCtor<T> = Constructor<RequiredCellValue<T>> & AbstractConstructor<RequiredCellValue<T>>;
+
 export type CanDisableCtor = Constructor<CanDisable> & AbstractConstructor<CanDisable>;
 
 export type CanCallbackCtor = Constructor<CanCallback> & AbstractConstructor<CanCallback>;
 
-export type CellIconCtor = Constructor<CellIcon> & AbstractConstructor<CellIcon>;
+export type CellIconCtor<T> = Constructor<CellIcon<T>> & AbstractConstructor<CellIcon<T>>;
 
-export function mixinIcon<T extends AbstractConstructor<any>>(base: T): CellIconCtor & T;
-export function mixinIcon<T extends Constructor<any>>(base: T): CellIconCtor & T {
+export function mixinValue<T extends AbstractConstructor<any>, U>(base: T): HasValueCtor<U> & T;
+export function mixinValue<T extends Constructor<any>, U>(base: T): HasValueCtor<U> & T {
   return class extends base {
-    private _icon = '';
+    get value() { return this.data.value; }
+  }
+}
 
-    get icon() { return this._icon; }
-
-    set icon(value: string) { this._icon = value;}
+export function mixinIcon<T extends AbstractConstructor<any>>(base: T): CellIconCtor<T> & T;
+export function mixinIcon<T extends Constructor<any>>(base: T): CellIconCtor<T> & T {
+  return class extends base {
+    get icon() { return this.data.icon; }
   }
 }
 
 export function mixinDisabled<T extends AbstractConstructor<any>>(base: T): CanDisableCtor & T;
 export function mixinDisabled<T extends Constructor<any>>(base: T): CanDisableCtor & T {
   return class extends base {
-    private _disabled = false;
-
-    get disabled() { return this._disabled; }
-
-    set disabled(value: any) { this._disabled = coerceBooleanProperty(value); }
+    get disabled() { return this.data.disabled; }
   };
 }
 
@@ -77,7 +84,7 @@ export function stringCell(data: CellData<STRING_NUM>) {
   return new Cell(CellComponent, data);
 }
 
-export function iconCell(args: CellData<string>) {
+export function iconCell(args: CellIcon<string>) {
   return new Cell(CellIconComponent, args);
 }
 
@@ -85,8 +92,14 @@ export function callbackCell(args: CallbackData<STRING_NUM>) {
   return new Cell(CellCallbackButtonComponent, args);
 }
 
-export function callbackIconCell(args: CallbackData<STRING_NUM>) {
+type CallbackCell<T = null | undefined> = CallbackData<T> & CellIcon<T>
+
+export function callbackIconCell(args: CallbackCell) {
   return new Cell(CellCallbackIconComponent, args);
 }
 
-export type CELL_TYPES = Cell<STRING_NUM>;
+export function daysCell(args: RequiredCellValue<STRING_NUM>) {
+  return new Cell(CellDaysComponent, args);
+}
+
+export type CELL_TYPES = Cell<number> | Cell<STRING_NUM> | Cell<null>;

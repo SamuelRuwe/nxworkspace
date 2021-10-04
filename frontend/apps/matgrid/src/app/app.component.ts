@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
-import { callbackCell, callbackIconCell, Column, ColumnModel, iconCell, stringCell } from '@nx-workspace/layout';
+import {
+  callbackCell,
+  callbackIconCell,
+  Column,
+  ColumnModel,
+  daysCell,
+  iconCell,
+  stringCell
+} from '@nx-workspace/layout';
 
 type element = { position: number, name: string, weight: number, symbol: string }
 
@@ -44,13 +52,14 @@ export class AppComponent {
       columnDef: 'name', header: 'Name', cell: ele => stringCell({value: ele.name}), isSortable: true
     }),
     new Column({columnDef: 'weight', header: 'Weight', cell: ele => stringCell({value: ele.weight})}),
+    new Column({columnDef: 'days', header: 'Days', cell: ele => daysCell({value: ele.weight})}),
     new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
-    new Column({columnDef: 'icon', header: '', cell: () => iconCell({value: 'home'})}),
+    new Column({columnDef: 'icon', header: 'icon test', cell: () => iconCell({value: 'home', icon: 'home'})}),
     new Column({
       columnDef: 'iconCall',
       header: '',
-      cell: (ele) => callbackIconCell({value: 'phone', callback: this.delete, returnValue: ele.position})
-    }),
+      cell: (ele) => callbackIconCell({callback: this.delete, returnValue: ele.position, icon: 'home'})
+    })
   ];
 
   constructor(public dialog: MatDialog) {}
