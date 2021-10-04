@@ -45,10 +45,10 @@ export class AppComponent {
     }),
     new Column({columnDef: 'weight', header: 'Weight', cell: ele => stringCell({value: ele.weight})}),
     new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
-    new Column({columnDef: 'icon', header: 'icon', cell: () => iconCell({value: 'home'})}),
+    new Column({columnDef: 'icon', header: '', cell: () => iconCell({value: 'home'})}),
     new Column({
       columnDef: 'iconCall',
-      header: 'callIcon',
+      header: '',
       cell: (ele) => callbackIconCell({value: 'phone', callback: this.delete, returnValue: ele.position})
     }),
   ];

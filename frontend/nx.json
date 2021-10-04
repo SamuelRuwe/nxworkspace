@@ -43,6 +43,13 @@
     "matgrid": {
       "tags": []
     },
+    "mixins": {
+      "tags": []
+    },
+    "mixins-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mixins"]
+    },
     "ngrx": {
       "tags": []
     },

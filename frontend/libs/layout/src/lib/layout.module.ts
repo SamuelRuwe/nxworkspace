@@ -7,8 +7,6 @@ import { CardWrapperComponent } from './card/card-wrapper.component';
 import { TableComponent } from './table/table.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import {
-  AbstractCallbackCellComponent,
-  AbstractCellComponent,
   CellCallbackButtonComponent,
   CellCallbackIconComponent,
   CellComponent,
@@ -33,8 +31,6 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     CellHostDirective,
     CellCallbackButtonComponent,
     AbstractTableComponent,
-    AbstractCellComponent,
-    AbstractCallbackCellComponent,
     CellCallbackIconComponent
   ],
   exports: [
@@ -46,7 +42,6 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
     CellComponent,
     CellIconComponent,
     CellCallbackButtonComponent,
-    AbstractCallbackCellComponent,
     CellCallbackIconComponent
   ]
 })

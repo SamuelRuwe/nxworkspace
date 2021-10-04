@@ -1,17 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { CallbackData, CellData, STRING_NUM } from './cell';
+import { Component } from '@angular/core';
+import {
+  CanCallback,
+  CanCallbackCtor,
+  CellData,
+  CellIcon,
+  CellIconCtor,
+  mixinCallback,
+  mixinIcon,
+  STRING_NUM
+} from './cell';
+
+export class CellBase {}
+
+const _callbackCellBase = mixinCallback(CellBase);
+const _callbackIconCell: CanCallbackCtor & CellIconCtor & typeof CellBase = mixinIcon(mixinCallback(CellBase));
 
 @Component({template: ``})
 export class AbstractCellComponent<T> {
-  @Input() data!: T;
+  data!: T;
 }
 
-@Component({template: ``})
-export class AbstractCallbackCellComponent<T> extends AbstractCellComponent<CallbackData<T>> {
-  callback() {
-    return this.data.callback(this.data.returnValue);
-  }
-}
 
 @Component({template: `{{data.value}}`, styleUrls: ['./cell.component.css']})
 export class CellComponent extends AbstractCellComponent<CellData<STRING_NUM>> {}
@@ -30,7 +38,9 @@ export class CellIconComponent extends AbstractCellComponent<CellData<string>> {
   `,
   styleUrls: ['./cell.component.css']
 })
-export class CellCallbackButtonComponent extends AbstractCallbackCellComponent<CallbackData<STRING_NUM>> {}
+export class CellCallbackButtonComponent extends _callbackCellBase implements CanCallback {
+  data!: CellData<STRING_NUM>;
+}
 
 @Component({
   template: `
@@ -40,5 +50,7 @@ export class CellCallbackButtonComponent extends AbstractCallbackCellComponent<C
   `,
   styleUrls: ['./cell.component.css']
 })
-export class CellCallbackIconComponent extends AbstractCallbackCellComponent<CallbackData<STRING_NUM>> {}
-
+export class CellCallbackIconComponent extends _callbackIconCell implements CellIcon, CanCallback {
+  data!: CellData<STRING_NUM>;
+  icon!: string;
+}
