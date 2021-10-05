@@ -20,7 +20,7 @@ export interface CellData<T> {
   readonly value?: T;
 }
 
-export interface RequiredCellValue<T> extends CellData<T> {
+export interface RequiredCellValue<T> {
   readonly value: T;
 }
 
@@ -43,17 +43,18 @@ export type CanDisableCtor = Constructor<CanDisable> & AbstractConstructor<CanDi
 
 export type CanCallbackCtor = Constructor<CanCallback> & AbstractConstructor<CanCallback>;
 
-export type CellIconCtor<T> = Constructor<CellIcon<T>> & AbstractConstructor<CellIcon<T>>;
+export type CellIconCtor = Constructor<CellIcon<string>> & AbstractConstructor<CellIcon<string>>;
 
-export function mixinValue<T extends AbstractConstructor<any>, U>(base: T): HasValueCtor<U> & T;
-export function mixinValue<T extends Constructor<any>, U>(base: T): HasValueCtor<U> & T {
+export function mixinValue<T extends AbstractConstructor<any>>(base: T): HasValueCtor<T> & T;
+export function mixinValue<T extends Constructor<any>>(base: T): HasValueCtor<T> & T {
   return class extends base {
     get value() { return this.data.value; }
   }
 }
+// type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
 
-export function mixinIcon<T extends AbstractConstructor<any>>(base: T): CellIconCtor<T> & T;
-export function mixinIcon<T extends Constructor<any>>(base: T): CellIconCtor<T> & T {
+export function mixinIcon<T extends AbstractConstructor<any>>(base: T): CellIconCtor & T;
+export function mixinIcon<T extends Constructor<any>>(base: T): CellIconCtor & T {
   return class extends base {
     get icon() { return this.data.icon; }
   }

@@ -7,17 +7,18 @@ import {
   mixinCallback,
   mixinIcon,
   mixinValue,
+  RequiredCellValue,
   STRING_NUM
 } from './cell';
 
 export class CellBase<T> {
-  data!: CellData<T>;
+  data!: CellData<T> | RequiredCellValue<T>;
 }
 
 const _valueCell = mixinValue(CellBase);
 const _iconCell = mixinIcon(CellBase);
 const _callbackCellBase = mixinCallback(CellBase);
-const _callbackIconCell: CanCallbackCtor & CellIconCtor<STRING_NUM> & typeof CellBase = mixinIcon(mixinCallback(CellBase));
+const _callbackIconCell: CanCallbackCtor & CellIconCtor & typeof CellBase = mixinIcon(mixinCallback(CellBase));
 
 @Component({template: `{{data.value}}`, styleUrls: ['./cell.component.css']})
 export class CellComponent extends _callbackCellBase<STRING_NUM> {}
