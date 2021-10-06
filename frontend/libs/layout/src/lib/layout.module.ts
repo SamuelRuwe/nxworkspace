@@ -7,11 +7,11 @@ import { CardWrapperComponent } from './card/card-wrapper.component';
 import { TableComponent } from './table/table.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import {
-  CellCallbackButtonComponent,
-  CellCallbackIconComponent,
-  CellComponent,
-  CellDaysComponent,
-  CellIconComponent,
+  // CellCallbackButtonComponent,
+  // CellCallbackIconComponent,
+  CellComponent, CellIconComponent,
+  // CellDaysComponent,
+  // CellIconComponent,
 } from './cell/cell.component';
 import { CellHostDirective } from './cell-host.directive';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
@@ -31,10 +31,10 @@ import { DaysPipe } from './days.pipe';
     CellComponent,
     CellIconComponent,
     CellHostDirective,
-    CellCallbackButtonComponent,
+    // CellCallbackButtonComponent,
     AbstractTableComponent,
-    CellCallbackIconComponent,
-    CellDaysComponent,
+    // CellCallbackIconComponent,
+    // CellDaysComponent,
     DaysPipe
   ],
   exports: [
@@ -43,11 +43,11 @@ import { DaysPipe } from './days.pipe';
     TableComponent,
     DynamicTableComponent,
     CellHostDirective,
-    CellComponent,
-    CellIconComponent,
-    CellCallbackButtonComponent,
-    CellCallbackIconComponent,
-    CellDaysComponent,
+    // CellComponent,
+    // CellIconComponent,
+    // CellCallbackButtonComponent,
+    // CellCallbackIconComponent,
+    // CellDaysComponent,
   ]
 })
 export class LayoutModule {}
