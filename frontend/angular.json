@@ -1,6 +1,137 @@
 {
   "version": 1,
   "projects": {
+    "card-carousel": {
+      "projectType": "application",
+      "root": "apps/card-carousel",
+      "sourceRoot": "apps/card-carousel/src",
+      "prefix": "nx-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/card-carousel",
+            "index": "apps/card-carousel/src/index.html",
+            "main": "apps/card-carousel/src/main.ts",
+            "polyfills": "apps/card-carousel/src/polyfills.ts",
+            "tsConfig": "apps/card-carousel/tsconfig.app.json",
+            "assets": [
+              "apps/card-carousel/src/favicon.ico",
+              "apps/card-carousel/src/assets"
+            ],
+            "styles": [
+              "apps/card-carousel/src/styles.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/materialtheme/src/styles.css",
+              "apps/materialtheme/src/custom-theme.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/card-carousel/src/environments/environment.ts",
+                  "with": "apps/card-carousel/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "card-carousel:build:production"
+            },
+            "development": {
+              "browserTarget": "card-carousel:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "card-carousel:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/card-carousel/src/**/*.ts",
+              "apps/card-carousel/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/card-carousel"
+          ],
+          "options": {
+            "jestConfig": "apps/card-carousel/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "card-carousel-e2e": {
+      "root": "apps/card-carousel-e2e",
+      "sourceRoot": "apps/card-carousel-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/card-carousel-e2e/cypress.json",
+            "devServerTarget": "card-carousel:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "card-carousel:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/card-carousel-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
     "forms": {
       "projectType": "library",
       "root": "libs/forms",
@@ -9,7 +140,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/forms"],
+          "outputs": [
+            "coverage/libs/forms"
+          ],
           "options": {
             "jestConfig": "libs/forms/jest.config.js",
             "passWithNoTests": true
@@ -23,7 +156,9 @@
               "libs/forms/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -42,7 +177,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/forms",
@@ -66,7 +203,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/gameoflife",
             "index": "apps/gameoflife/src/index.html",
@@ -77,7 +216,9 @@
               "apps/gameoflife/src/favicon.ico",
               "apps/gameoflife/src/assets"
             ],
-            "styles": ["apps/gameoflife/src/styles.css"],
+            "styles": [
+              "apps/gameoflife/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -139,11 +280,15 @@
               "apps/gameoflife/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/gameoflife"],
+          "outputs": [
+            "coverage/apps/gameoflife"
+          ],
           "options": {
             "jestConfig": "apps/gameoflife/jest.config.js",
             "passWithNoTests": true
@@ -159,7 +304,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/layout"],
+          "outputs": [
+            "coverage/libs/layout"
+          ],
           "options": {
             "jestConfig": "libs/layout/jest.config.js",
             "passWithNoTests": true
@@ -173,7 +320,9 @@
               "libs/layout/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -192,7 +341,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/layout",
@@ -216,7 +367,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/material"],
+          "outputs": [
+            "coverage/libs/material"
+          ],
           "options": {
             "jestConfig": "libs/material/jest.config.js",
             "passWithNoTests": true
@@ -230,7 +383,9 @@
               "libs/material/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       }
     },
@@ -242,7 +397,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/materialtheme",
             "index": "apps/materialtheme/src/index.html",
@@ -319,11 +476,15 @@
               "apps/materialtheme/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/materialtheme"],
+          "outputs": [
+            "coverage/apps/materialtheme"
+          ],
           "options": {
             "jestConfig": "apps/materialtheme/jest.config.js",
             "passWithNoTests": true
@@ -339,7 +500,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/matgrid",
             "index": "apps/matgrid/src/index.html",
@@ -415,11 +578,15 @@
               "apps/matgrid/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/matgrid"],
+          "outputs": [
+            "coverage/apps/matgrid"
+          ],
           "options": {
             "jestConfig": "apps/matgrid/jest.config.js",
             "passWithNoTests": true
@@ -435,15 +602,22 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/mixins",
             "index": "apps/mixins/src/index.html",
             "main": "apps/mixins/src/main.ts",
             "polyfills": "apps/mixins/src/polyfills.ts",
             "tsConfig": "apps/mixins/tsconfig.app.json",
-            "assets": ["apps/mixins/src/favicon.ico", "apps/mixins/src/assets"],
-            "styles": ["apps/mixins/src/styles.css"],
+            "assets": [
+              "apps/mixins/src/favicon.ico",
+              "apps/mixins/src/assets"
+            ],
+            "styles": [
+              "apps/mixins/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -508,7 +682,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/mixins"],
+          "outputs": [
+            "coverage/apps/mixins"
+          ],
           "options": {
             "jestConfig": "apps/mixins/jest.config.js",
             "passWithNoTests": true
@@ -535,9 +711,13 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/mixins-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/mixins-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -550,14 +730,19 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/ngrx",
             "index": "apps/ngrx/src/index.html",
             "main": "apps/ngrx/src/main.ts",
             "polyfills": "apps/ngrx/src/polyfills.ts",
             "tsConfig": "apps/ngrx/tsconfig.app.json",
-            "assets": ["apps/ngrx/src/favicon.ico", "apps/ngrx/src/assets"],
+            "assets": [
+              "apps/ngrx/src/favicon.ico",
+              "apps/ngrx/src/assets"
+            ],
             "styles": [
               "apps/ngrx/src/custom-theme.scss",
               "apps/ngrx/src/styles.css"
@@ -623,11 +808,15 @@
               "apps/ngrx/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ngrx"],
+          "outputs": [
+            "coverage/apps/ngrx"
+          ],
           "options": {
             "jestConfig": "apps/ngrx/jest.config.js",
             "passWithNoTests": true
@@ -642,14 +831,19 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/routes",
             "index": "apps/routes/src/index.html",
             "main": "apps/routes/src/main.ts",
             "polyfills": "apps/routes/src/polyfills.ts",
             "tsConfig": "apps/routes/tsconfig.app.json",
-            "assets": ["apps/routes/src/favicon.ico", "apps/routes/src/assets"],
+            "assets": [
+              "apps/routes/src/favicon.ico",
+              "apps/routes/src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/routes/src/styles.css"
@@ -715,11 +909,15 @@
               "apps/routes/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/routes"],
+          "outputs": [
+            "coverage/apps/routes"
+          ],
           "options": {
             "jestConfig": "apps/routes/jest.config.js",
             "passWithNoTests": true
@@ -735,7 +933,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/utils"],
+          "outputs": [
+            "coverage/libs/utils"
+          ],
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
@@ -760,7 +960,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/wasm",
             "index": "apps/wasm/src/index.html",
@@ -837,11 +1039,15 @@
               "apps/wasm/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/wasm"],
+          "outputs": [
+            "coverage/apps/wasm"
+          ],
           "options": {
             "jestConfig": "apps/wasm/jest.config.js",
             "passWithNoTests": true

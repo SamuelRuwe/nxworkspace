@@ -6,16 +6,16 @@ import { RouterModule } from '@angular/router';
 import { CardWrapperComponent } from './card/card-wrapper.component';
 import { TableComponent } from './table/table.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
-import {
-  // CellCallbackButtonComponent,
-  // CellCallbackIconComponent,
-  CellComponent, CellIconComponent,
-  // CellDaysComponent,
-  // CellIconComponent,
-} from './cell/cell.component';
+import { CellCallbackButtonComponent, CellComponent, CellIconComponent, } from './cell/cell.component';
 import { CellHostDirective } from './cell-host.directive';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
 import { DaysPipe } from './days.pipe';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselItemDirective } from './carousel/carousel-item.directive';
+import { CarouselItemElementDirective } from './carousel/carousel-item-element.directive';
+import { CardRefreshWrapperComponent } from './card-refresh-wrapper/card-refresh-wrapper.component';
+import { DataProviderComponent } from './card-refresh-wrapper/widgets/data-provider/data-provider.component';
+import { ExpansionPanelsComponent } from './expansion-panels/expansion-panels.component';
 
 @NgModule({
   imports: [
@@ -31,11 +31,17 @@ import { DaysPipe } from './days.pipe';
     CellComponent,
     CellIconComponent,
     CellHostDirective,
-    // CellCallbackButtonComponent,
+    CellCallbackButtonComponent,
     AbstractTableComponent,
     // CellCallbackIconComponent,
     // CellDaysComponent,
-    DaysPipe
+    DaysPipe,
+    CarouselItemDirective,
+    CarouselItemElementDirective,
+    CarouselComponent,
+    CardRefreshWrapperComponent,
+    DataProviderComponent,
+    ExpansionPanelsComponent
   ],
   exports: [
     NavbarComponent,
@@ -43,6 +49,12 @@ import { DaysPipe } from './days.pipe';
     TableComponent,
     DynamicTableComponent,
     CellHostDirective,
+    CarouselItemDirective,
+    CarouselItemElementDirective,
+    CarouselComponent,
+    CardRefreshWrapperComponent,
+    DataProviderComponent,
+    ExpansionPanelsComponent
     // CellComponent,
     // CellIconComponent,
     // CellCallbackButtonComponent,

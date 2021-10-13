@@ -25,6 +25,13 @@
     }
   },
   "projects": {
+    "card-carousel": {
+      "tags": []
+    },
+    "card-carousel-e2e": {
+      "tags": [],
+      "implicitDependencies": ["card-carousel"]
+    },
     "forms": {
       "tags": []
     },
