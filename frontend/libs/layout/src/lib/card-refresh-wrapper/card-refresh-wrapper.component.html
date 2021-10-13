@@ -1,22 +1,15 @@
-<!--<div class="header">-->
-<!--  <h1>Widget</h1>-->
-<!--  <button (click)="onRefresh()" mat-stroked-button>Refresh</button>-->
-<!--</div>-->
-<!--<mat-divider></mat-divider>-->
-<!--<section>-->
-<!--  <ng-content></ng-content>-->
-<!--</section>-->
-
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Widget</mat-card-title>
-    <button (click)="onRefresh()" mat-stroked-button>Refresh</button>
+    <mat-card-title>{{widget.title | titlecase}}</mat-card-title>
+    <button mat-mini-fab aria-label="Refresh data" color="primary"
+            class="mat-elevation-z8 topCorner"
+            (click)="onRefresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
-    <section>
-      <ng-content></ng-content>
-    </section>
+    <ng-content></ng-content>
   </mat-card-content>
 </mat-card>
-
