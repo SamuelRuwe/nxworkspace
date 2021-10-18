@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BasicCell, CallbackCell, IconCell } from './cell';
+import { BasicCell, CallbackCell, CallbackIconCell, DateCell, IconCell } from './cell';
 
 export class CellBase<T> {data!: T}
 
@@ -15,23 +15,29 @@ export class CellComponent extends CellBase<BasicCell> {}
 export class CellIconComponent extends CellBase<IconCell> {}
 
 @Component({
+  template: `{{data.value | date: 'MM/dd/yyyy hh:mm:ss a'}}`,
+  styleUrls: ['./cell.component.css']
+})
+export class CellDateComponent extends CellBase<DateCell> {}
+
+@Component({
   template: `
-<!--//     <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>-->
+<!--    <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>-->
   `,
   styleUrls: ['./cell.component.css']
 })
 export class CellCallbackButtonComponent extends CellBase<CallbackCell> {}
 
-// @Component({
-//   template: `
-//     <button mat-raised-button color="primary" (click)="callback()">
-//       <mat-icon>{{icon}}</mat-icon>
-//     </button>
-//   `,
-//   styleUrls: ['./cell.component.css']
-// })
-// export class CellCallbackIconComponent extends _callbackIconCell<string> implements CanCallback {}
-//
+@Component({
+  template: `
+     <button mat-raised-button color="primary" (click)="data.callback()">
+       <mat-icon>{{data.icon}}</mat-icon>
+     </button>
+  `,
+  styleUrls: ['./cell.component.css']
+})
+export class CellCallbackIconComponent extends CellBase<CallbackIconCell> {}
+
 // @Component({
 //   template: `{{value | days}}`
 // })

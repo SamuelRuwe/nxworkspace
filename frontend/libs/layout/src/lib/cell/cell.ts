@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import { CellComponent, CellIconComponent } from './cell.component';
+import { CellCallbackIconComponent, CellComponent, CellDateComponent, CellIconComponent } from './cell.component';
 
 export type STRING_NUM = string | number;
 export type VALID_RETURN_TYPES = string | number;
@@ -11,14 +11,18 @@ export class Cell<T> {
 export type CellData<T extends unknown> = T;
 type ReadOnlyValue = { readonly value: STRING_NUM }
 type Icon = { readonly icon: string }
+type Date = { readonly value: string; }
 type CallbackData = {
-  callback: (arg: VALID_RETURN_TYPES) => void;
+  callback: () => void;
   returnValue: VALID_RETURN_TYPES;
 }
+type CallbackIcon = CallbackData & Icon;
 
 export type BasicCell = CellData<ReadOnlyValue>;
 export type IconCell = CellData<Icon>;
 export type CallbackCell = CellData<CallbackData>;
+export type DateCell = CellData<Date>;
+export type CallbackIconCell = CellData<CallbackIcon>;
 
 export function simpleStringCell(input: STRING_NUM) {
   return new Cell(CellComponent, {value: input});
@@ -34,6 +38,14 @@ export function simpleIconCell(input: string) {
 
 export function iconCell(data: IconCell) {
   return new Cell(CellIconComponent, data);
+}
+
+export function dateCell(data: DateCell) {
+  return new Cell(CellDateComponent, data);
+}
+
+export function callbackIconCell(data: CallbackIconCell) {
+  return new Cell(CellCallbackIconComponent, data);
 }
 
 // // export function callbackCell(args: CallbackData<STRING_NUM>) {

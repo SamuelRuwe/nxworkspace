@@ -5,13 +5,15 @@ import {
   // callbackCell,
   // callbackIconCell,
   Column,
-  ColumnModel, iconCell, simpleStringCell, stringCell,
+  ColumnModel, dateCell, iconCell, simpleStringCell, stringCell,
   // daysCell,
   // iconCell,
   // stringCell
 } from '@nx-workspace/layout';
 
 type element = { position: number, name: string, weight: number, symbol: string }
+
+const dateTimeExamples = ["2021-10-13T13:53:39.000+00:00", "2021-10-13T13:54:39.000+00:00", "2021-10-13T13:55:39.000+00:00"];
 
 @Component({
   selector: 'nx-workspace-root',
@@ -55,7 +57,17 @@ export class AppComponent {
     // new Column({columnDef: 'weight', header: 'Weight', cell: ele => stringCell({value: ele.weight})}),
     // new Column({columnDef: 'days', header: 'Days', cell: ele => daysCell({value: ele.weight})}),
     new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
-    new Column({columnDef: 'ic', header: 'icon', cell: () => iconCell({icon: 'email'})})
+    new Column({columnDef: 'ic', header: 'icon', cell: () => iconCell({icon: 'email'})}),
+
+
+
+
+    new Column({columnDef: 'date', header: 'Date', cell: () => dateCell({value: dateTimeExamples[0]})})
+
+
+
+
+
     // new Column({columnDef: 'icon', header: 'icon test', cell: () => iconCell({value: 'home', icon: 'home'})}),
     // new Column({
     //   columnDef: 'iconCall',
