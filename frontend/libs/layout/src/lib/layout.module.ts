@@ -9,8 +9,8 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import {
   CellCallbackButtonComponent, CellCallbackIconComponent,
   CellComponent,
-  CellDateComponent,
-  CellIconComponent,
+  CellDateComponent, CellDaysComponent,
+  CellIconComponent, CellOptionalIconComponent,
 } from './cell/cell.component';
 import { CellHostDirective } from './cell-host.directive';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
@@ -54,7 +54,9 @@ import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel
     CarouselWrapperComponent,
     CarouselItemComponent,
     CellDateComponent,
-    CellCallbackIconComponent
+    CellCallbackIconComponent,
+    CellDaysComponent,
+    CellOptionalIconComponent
   ],
   exports: [
     NavbarComponent,

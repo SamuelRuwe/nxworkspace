@@ -1,5 +1,11 @@
 import { Type } from '@angular/core';
-import { CellCallbackIconComponent, CellComponent, CellDateComponent, CellIconComponent } from './cell.component';
+import {
+  CellCallbackIconComponent,
+  CellComponent,
+  CellDateComponent,
+  CellDaysComponent,
+  CellIconComponent, CellOptionalIconComponent
+} from './cell.component';
 
 export type STRING_NUM = string | number;
 export type VALID_RETURN_TYPES = string | number;
@@ -12,14 +18,16 @@ export type CellData<T extends unknown> = T;
 type ReadOnlyValue = { readonly value: STRING_NUM }
 type Icon = { readonly icon: string }
 type Date = { readonly value: string; }
+type ShouldDisplay = { readonly shouldDisplay: boolean; }
 type CallbackData = {
-  callback: () => void;
+  callback: (val?: any) => void;
   returnValue: VALID_RETURN_TYPES;
 }
 type CallbackIcon = CallbackData & Icon;
 
 export type BasicCell = CellData<ReadOnlyValue>;
 export type IconCell = CellData<Icon>;
+export type OptionalIcon = CellData<Icon & ShouldDisplay>;
 export type CallbackCell = CellData<CallbackData>;
 export type DateCell = CellData<Date>;
 export type CallbackIconCell = CellData<CallbackIcon>;
@@ -46,6 +54,14 @@ export function dateCell(data: DateCell) {
 
 export function callbackIconCell(data: CallbackIconCell) {
   return new Cell(CellCallbackIconComponent, data);
+}
+
+export function daysCell(data: BasicCell) {
+  return new Cell(CellDaysComponent, data);
+}
+
+export function optionalIconCell(data: OptionalIcon) {
+  return new Cell(CellOptionalIconComponent, data);
 }
 
 // // export function callbackCell(args: CallbackData<STRING_NUM>) {

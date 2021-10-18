@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BasicCell, CallbackCell, CallbackIconCell, DateCell, IconCell } from './cell';
+import { BasicCell, CallbackCell, CallbackIconCell, DateCell, IconCell, OptionalIcon } from './cell';
 
 export class CellBase<T> {data!: T}
 
@@ -30,7 +30,7 @@ export class CellCallbackButtonComponent extends CellBase<CallbackCell> {}
 
 @Component({
   template: `
-     <button mat-raised-button color="primary" (click)="data.callback()">
+     <button mat-raised-button color="primary" (click)="data.callback(data.returnValue)">
        <mat-icon>{{data.icon}}</mat-icon>
      </button>
   `,
@@ -38,10 +38,15 @@ export class CellCallbackButtonComponent extends CellBase<CallbackCell> {}
 })
 export class CellCallbackIconComponent extends CellBase<CallbackIconCell> {}
 
-// @Component({
-//   template: `{{value | days}}`
-// })
-// export class CellDaysComponent extends _valueCell<STRING_NUM> {}
 
-// const _callbackCellBase = mixinCallback(CellBase);
-// const _callbackIconCell: CanCallbackCtor & CellIconCtor & typeof CellBase = mixinIcon(mixinCallback(CellBase));
+@Component({
+  template: `{{data.value | days}}`,
+  styleUrls: ['./cell.component.css']
+})
+export class CellDaysComponent extends CellBase<DateCell> {}
+
+@Component({
+  template: `<mat-icon *ngIf="data.shouldDisplay">{{data.icon}}</mat-icon>`,
+  styleUrls: ['./cell.component.css']
+})
+export class CellOptionalIconComponent extends CellBase<OptionalIcon> {}

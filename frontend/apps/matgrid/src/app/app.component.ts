@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
 import {
+  callbackIconCell,
   // callbackCell,
   // callbackIconCell,
   Column,
-  ColumnModel, dateCell, iconCell, simpleStringCell, stringCell,
+  ColumnModel, dateCell, daysCell, iconCell, optionalIconCell, simpleStringCell, stringCell,
   // daysCell,
   // iconCell,
   // stringCell
@@ -44,6 +45,7 @@ export class AppComponent {
     {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
     {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
   ];
+  showIcon = true;
   columns: Array<ColumnModel<element>> = [
     // new Column({
     //   columnDef: 'position',
@@ -58,15 +60,17 @@ export class AppComponent {
     // new Column({columnDef: 'days', header: 'Days', cell: ele => daysCell({value: ele.weight})}),
     new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
     new Column({columnDef: 'ic', header: 'icon', cell: () => iconCell({icon: 'email'})}),
+    new Column({
+      columnDef: 'cb',
+      header: 'Button',
+      cell: ele => callbackIconCell({returnValue: ele.name, callback: this.log, icon: 'phone'})
+    }),
 
+    new Column({columnDef: 'date', header: 'Date', cell: () => dateCell({value: dateTimeExamples[0]})}),
+    new Column({columnDef: 'days', header: 'Age', cell: () => daysCell({value: dateTimeExamples[0]})}),
 
-
-
-    new Column({columnDef: 'date', header: 'Date', cell: () => dateCell({value: dateTimeExamples[0]})})
-
-
-
-
+    new Column({columnDef: 'optionalIcon', header: 'Optional Icon', cell: () => optionalIconCell({icon: 'phone', shouldDisplay: false})}),
+    new Column({columnDef: 'optionalIcon2', header: 'Optional Icon 2', cell: () => optionalIconCell({icon: 'phone', shouldDisplay: true})}),
 
     // new Column({columnDef: 'icon', header: 'icon test', cell: () => iconCell({value: 'home', icon: 'home'})}),
     // new Column({
