@@ -1,17 +1,16 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExpandableTableBaseComponent } from './expandable-table-base.component';
-import { Column, ColumnModel } from '../../../abstract-table/table';
+import { LayoutModule } from '../../../layout.module';
+import { Column, ColumnModel } from '../../column.interface';
 import {
   callbackIconCell,
   dateCell,
   daysCell,
-  iconCell,
-  optionalIconCell,
+  iconCell, optionalIconCell,
   simpleStringCell,
   stringCell
-} from '../../../cell/cell';
-import { LayoutModule } from '../../../layout.module';
+} from '../../cell/cell';
 
 function log(data: string) {
   console.log(data);

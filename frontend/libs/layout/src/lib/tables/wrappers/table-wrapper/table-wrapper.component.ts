@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, ContentChild, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { TABLE } from './table.token';
-import { Table } from './table.interface';
+import { TABLE, Table } from '@nx-workspace/layout';
 
 @Component({
   selector: 'pg-layout-table-wrapper',

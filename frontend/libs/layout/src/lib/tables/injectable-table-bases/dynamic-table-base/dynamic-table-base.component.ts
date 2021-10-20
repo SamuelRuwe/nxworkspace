@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AbstractTableComponent } from '../../../abstract-table/abstract-table.component';
-import { TABLE } from '../../wrappers/table-wrapper/table.token';
+import { TABLE } from '@nx-workspace/layout';
+import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
 
 @Component({
   selector: 'pg-layout-dynamic-table [elementData] [columns]',

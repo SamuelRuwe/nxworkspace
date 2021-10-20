@@ -1,13 +1,13 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { LayoutModule } from '../layout.module';
 import { InfoListComponent } from './info-list.component';
+import { ListModule } from '../../list.module';
 
 export default {
   title: 'InfoListComponent',
   component: InfoListComponent,
   decorators: [
     moduleMetadata({
-      imports: [LayoutModule],
+      imports: [ListModule],
     })
   ],
 } as Meta<InfoListComponent>;

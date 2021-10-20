@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ColumnModel } from './table';
+import { ColumnModel } from '../column.interface';
 
 @Component({template: ``})
 export class AbstractTableComponent<T> implements OnInit {

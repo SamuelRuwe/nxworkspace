@@ -17,6 +17,7 @@ import {
 import { CellHostDirective } from './cell/cell-host.directive';
 import { TableWrapperComponent } from './wrappers/table-wrapper/table-wrapper.component';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
+import { UtilsModule } from '@nx-workspace/utils';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AbstractTableComponent } from './abstract-table/abstract-table.componen
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    UtilsModule
   ],
   exports: [
     DynamicTableComponent,

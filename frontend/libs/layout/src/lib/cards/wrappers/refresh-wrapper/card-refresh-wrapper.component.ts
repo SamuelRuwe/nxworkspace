@@ -1,6 +1,6 @@
 import { Component, ContentChild, OnInit } from '@angular/core';
-import { Widget } from './widget.interface';
-import { WIDGET } from './widget.token';
+import { WIDGET } from '../widget.token';
+import { Widget } from '../widget.interface';
 
 @Component({
   selector: 'pg-layout-card-refresh-wrapper',

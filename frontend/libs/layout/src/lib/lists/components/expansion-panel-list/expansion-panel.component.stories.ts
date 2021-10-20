@@ -1,14 +1,14 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { ExpansionPanelListComponent } from './expansion-panel-list.component';
-import { LayoutModule } from '../../layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListModule } from '../../list.module';
 
 export default {
   title: 'Expansion Panel List',
   component: ExpansionPanelListComponent,
   decorators: [
     moduleMetadata({
-      imports: [LayoutModule, BrowserAnimationsModule],
+      imports: [ListModule, BrowserAnimationsModule],
     })
   ],
 } as Meta<ExpansionPanelListComponent>;

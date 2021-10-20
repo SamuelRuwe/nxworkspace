@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AbstractTableComponent } from '../../../abstract-table/abstract-table.component';
+import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
 
 @Component({
   selector: 'pg-layout-expandable-table',
