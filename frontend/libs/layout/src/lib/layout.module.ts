@@ -24,6 +24,7 @@ import { ExpansionPanelsComponent } from './expansion-panels/expansion-panels.co
 import { InfoListComponent } from './info-list/info-list.component';
 import { CarouselWrapperComponent } from './carousel-wrapper/carousel-wrapper.component';
 import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel-item.component';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel
     CellDateComponent,
     CellCallbackIconComponent,
     CellDaysComponent,
-    CellOptionalIconComponent
+    CellOptionalIconComponent,
+    TabsComponent
   ],
   exports: [
     NavbarComponent,
@@ -70,7 +72,8 @@ import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel
     CardRefreshWrapperComponent,
     DataProviderComponent,
     ExpansionPanelsComponent,
-    InfoListComponent
+    InfoListComponent,
+    TabsComponent,
     // CellComponent,
     // CellIconComponent,
     // CellCallbackButtonComponent,
