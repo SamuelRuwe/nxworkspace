@@ -39,10 +39,10 @@ import { CardModule } from './cards/card.module';
     CarouselItemElementDirective,
     CarouselComponent,
     ExpansionPanelsComponent,
-    TabsComponent,
     TableModule,
     ListModule,
-    CardModule
+    CardModule,
+    TabsComponent,
   ]
 })
 export class LayoutModule {}
