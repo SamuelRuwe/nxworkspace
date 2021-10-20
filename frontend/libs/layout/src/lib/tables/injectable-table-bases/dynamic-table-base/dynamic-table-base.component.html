@@ -1,0 +1,13 @@
+<mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+    <mat-header-cell mat-sort-header [disabled]="!column.isSortable"
+                     *matHeaderCellDef>{{ column.header }}</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <ng-container [cell]="column.cell(row)"></ng-container>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>

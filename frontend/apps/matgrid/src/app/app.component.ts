@@ -3,13 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
 import {
   callbackIconCell,
-  // callbackCell,
-  // callbackIconCell,
   Column,
-  ColumnModel, dateCell, daysCell, iconCell, optionalIconCell, simpleStringCell, stringCell,
-  // daysCell,
-  // iconCell,
-  // stringCell
+  ColumnModel,
+  dateCell,
+  daysCell,
+  iconCell,
+  optionalIconCell,
+  simpleStringCell,
+  stringCell,
 } from '@nx-workspace/layout';
 
 type element = { position: number, name: string, weight: number, symbol: string }
@@ -69,8 +70,16 @@ export class AppComponent {
     new Column({columnDef: 'date', header: 'Date', cell: () => dateCell({value: dateTimeExamples[0]})}),
     new Column({columnDef: 'days', header: 'Age', cell: () => daysCell({value: dateTimeExamples[0]})}),
 
-    new Column({columnDef: 'optionalIcon', header: 'Optional Icon', cell: () => optionalIconCell({icon: 'phone', shouldDisplay: false})}),
-    new Column({columnDef: 'optionalIcon2', header: 'Optional Icon 2', cell: () => optionalIconCell({icon: 'phone', shouldDisplay: true})}),
+    new Column({
+      columnDef: 'optionalIcon',
+      header: 'Optional Icon',
+      cell: () => optionalIconCell({icon: 'phone', shouldDisplay: false})
+    }),
+    new Column({
+      columnDef: 'optionalIcon2',
+      header: 'Optional Icon 2',
+      cell: () => optionalIconCell({icon: 'phone', shouldDisplay: true})
+    }),
 
     // new Column({columnDef: 'icon', header: 'icon test', cell: () => iconCell({value: 'home', icon: 'home'})}),
     // new Column({

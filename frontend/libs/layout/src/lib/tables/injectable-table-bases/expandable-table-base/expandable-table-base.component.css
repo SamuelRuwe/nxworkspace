@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+.mat-icon {
+  cursor: default;
+}
+
+.example-detail-row {
+  height: 0;
+}
+
+.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.expanded-content {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
