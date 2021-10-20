@@ -1,7 +1,3 @@
-<mat-form-field *ngIf="dataSource">
-  <input #filter (keyup)="applyFilter(filter.value)" matInput placeholder="Filter">
-</mat-form-field>
-
 <mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
     <mat-header-cell mat-sort-header [disabled]="!column.isSortable"
@@ -15,5 +11,3 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 </mat-table>
-
-<mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>

@@ -4,16 +4,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { RouterModule } from '@angular/router';
 import { CardWrapperComponent } from './card/card-wrapper.component';
-import { TableComponent } from './table/table.component';
-import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
-import {
-  CellCallbackButtonComponent, CellCallbackIconComponent,
-  CellComponent,
-  CellDateComponent, CellDaysComponent,
-  CellIconComponent, CellOptionalIconComponent,
-} from './cell/cell.component';
-import { CellHostDirective } from './cell-host.directive';
-import { AbstractTableComponent } from './abstract-table/abstract-table.component';
 import { DaysPipe } from './days.pipe';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CarouselItemDirective } from './carousel/carousel-item.directive';
@@ -24,25 +14,19 @@ import { ExpansionPanelsComponent } from './expansion-panels/expansion-panels.co
 import { InfoListComponent } from './info-list/info-list.component';
 import { CarouselWrapperComponent } from './carousel-wrapper/carousel-wrapper.component';
 import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel-item.component';
+import { ExpansionPanelListComponent } from './lists/expansion-panel/expansion-panel-list.component';
+import { TableModule } from './tables/table.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    TableModule
   ],
   declarations: [
     NavbarComponent,
     CardWrapperComponent,
-    TableComponent,
-    DynamicTableComponent,
-    CellComponent,
-    CellIconComponent,
-    CellHostDirective,
-    CellCallbackButtonComponent,
-    AbstractTableComponent,
-    // CellCallbackIconComponent,
-    // CellDaysComponent,
     DaysPipe,
     CarouselItemDirective,
     CarouselItemElementDirective,
@@ -53,29 +37,19 @@ import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel
     InfoListComponent,
     CarouselWrapperComponent,
     CarouselItemComponent,
-    CellDateComponent,
-    CellCallbackIconComponent,
-    CellDaysComponent,
-    CellOptionalIconComponent
+    ExpansionPanelListComponent,
   ],
   exports: [
     NavbarComponent,
     CardWrapperComponent,
-    TableComponent,
-    DynamicTableComponent,
-    CellHostDirective,
     CarouselItemDirective,
     CarouselItemElementDirective,
     CarouselComponent,
     CardRefreshWrapperComponent,
     DataProviderComponent,
     ExpansionPanelsComponent,
-    InfoListComponent
-    // CellComponent,
-    // CellIconComponent,
-    // CellCallbackButtonComponent,
-    // CellCallbackIconComponent,
-    // CellDaysComponent,
+    InfoListComponent,
+    ExpansionPanelListComponent
   ]
 })
 export class LayoutModule {}

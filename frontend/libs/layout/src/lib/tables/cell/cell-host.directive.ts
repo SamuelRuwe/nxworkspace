@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewContainerRef
 } from '@angular/core';
-import { Cell } from './cell/cell';
+import { Cell } from './cell';
 
 @Directive({
   selector: '[cell]'

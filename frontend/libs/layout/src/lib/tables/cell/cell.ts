@@ -63,15 +63,3 @@ export function daysCell(data: BasicCell) {
 export function optionalIconCell(data: OptionalIcon) {
   return new Cell(CellOptionalIconComponent, data);
 }
-
-// // export function callbackCell(args: CallbackData<STRING_NUM>) {
-// //   return new Cell(CellCallbackButtonComponent, args);
-// // }
-//
-// // export function callbackIconCell(args: CallbackCell) {
-// //   return new Cell(CellCallbackIconComponent, args);
-// // }
-//
-// // export function daysCell(args: RequiredCellValue<STRING_NUM>) {
-// //   return new Cell(CellDaysComponent, args);
-// // }

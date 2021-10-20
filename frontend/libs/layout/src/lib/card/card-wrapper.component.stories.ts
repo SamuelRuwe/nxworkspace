@@ -17,7 +17,6 @@ const Template: Story<CardWrapperComponent> = (args: CardWrapperComponent) => ({
   props: args,
 });
 
-
 export const Primary = Template.bind({});
 Primary.args = {
     title:  '',

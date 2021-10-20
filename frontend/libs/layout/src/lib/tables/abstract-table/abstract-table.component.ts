@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ColumnModel } from '@nx-workspace/layout';
+import { ColumnModel } from './table';
 
 @Component({template: ``})
 export class AbstractTableComponent<T> implements OnInit {
