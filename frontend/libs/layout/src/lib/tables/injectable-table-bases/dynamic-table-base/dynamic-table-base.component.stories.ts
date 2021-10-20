@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { DynamicTableBaseComponent } from './dynamic-table-base.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Column, ColumnModel } from '../../../abstract-table/table';
+import { Column, ColumnModel } from '../../column.interface';
 import {
   callbackIconCell,
   dateCell,
@@ -10,8 +10,8 @@ import {
   optionalIconCell,
   simpleStringCell,
   stringCell
-} from '../../../cell/cell';
-import { LayoutModule } from '../../../layout.module';
+} from '../../cell/cell';
+import { TableModule } from '../../table.module';
 
 function log(data: string) {
   console.log(data);
@@ -46,7 +46,7 @@ const columns: Array<ColumnModel<element>> = [
   new Column({
     columnDef: 'name', header: 'Name', cell: ele => stringCell({value: ele.name}), isSortable: true
   }),
-  new Column({columnDef: 'expandedElement', header: 'Weight', cell: ele => simpleStringCell(ele.weight)}),
+  new Column({columnDef: 'weight', header: 'Weight', cell: ele => simpleStringCell(ele.weight)}),
   new Column({columnDef: 'symbol', header: 'Symbol', cell: ele => stringCell({value: ele.symbol})}),
   new Column({columnDef: 'ic', header: 'icon', cell: () => iconCell({icon: 'email'})}),
   new Column({
@@ -69,25 +69,16 @@ const columns: Array<ColumnModel<element>> = [
 ];
 
 export default {
-  title: 'DynamicTableComponent',
+  title: 'Dynamic Table Base',
   component: DynamicTableBaseComponent,
   decorators: [
     moduleMetadata({
-      imports: [LayoutModule, BrowserAnimationsModule],
+      imports: [TableModule, BrowserAnimationsModule]
     })
   ],
 } as Meta<DynamicTableBaseComponent<any>>;
 
-export const Primary = (args: any) => ({
-  props: args,
-  template: `<pg-layout-dynamic-table [elementData]="data" [columns]="columns"></pg-layout-dynamic-table>`
+export const Primary = () => ({
+  props: {data, columns},
+  template: `<pg-layout-dynamic-table-base [elementData]="data" [columns]="columns"></pg-layout-dynamic-table-base>`
 });
-
-Primary.args = {data, columns};
-
-export const Comments = (args: { data: Array<unknown>, columns: Array<ColumnModel<unknown>> }) => ({
-  props: args,
-  template: `<pg-layout-dynamic-table [elementData]="data" [columns]="columns"></pg-layout-dynamic-table>`
-});
-
-Comments.args = {data, columns};

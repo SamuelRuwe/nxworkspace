@@ -12,10 +12,4 @@ export default {
   ],
 } as Meta<InfoListComponent>;
 
-const Template: Story<InfoListComponent> = (args: InfoListComponent) => ({
-  props: args,
-  component: InfoListComponent
-});
-
-export const Primary = Template.bind({});
-Primary.args = {}
+export const Primary = () => ({});

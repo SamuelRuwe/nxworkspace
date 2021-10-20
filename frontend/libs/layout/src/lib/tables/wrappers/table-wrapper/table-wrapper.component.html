@@ -1,1 +1,8 @@
-<p>table-wrapper works!</p>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput #filter (keyup)="applyFilter(filter.value)" placeholder="example">
+</mat-form-field>
+
+<ng-content></ng-content>
+
+<mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>

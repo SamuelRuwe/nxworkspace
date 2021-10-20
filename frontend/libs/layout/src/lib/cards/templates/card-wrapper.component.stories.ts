@@ -1,13 +1,14 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { CardWrapperComponent } from './card-wrapper.component';
 import { CardModule } from '../card.module';
+import { MaterialModule } from '../../../../../material/src';
 
 export default {
   title: 'CardWrapperComponent',
   component: CardWrapperComponent,
   decorators: [
     moduleMetadata({
-      imports: [CardModule],
+      imports: [CardModule, MaterialModule],
     })
   ],
 } as Meta<CardWrapperComponent>;

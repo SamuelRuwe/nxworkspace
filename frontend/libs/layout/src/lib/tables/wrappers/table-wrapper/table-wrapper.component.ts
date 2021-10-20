@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ContentChild, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { TABLE, Table } from '@nx-workspace/layout';
 
@@ -8,11 +7,10 @@ import { TABLE, Table } from '@nx-workspace/layout';
   templateUrl: './table-wrapper.component.html',
   styleUrls: ['./table-wrapper.component.css']
 })
-export class TableWrapperComponent implements AfterViewInit {
+export class TableWrapperComponent<T> implements AfterViewInit {
 
-  @ViewChild(MatSort, {static: false}) sort!: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-  @ContentChild(TABLE, {static: true}) table!: Table;
+  @ContentChild(TABLE, {static: false}) table!: Table<T>;
 
   applyFilter(value: string) {
     this.table.dataSource.filter = value;
@@ -20,7 +18,6 @@ export class TableWrapperComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.table.dataSource.sort = this.sort;
     this.table.dataSource.paginator = this.paginator;
   }
 

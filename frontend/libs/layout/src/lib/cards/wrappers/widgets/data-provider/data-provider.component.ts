@@ -6,9 +6,7 @@ import { Widget } from '../../widget.interface';
   selector: 'pg-layout-data-provider [title]',
   templateUrl: './data-provider.component.html',
   styleUrls: ['./data-provider.component.css'],
-  providers: [
-    {provide: WIDGET, useExisting: DataProviderComponent}
-  ]
+  providers: [{provide: WIDGET, useExisting: DataProviderComponent}]
 })
 export class DataProviderComponent implements Widget {
 

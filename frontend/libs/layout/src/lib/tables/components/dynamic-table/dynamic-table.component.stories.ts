@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ExpandableTableBaseComponent } from './expandable-table-base.component';
 import { Column, ColumnModel } from '../../column.interface';
 import {
   callbackIconCell,
@@ -12,6 +11,7 @@ import {
   stringCell
 } from '../../cell/cell';
 import { TableModule } from '../../table.module';
+import { DynamicTableComponent } from './dynamic-table.component';
 
 function log(data: string) {
   console.log(data);
@@ -69,16 +69,16 @@ const columns: Array<ColumnModel<element>> = [
 ];
 
 export default {
-  title: 'Expandable Table Base',
-  component: ExpandableTableBaseComponent,
+  title: 'Dynamic Table',
+  component: DynamicTableComponent,
   decorators: [
     moduleMetadata({
       imports: [TableModule, BrowserAnimationsModule]
     })
   ],
-} as Meta<ExpandableTableBaseComponent<any>>;
+} as Meta<DynamicTableComponent<element>>;
 
 export const Primary = () => ({
   props: {data, columns},
-  template: `<pg-layout-expandable-table-base [elementData]="data" [columns]="columns"></pg-layout-expandable-table-base>`
+  template: `<pg-layout-dynamic-table [elementData]="data" [columns]="columns"></pg-layout-dynamic-table>`
 });

@@ -1,5 +1,5 @@
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface Table {
-  dataSource: MatTableDataSource<unknown>;
+export interface Table<T> {
+  dataSource: MatTableDataSource<T>;
 }
