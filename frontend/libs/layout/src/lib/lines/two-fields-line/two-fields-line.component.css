@@ -1,0 +1,8 @@
+.twoFields {
+  display: flex;
+  width: 100%;
+}
+
+.twoFields > * {
+  width: 50%;
+}

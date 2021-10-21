@@ -24,50 +24,35 @@
       }
     }
   },
-  "projects": {
-    "card-carousel": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "ngrx",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "card-carousel-e2e": {
-      "tags": [],
-      "implicitDependencies": ["card-carousel"]
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "forms": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "gameoflife": {
-      "tags": []
-    },
-    "layout": {
-      "tags": []
-    },
-    "material": {
-      "tags": []
-    },
-    "materialtheme": {
-      "tags": []
-    },
-    "matgrid": {
-      "tags": []
-    },
-    "mixins": {
-      "tags": []
-    },
-    "mixins-e2e": {
-      "tags": [],
-      "implicitDependencies": ["mixins"]
-    },
-    "ngrx": {
-      "tags": []
-    },
-    "routes": {
-      "tags": []
-    },
-    "utils": {
-      "tags": []
-    },
-    "wasm": {
-      "tags": []
+    "@nrwl/angular:component": {
+      "style": "css"
     }
   }
 }
