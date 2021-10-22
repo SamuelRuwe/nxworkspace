@@ -1,10 +1,12 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { expandedCellComponent } from '../../cell/cell';
 import { TableModule } from '../../table.module';
 import { InjectableComponentTableComponent } from './injectable-component-table.component';
 import { Component } from '@angular/core';
 import { CellBase } from '../../cell/cell.component';
+import { Cell } from '../../cell/cell';
+import { LinesModule } from '../../../lines/lines.module';
+import { ExpansionPanelModule } from '../../../expansion-panels/expansion-panel.module';
 
 @Component({
   template: `
@@ -22,10 +24,13 @@ import { CellBase } from '../../cell/cell.component';
         augue ex, volutpat id ultrices eget, vehicula a libero. Integer feugiat aliquet accumsan. Vestibulum vel commodo
         eros, at ultricies tellus. Fusce quis rhoncus urna, in tempor arcu.</p>
     </pg-layout-expansion-panel>
-  `,
-  styleUrls: ['./cell.component.css']
+  `
 })
 class ExpandedCellComponent<T> extends CellBase<any> {}
+
+function expandedCellComponent(data: any) {
+  return new Cell(ExpandedCellComponent, data);
+}
 
 type element = { position: number, name: string, weight: number, symbol: string }
 const data = [
@@ -57,11 +62,11 @@ const rowGenerator = (element: element) => expandedCellComponent({
 });
 
 export default {
-  title: 'Table Template',
+  title: 'Table with Component Injection',
   component: InjectableComponentTableComponent,
   decorators: [
     moduleMetadata({
-      imports: [TableModule, BrowserAnimationsModule],
+      imports: [TableModule, BrowserAnimationsModule, LinesModule, ExpansionPanelModule],
       declarations: [ExpandedCellComponent]
     })
   ],

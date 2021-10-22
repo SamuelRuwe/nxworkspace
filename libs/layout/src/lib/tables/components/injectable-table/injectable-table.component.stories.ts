@@ -4,10 +4,11 @@ import { TableModule } from '../../table.module';
 import { InjectableTableComponent } from './injectable-table.component';
 import { Component } from '@angular/core';
 import { CellBase } from '../../cell/cell.component';
-import { expandedCellComponent } from '../../cell/cell';
+import { Cell } from '../../cell/cell';
+import { LinesModule } from '../../../lines/lines.module';
+import { ExpansionPanelModule } from '../../../expansion-panels/expansion-panel.module';
 
 type element = { position: number, name: string, weight: number, symbol: string }
-const dateTimeExamples = ["2021-10-13T13:53:39.000+00:00", "2021-10-13T13:54:39.000+00:00", "2021-10-13T13:55:39.000+00:00"];
 
 @Component({
   template: `
@@ -26,9 +27,8 @@ const dateTimeExamples = ["2021-10-13T13:53:39.000+00:00", "2021-10-13T13:54:39.
         eros, at ultricies tellus. Fusce quis rhoncus urna, in tempor arcu.</p>
     </pg-layout-expansion-panel>
   `,
-  styleUrls: ['./cell.component.css']
 })
-export class ExpandedCellComponent<T> extends CellBase<any> {}
+class ExpandedCellComponent extends CellBase<any> {}
 
 const data = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -53,23 +53,27 @@ const data = [
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ]
 
-export default {
-  title: 'Injectable Table with Wrapper',
-  component: InjectableTableComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [TableModule, BrowserAnimationsModule],
-      declarations: [ExpandedCellComponent]
-    })
-  ],
-} as Meta<InjectableTableComponent<element>>;
+function expandedCellComponent(data: any) {
+  return new Cell(ExpandedCellComponent, data);
+}
 
 const rowGenerator = (element: element) => expandedCellComponent({
   data1: {field: 'Name', value: element.name},
   data2: {field: 'Symbol', value: element.symbol}
 });
 
+export default {
+  title: 'Injectable Table with Wrapper',
+  component: InjectableTableComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [TableModule, BrowserAnimationsModule, LinesModule, ExpansionPanelModule],
+      declarations: [ExpandedCellComponent]
+    })
+  ],
+} as Meta<InjectableTableComponent<element>>;
+
 export const Primary = () => ({
   props: {data, rowGenerator},
-  template: `<pg-layout-injectable-table [elementData]="data" [rowGenerator]="rowGenerator"></pg-layout-injectable-table-table>`
+  template: `<pg-layout-injectable-table [elementData]="data" [rowGenerator]="rowGenerator"></pg-layout-injectable-table>`
 });

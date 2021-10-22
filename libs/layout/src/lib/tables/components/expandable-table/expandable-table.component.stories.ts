@@ -78,7 +78,9 @@ export default {
   ],
 } as Meta<ExpandableTableComponent<element>>;
 
+const expandedRowGenerator = (element: any) => stringCell({value: element.name});
+
 export const Primary = () => ({
-  props: {data, columns},
-  template: `<pg-layout-expandable-table [elementData]="data" [columns]="columns"></pg-layout-expandable-table>`
+  props: {data, columns, expandedRowGenerator},
+  template: `<pg-layout-expandable-table [elementData]="data" [columns]="columns" [expandedRowGenerator]="expandedRowGenerator"></pg-layout-expandable-table>`
 });

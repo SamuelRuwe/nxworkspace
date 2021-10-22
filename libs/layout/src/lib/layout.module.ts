@@ -3,16 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { RouterModule } from '@angular/router';
-import { CarouselComponent } from './carousel/carousel.component';
-import { CarouselItemDirective } from './carousel/carousel-item.directive';
-import { CarouselItemElementDirective } from './carousel/carousel-item-element.directive';
-import { ExpansionPanelsComponent } from './expansion-panels/expansion-panels.component';
-import { CarouselWrapperComponent } from './carousel-wrapper/carousel-wrapper.component';
-import { CarouselItemComponent } from './carousel-wrapper/carousel-item/carousel-item.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TableModule } from './tables/table.module';
 import { ListModule } from './lists/list.module';
 import { CardModule } from './cards/card.module';
+import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module';
 
 @NgModule({
   imports: [
@@ -21,28 +16,20 @@ import { CardModule } from './cards/card.module';
     RouterModule,
     TableModule,
     ListModule,
-    CardModule
+    CardModule,
+    ExpansionPanelModule
   ],
   declarations: [
     NavbarComponent,
-    CarouselItemDirective,
-    CarouselItemElementDirective,
-    CarouselComponent,
-    ExpansionPanelsComponent,
-    CarouselWrapperComponent,
-    CarouselItemComponent,
-    TabsComponent
+    TabsComponent,
   ],
   exports: [
     NavbarComponent,
-    CarouselItemDirective,
-    CarouselItemElementDirective,
-    CarouselComponent,
-    ExpansionPanelsComponent,
     TableModule,
     ListModule,
     CardModule,
     TabsComponent,
+    ExpansionPanelModule
   ]
 })
 export class LayoutModule {}

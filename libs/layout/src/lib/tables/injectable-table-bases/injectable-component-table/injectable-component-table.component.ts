@@ -5,8 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'pg-layout-component-injectable-table',
-  templateUrl: './table-template.component.html',
-  styleUrls: ['./table-template.component.css'],
+  templateUrl: './injectable-component-table.component.html',
+  styleUrls: ['./injectable-component-table.component.css'],
   providers: [{provide: TABLE, useExisting: InjectableComponentTableComponent}]
 })
 export class InjectableComponentTableComponent<T> implements OnInit, AfterViewInit, Table<T> {
