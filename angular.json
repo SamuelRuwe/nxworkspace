@@ -87,6 +87,7 @@
               "apps/gameoflife/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "apps/gameoflife/src/styles.css"
             ],
             "scripts": []

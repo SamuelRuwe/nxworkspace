@@ -11,8 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   private static getUrl() {
-    return 'http://localhost:8080/user';
-    // return `${environment.userEndpoint}`;
+    return `${environment.userEndpoint}`;
   }
 
   addUser(user: UserModel) {

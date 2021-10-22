@@ -10,7 +10,7 @@ import { TABLE, Table } from '@nx-workspace/layout';
 export class TableWrapperComponent<T> implements AfterViewInit {
 
   @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
-  @ContentChild(TABLE, {static: false}) table!: Table<T>;
+  @ContentChild(TABLE, {static: true}) table!: Table<T>;
 
   applyFilter(value: string) {
     this.table.dataSource.filter = value;

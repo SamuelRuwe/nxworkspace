@@ -7,6 +7,7 @@ import { CellComponent } from './cell/cell.component';
 import { BoardComponent } from './board/board.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, CellComponent, BoardComponent],
@@ -15,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
         RouterModule.forRoot([], {initialNavigation: 'enabled'}),
         MatGridListModule,
         MatIconModule,
+        BrowserAnimationsModule,
     ],
   bootstrap: [AppComponent],
 })
