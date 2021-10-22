@@ -1,4 +1,8 @@
 module.exports = {
   stories: [],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-measure'],
+  addons: [
+    '@storybook/addon-essentials', 
+    '@storybook/addon-measure', 
+    'storybook-dark-mode'
+  ],
 };
