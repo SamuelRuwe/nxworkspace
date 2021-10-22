@@ -22,7 +22,7 @@ export class CellDateComponent extends CellBase<DateCell> {}
 
 @Component({
   template: `
-<!--    <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>-->
+    <!--    <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>-->
   `,
   styleUrls: ['./cell.component.css']
 })
@@ -30,14 +30,13 @@ export class CellCallbackButtonComponent extends CellBase<CallbackCell> {}
 
 @Component({
   template: `
-     <button mat-raised-button color="primary" (click)="data.callback(data.returnValue)">
-       <mat-icon>{{data.icon}}</mat-icon>
-     </button>
+    <button mat-raised-button color="primary" (click)="data.callback(data.returnValue)">
+      <mat-icon>{{data.icon}}</mat-icon>
+    </button>
   `,
   styleUrls: ['./cell.component.css']
 })
 export class CellCallbackIconComponent extends CellBase<CallbackIconCell> {}
-
 
 @Component({
   template: `{{data.value | days}}`,
@@ -46,13 +45,9 @@ export class CellCallbackIconComponent extends CellBase<CallbackIconCell> {}
 export class CellDaysComponent extends CellBase<DateCell> {}
 
 @Component({
-  template: `<mat-icon *ngIf="data.shouldDisplay">{{data.icon}}</mat-icon>`,
+  template: `
+    <mat-icon *ngIf="data.shouldDisplay">{{data.icon}}</mat-icon>`,
   styleUrls: ['./cell.component.css']
 })
 export class CellOptionalIconComponent extends CellBase<OptionalIcon> {}
 
-@Component({
-  template: ``,
-  styleUrls: ['./cell.component.css']
-})
-export class ExpandedCellComponent<T> extends CellBase<T> {}

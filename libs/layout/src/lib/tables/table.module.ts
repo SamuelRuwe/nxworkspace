@@ -13,12 +13,15 @@ import {
   CellDaysComponent,
   CellIconComponent,
   CellOptionalIconComponent,
-  ExpandedCellComponent
 } from './cell/cell.component';
 import { CellHostDirective } from './cell/cell-host.directive';
 import { TableWrapperComponent } from './wrappers/table-wrapper/table-wrapper.component';
 import { AbstractTableComponent } from './abstract-table/abstract-table.component';
 import { UtilsModule } from '@nx-workspace/utils';
+import { ListModule } from '../lists/list.module';
+import { LinesModule } from '../lines/lines.module';
+import { InjectableComponentTableComponent } from './injectable-table-bases/injectable-component-table/injectable-component-table.component';
+import { InjectableTableComponent } from './components/injectable-table/injectable-table.component';
 
 @NgModule({
   declarations: [
@@ -36,18 +39,23 @@ import { UtilsModule } from '@nx-workspace/utils';
     CellHostDirective,
     TableWrapperComponent,
     AbstractTableComponent,
-    ExpandedCellComponent
+    InjectableComponentTableComponent,
+    InjectableTableComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    UtilsModule
+    UtilsModule,
+    ListModule,
+    LinesModule
   ],
   exports: [
     DynamicTableComponent,
     ExpandableTableComponent,
     DynamicTableBaseComponent,
-    ExpandableTableBaseComponent
+    ExpandableTableBaseComponent,
+    InjectableComponentTableComponent,
+    InjectableTableComponent
   ]
 })
 export class TableModule {}

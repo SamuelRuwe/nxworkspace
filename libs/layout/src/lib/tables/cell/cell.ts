@@ -4,7 +4,8 @@ import {
   CellComponent,
   CellDateComponent,
   CellDaysComponent,
-  CellIconComponent, CellOptionalIconComponent
+  CellIconComponent,
+  CellOptionalIconComponent
 } from './cell.component';
 
 export type STRING_NUM = string | number;
