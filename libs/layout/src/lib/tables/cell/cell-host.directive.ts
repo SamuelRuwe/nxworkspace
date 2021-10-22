@@ -1,12 +1,4 @@
-import {
-  ComponentFactory,
-  ComponentFactoryResolver,
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
-  ViewContainerRef
-} from '@angular/core';
+import { ComponentFactory, ComponentFactoryResolver, Directive, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { Cell } from './cell';
 
 @Directive({
@@ -17,7 +9,7 @@ export class CellHostDirective<T> implements OnInit {
   private factory!: ComponentFactory<any>;
   @Input() cell!: Cell<T>;
 
-  constructor(public viewContainerRef: ViewContainerRef, public el: ElementRef, private resolver: ComponentFactoryResolver) {}
+  constructor(public viewContainerRef: ViewContainerRef, private resolver: ComponentFactoryResolver) {}
 
   ngOnInit(): void {
     this.factory = this.resolver.resolveComponentFactory(this.cell.component);

@@ -12,7 +12,8 @@ import {
   CellDateComponent,
   CellDaysComponent,
   CellIconComponent,
-  CellOptionalIconComponent
+  CellOptionalIconComponent,
+  ExpandedCellComponent
 } from './cell/cell.component';
 import { CellHostDirective } from './cell/cell-host.directive';
 import { TableWrapperComponent } from './wrappers/table-wrapper/table-wrapper.component';
@@ -34,7 +35,8 @@ import { UtilsModule } from '@nx-workspace/utils';
     CellOptionalIconComponent,
     CellHostDirective,
     TableWrapperComponent,
-    AbstractTableComponent
+    AbstractTableComponent,
+    ExpandedCellComponent
   ],
   imports: [
     CommonModule,

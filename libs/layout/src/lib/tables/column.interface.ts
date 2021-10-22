@@ -6,10 +6,10 @@ export interface ColumnModel<T> {
 }
 
 export class Column<T> implements ColumnModel<T> {
-  columnDef: string;
-  header: string;
-  cell: (arg?: T) => any;
-  isSortable: boolean;
+  columnDef: ColumnModel<T>['columnDef'];
+  header: ColumnModel<T>['header'];
+  cell: ColumnModel<T>['cell'];
+  isSortable: ColumnModel<T>['isSortable'];
 
   constructor(opts: ColumnModel<T>) {
     this.columnDef = opts.columnDef;
@@ -19,3 +19,5 @@ export class Column<T> implements ColumnModel<T> {
   }
 
 }
+
+export type ExpandedRowGenerator<T> = (arg: T) => any;

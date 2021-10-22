@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
 import { MatSort } from '@angular/material/sort';
-import { TABLE } from '@nx-workspace/layout';
+import { ExpandedRowGenerator, TABLE } from '@nx-workspace/layout';
 
 @Component({
   selector: 'pg-layout-expandable-table-base [elementData] [columns]',
@@ -18,6 +18,7 @@ import { TABLE } from '@nx-workspace/layout';
 })
 export class ExpandableTableBaseComponent<T> extends AbstractTableComponent<T> implements AfterViewInit {
   expandedElement!: T;
+  @Input() expandedRowGenerator!: ExpandedRowGenerator<T>;
 
   @ViewChild(MatSort, {static: false}) sort!: MatSort;
 

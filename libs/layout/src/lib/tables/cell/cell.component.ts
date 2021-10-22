@@ -50,3 +50,9 @@ export class CellDaysComponent extends CellBase<DateCell> {}
   styleUrls: ['./cell.component.css']
 })
 export class CellOptionalIconComponent extends CellBase<OptionalIcon> {}
+
+@Component({
+  template: ``,
+  styleUrls: ['./cell.component.css']
+})
+export class ExpandedCellComponent<T> extends CellBase<T> {}
