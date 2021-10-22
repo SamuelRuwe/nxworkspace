@@ -14,7 +14,7 @@ import { MatSort } from '@angular/material/sort';
       state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ])],
-  providers: [{provide: TABLE, useExisting: ExpandableTableBaseComponent}]
+  // providers: [{provide: TABLE, useExisting: ExpandableTableBaseComponent}]
 })
 export class ExpandableTableBaseComponent<T> extends AbstractTableComponent<T> implements AfterViewInit {
   expandedElement!: T;
