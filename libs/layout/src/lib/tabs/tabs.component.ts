@@ -2,8 +2,8 @@ import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewEnca
 import { TabsDirective } from './tabs.directive';
 import { Tab } from './tab';
 import { TabComponent } from './tab.component';
-import { AComponent } from './testcomponents/a.component';
-import { BComponent } from './testcomponents/b.component';
+import { AComponent } from './test-components/a.component';
+import { BComponent } from './test-components/b.component';
 
 @Component({
   selector: 'pg-layout-tabs',
@@ -15,34 +15,32 @@ import { BComponent } from './testcomponents/b.component';
 export class TabsComponent implements OnInit {
 
   @Input() tabs: Tab[] = [
-    new Tab("tAb", AComponent),
-    new Tab("taB", BComponent)
+    new Tab("A", AComponent),
+    new Tab("B", BComponent)
   ];
   
   @ViewChild(TabsDirective, {static: true}) tabsHost!: TabsDirective;
 
+
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
-    this.loadTabComponent();
+    if (this.tabs.length) this.loadTabComponent();
   }
+
 
   loadTabComponent(eventData?: number) {
 
-    let currentTab;
+    const currentTab = eventData ? this.tabs[eventData] : this.tabs[0];
     
-    if (eventData) {
-      currentTab = this.tabs[eventData];
-      
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentTab.component);
-      
-      const viewContainerRef = this.tabsHost.viewContainerRef;
-      viewContainerRef.clear();
-      
-      const componentRef = viewContainerRef.createComponent<TabComponent>(componentFactory);
-      componentRef.instance.label = currentTab.label;
-      componentRef.instance.component = currentTab.component;
-    }
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentTab.component);  
+    const viewContainerRef = this.tabsHost.viewContainerRef;
+    viewContainerRef.clear();
+    
+    const componentRef = viewContainerRef.createComponent<TabComponent>(componentFactory);
+    componentRef.instance.label = currentTab.label;
+    componentRef.instance.component = currentTab.component;
+    
   }
 
 }

@@ -1,11 +1,4 @@
-<!-- <mat-tab-group dynamicHeight color="green" backgroundColor=""> -->
 <mat-tab-group dynamicHeight disableRipple="true" color="disablesTheBar" (selectedIndexChange)="loadTabComponent($event)">
-    <mat-tab *ngFor="let tab of this.tabs" label="{{ tab.label }}">
-        <ng-template tabsHost></ng-template>
-    </mat-tab>
-    <!-- <mat-tab label="Users"> Content 1 </mat-tab>
-    <mat-tab label="Groups"> Content 2 </mat-tab>
-    <mat-tab label="Fees"> Content 3 </mat-tab>
-    <mat-tab label="Client"> Content 4 </mat-tab>
-    <mat-tab label="Content"> Content 5 </mat-tab> -->
+    <mat-tab *ngFor="let tab of this.tabs" label="{{ tab.label }}"></mat-tab>
 </mat-tab-group>
+<ng-template tabsHost></ng-template>

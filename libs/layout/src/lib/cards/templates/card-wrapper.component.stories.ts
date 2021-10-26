@@ -1,10 +1,10 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { moduleMetadata, Meta } from '@storybook/angular';
 import { CardWrapperComponent } from './card-wrapper.component';
 import { CardModule } from '../card.module';
-import { MaterialModule } from '../../../../../material/src';
+import { MaterialModule } from '@nx-workspace/material';
 
 export default {
-  title: 'CardWrapperComponent',
+  title: 'cards/Card Wrapper',
   component: CardWrapperComponent,
   decorators: [
     moduleMetadata({
@@ -13,12 +13,6 @@ export default {
   ],
 } as Meta<CardWrapperComponent>;
 
-const Template: Story<CardWrapperComponent> = (args: CardWrapperComponent) => ({
-  component: CardWrapperComponent,
-  props: args,
+export const Primary = () => ({ 
+  props: { title: `I'm a card :D` }
 });
-
-export const Primary = Template.bind({});
-Primary.args = {
-    title:  '',
-}

@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { RouterModule } from '@angular/router';
-import { TabsComponent } from './tabs/tabs.component';
 import { TableModule } from './tables/table.module';
 import { ListModule } from './lists/list.module';
 import { CardModule } from './cards/card.module';
 import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module';
-import { TabsDirective } from './tabs/tabs.directive';
+import { TabModule } from './tabs/tab.module';
 
 @NgModule({
   imports: [
@@ -18,20 +17,18 @@ import { TabsDirective } from './tabs/tabs.directive';
     TableModule,
     ListModule,
     CardModule,
-    ExpansionPanelModule
+    ExpansionPanelModule,
   ],
   declarations: [
     NavbarComponent,
-    TabsComponent,
-    TabsDirective
   ],
   exports: [
     NavbarComponent,
     TableModule,
     ListModule,
     CardModule,
-    TabsComponent,
-    ExpansionPanelModule
+    ExpansionPanelModule,
+    TabModule
   ]
 })
 export class LayoutModule {}
