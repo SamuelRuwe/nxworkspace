@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { TabsComponent } from './tabs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../../../../material/src';
+import { MaterialModule } from '@nx-workspace/material';
 
 export default {
   title: 'Tabs Component',

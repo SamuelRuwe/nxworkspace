@@ -8,6 +8,7 @@ import { TableModule } from './tables/table.module';
 import { ListModule } from './lists/list.module';
 import { CardModule } from './cards/card.module';
 import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module';
+import { TabsDirective } from './tabs/tabs.directive';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module'
   declarations: [
     NavbarComponent,
     TabsComponent,
+    TabsDirective
   ],
   exports: [
     NavbarComponent,
