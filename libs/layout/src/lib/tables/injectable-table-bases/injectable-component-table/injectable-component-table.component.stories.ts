@@ -17,12 +17,12 @@ import { ExpansionPanelModule } from '../../../expansion-panels/expansion-panel.
       <pg-layout-two-fields-line [data1]="data.data1" [data2]="data.data2" content></pg-layout-two-fields-line>
       <pg-layout-two-fields-line [data1]="data.data1" [data2]="data.data2" content></pg-layout-two-fields-line>
       <pg-layout-two-fields-line [data1]="data.data1" [data2]="data.data2" content></pg-layout-two-fields-line>
-      <p content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan porttitor enim et porta.
-        Donec magna turpis, fermentum quis diam sed, tempus molestie velit. Vivamus sollicitudin elementum lacus non
-        pellentesque. Phasellus posuere orci nibh, vel sodales massa efficitur quis. Maecenas fringilla orci ac nulla
-        sollicitudin lobortis. Donec rhoncus turpis sit amet dui iaculis scelerisque. Donec ac dictum lacus. Praesent
-        augue ex, volutpat id ultrices eget, vehicula a libero. Integer feugiat aliquet accumsan. Vestibulum vel commodo
-        eros, at ultricies tellus. Fusce quis rhoncus urna, in tempor arcu.</p>
+<!--      <p content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan porttitor enim et porta.-->
+<!--        Donec magna turpis, fermentum quis diam sed, tempus molestie velit. Vivamus sollicitudin elementum lacus non-->
+<!--        pellentesque. Phasellus posuere orci nibh, vel sodales massa efficitur quis. Maecenas fringilla orci ac nulla-->
+<!--        sollicitudin lobortis. Donec rhoncus turpis sit amet dui iaculis scelerisque. Donec ac dictum lacus. Praesent-->
+<!--        augue ex, volutpat id ultrices eget, vehicula a libero. Integer feugiat aliquet accumsan. Vestibulum vel commodo-->
+<!--        eros, at ultricies tellus. Fusce quis rhoncus urna, in tempor arcu.</p>-->
     </pg-layout-expansion-panel>
   `
 })

@@ -1,4 +1,4 @@
-<mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8" multiTemplateDataRows>
+<table mat-table *ngIf="dataSource" [dataSource]="dataSource" matSort class="mat-elevation-z8" multiTemplateDataRows>
 
   <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
     <mat-header-cell mat-sort-header [disabled]="!column.isSortable"
@@ -26,4 +26,4 @@
   </mat-row>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 
-</mat-table>
+</table>
