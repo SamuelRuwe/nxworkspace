@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ExpandedRowGenerator, Table, TABLE } from '@nx-workspace/layout';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { TABLE } from '../../table.token';
+import { Table } from '../../table.interface';
+import { ExpandedRowGenerator } from '../../column.interface';
 
 @Component({
   selector: 'pg-layout-component-injectable-table',
@@ -18,10 +20,10 @@ export class InjectableComponentTableComponent<T> implements OnInit, AfterViewIn
 
   ngOnInit(): void {
     this.validateInput();
-    this.dataSource = new MatTableDataSource<T>(this.elementData);
   }
 
   ngAfterViewInit() {
+    this.dataSource = new MatTableDataSource<T>(this.elementData);
     this.dataSource.sort = this.sort;
   }
 

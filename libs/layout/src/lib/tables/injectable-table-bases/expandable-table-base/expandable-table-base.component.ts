@@ -2,7 +2,8 @@ import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
 import { MatSort } from '@angular/material/sort';
-import { ExpandedRowGenerator, TABLE } from '@nx-workspace/layout';
+import { TABLE } from '../../table.token';
+import { ExpandedRowGenerator } from '../../column.interface';
 
 @Component({
   selector: 'pg-layout-expandable-table-base [elementData] [columns]',

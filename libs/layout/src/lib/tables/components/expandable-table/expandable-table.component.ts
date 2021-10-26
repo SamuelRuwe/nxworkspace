@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
-import { ExpandedRowGenerator } from '@nx-workspace/layout';
+import { ExpandedRowGenerator } from '../../column.interface';
 
 @Component({
   selector: 'pg-layout-expandable-table',

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { TABLE } from '@nx-workspace/layout';
+import { TABLE } from '../../table.token';
 import { AbstractTableComponent } from '../../abstract-table/abstract-table.component';
 import { MatSort } from '@angular/material/sort';
 

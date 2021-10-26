@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BasicCell, CallbackCell, CallbackIconCell, DateCell, IconCell, OptionalIcon } from './cell';
+import { BasicCell, CallbackIconCell, DateCell, IconCell, OptionalIcon } from './cell';
 
 export class CellBase<T> {data!: T}
 
@@ -19,14 +19,6 @@ export class CellIconComponent extends CellBase<IconCell> {}
   styleUrls: ['./cell.component.css']
 })
 export class CellDateComponent extends CellBase<DateCell> {}
-
-@Component({
-  template: `
-    <!--    <button mat-raised-button color="primary" (click)="callback()">{{data.value}}</button>-->
-  `,
-  styleUrls: ['./cell.component.css']
-})
-export class CellCallbackButtonComponent extends CellBase<CallbackCell> {}
 
 @Component({
   template: `

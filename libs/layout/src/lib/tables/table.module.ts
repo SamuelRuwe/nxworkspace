@@ -6,7 +6,6 @@ import { DynamicTableBaseComponent } from './injectable-table-bases/dynamic-tabl
 import { ExpandableTableBaseComponent } from './injectable-table-bases/expandable-table-base/expandable-table-base.component';
 import { MaterialModule } from '@nx-workspace/material';
 import {
-  CellCallbackButtonComponent,
   CellCallbackIconComponent,
   CellComponent,
   CellDateComponent,
@@ -32,7 +31,6 @@ import { InjectableTableComponent } from './components/injectable-table/injectab
     CellComponent,
     CellIconComponent,
     CellDateComponent,
-    CellCallbackButtonComponent,
     CellCallbackIconComponent,
     CellDaysComponent,
     CellOptionalIconComponent,
