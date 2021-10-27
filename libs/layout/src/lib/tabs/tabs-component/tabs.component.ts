@@ -1,16 +1,16 @@
 import { Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TabsDirective } from './tabs.directive';
-import { TabInterface } from '../tab';
+import { TabData, TabInterface } from '../tab';
 
 @Component({
   selector: 'pg-layout-tabs [tabs]',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css'],
+  styleUrls: ['./tabs.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent<T> implements OnInit {
 
-  @Input() tabs!: TabInterface[];
+  @Input() tabs!: Array<TabInterface<T>>;
 
   @ViewChild(TabsDirective, {static: true}) tabsHost!: TabsDirective;
 
@@ -22,12 +22,20 @@ export class TabsComponent implements OnInit {
 
   loadTabComponent(eventData: number) {
 
-    const currentTab = eventData ? this.tabs[eventData] : this.tabs[0];
+    if (eventData >= this.tabs.length || eventData < 0) return;
+    const currentTab = this.tabs[eventData];
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(currentTab.component);
     const viewContainerRef = this.tabsHost.viewContainerRef;
     viewContainerRef.clear();
-    viewContainerRef.createComponent<TabInterface>(componentFactory);
+
+    const componentRef = viewContainerRef.createComponent<TabData<T>>(componentFactory);
+
+    if (!currentTab.data || !componentRef.instance) return;
+
+    for (const [key, value] of Object.entries(currentTab.data)) {
+      componentRef.instance[key] = value;
+    }
   }
 
 }

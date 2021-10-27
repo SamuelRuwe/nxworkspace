@@ -16,7 +16,7 @@ export default {
       declarations: [TabsDirective]
     })
   ],
-} as Meta<TabsComponent>;
+} as Meta<TabsComponent<any>>;
 
 const tabs = [
   new Tab("A", AComponent),
