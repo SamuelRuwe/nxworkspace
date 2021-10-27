@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TabsComponent } from './tabs.component';
-import { TabsDirective } from './tabs.directive';
 import { MaterialModule } from '@nx-workspace/material';
-
-
+import { TabsComponent } from './tabs-component/tabs.component';
+import { TabsDirective } from './tabs-component/tabs.directive';
 
 @NgModule({
   declarations: [
@@ -20,4 +18,4 @@ import { MaterialModule } from '@nx-workspace/material';
   ]
 
 })
-export class TabModule { }
+export class TabModule {}
