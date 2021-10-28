@@ -1,3 +1,4 @@
 export { DropdownModule } from './dropdown.module';
-export { DropdownComponent } from './dropdown.component';
+export { BasicDropdownComponent } from './components/basic-dropdown/basic-dropdown.component';
+export * from './dropdown.interface';
 export * from './common-fields/states';

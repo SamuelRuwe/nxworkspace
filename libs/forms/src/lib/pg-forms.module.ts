@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DropdownModule } from './dropdown';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, DropdownModule],
   declarations: [],
   exports: [DropdownModule]
 })
-export class FormsModule {}
+export class PGFormsModule {}
