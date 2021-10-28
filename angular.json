@@ -5,7 +5,7 @@
       "projectType": "library",
       "root": "libs/forms",
       "sourceRoot": "libs/forms/src",
-      "prefix": "nx-workspace",
+      "prefix": "pg-forms",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -370,7 +370,7 @@
       "projectType": "library",
       "root": "libs/utils",
       "sourceRoot": "libs/utils/src",
-      "prefix": "nx-workspace",
+      "prefix": "pg-utils",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",

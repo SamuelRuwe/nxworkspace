@@ -1,0 +1,13 @@
+<mat-form-field class="full-width">
+
+  <mat-select [placeholder]="placeholder" [formControl]="control">
+    <ng-container *ngFor="let opt of options">
+      <mat-option [value]="opt.key">{{opt.value}}</mat-option>
+    </ng-container>
+  </mat-select>
+
+  <mat-error *ngIf="control.hasError('required')">
+    {{placeholder}} is <strong>required</strong>
+  </mat-error>
+
+</mat-form-field>

@@ -14,4 +14,4 @@ export default {
 } as Meta<DropdownFormComponent>;
 
 export const Primary = () => ({});
-Primary.parameters = { component: DropdownFormComponent }
+// Primary.parameters = { component: DropdownFormComponent }
