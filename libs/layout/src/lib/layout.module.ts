@@ -8,6 +8,7 @@ import { ListModule } from './lists/list.module';
 import { CardModule } from './cards/card.module';
 import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module';
 import { TabModule } from './tabs/tab.module';
+import { DropdownFormComponent } from './dropdown-form/dropdown-form.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { TabModule } from './tabs/tab.module';
   ],
   declarations: [
     NavbarComponent,
+    DropdownFormComponent,
   ],
   exports: [
     NavbarComponent,
