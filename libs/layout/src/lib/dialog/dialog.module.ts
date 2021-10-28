@@ -6,11 +6,13 @@ import { PGFormsModule } from '@nx-workspace/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicDialogComponent } from './dynamic-dialog/dynamic-dialog.component';
 
 @NgModule({
   declarations: [
     BasicDialogComponent,
-    OpenDialogComponent
+    OpenDialogComponent,
+    DynamicDialogComponent
   ],
   imports: [
     CommonModule,

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { BasicDropdownComponent } from '@nx-workspace/forms';
-import { DropdownOptions } from '@nx-workspace/forms';
+import { BasicDropdownComponent, DropdownOptions } from '@nx-workspace/forms';
+import { DynamicDialogComponent } from '../../dynamic-dialog/dynamic-dialog.component';
 
 @Component({
   selector: 'pg-layout-open-dialog',
@@ -33,4 +33,15 @@ export class OpenDialogComponent {
     });
   }
 
+  showForm2ElectricBoogaloo() {
+    const dialogRef = this.dialog.open(DynamicDialogComponent, {
+      data: {
+        component: BasicDropdownComponent,
+        placeholder: this.placeholder,
+        control: this.control,
+        options: this.options
+      }
+    });
+
+  }
 }
