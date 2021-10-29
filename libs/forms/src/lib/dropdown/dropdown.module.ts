@@ -14,5 +14,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [BasicDropdownComponent]
 })
-export class DropdownModule {
-}
+export class DropdownModule {}

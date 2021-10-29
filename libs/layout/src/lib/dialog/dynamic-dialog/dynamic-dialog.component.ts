@@ -8,8 +8,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DynamicDialogData } from './dynamic-dialog.interface';
+import { map, take } from 'rxjs';
 
 @Component({
   templateUrl: './dynamic-dialog.component.html',
@@ -22,6 +23,7 @@ export class DynamicDialogComponent<T> implements OnInit, OnDestroy {
   componentRef!: ComponentRef<any>;
 
   constructor(private resolver: ComponentFactoryResolver,
+              public dialogRef: MatDialogRef<DynamicDialogComponent<any>>,
               @Inject(MAT_DIALOG_DATA) public data: DynamicDialogData<T>) {}
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class DynamicDialogComponent<T> implements OnInit, OnDestroy {
     Object.keys(this.data)
       .filter(key => key !== 'component')
       .forEach(key => instance[key] = this.data[key]);
+    instance.close$.pipe(take(1), map((evt) => this.dialogRef.close(evt))).subscribe();
   }
 
   ngOnDestroy() {

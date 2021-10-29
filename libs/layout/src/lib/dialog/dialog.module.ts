@@ -12,7 +12,7 @@ import { DynamicDialogComponent } from './dynamic-dialog/dynamic-dialog.componen
   declarations: [
     BasicDialogComponent,
     OpenDialogComponent,
-    DynamicDialogComponent
+    DynamicDialogComponent,
   ],
   imports: [
     CommonModule,

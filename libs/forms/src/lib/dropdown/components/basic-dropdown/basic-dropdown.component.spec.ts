@@ -1,25 +1,41 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { BasicDropdownComponent } from './basic-dropdown.component';
+import { render, screen } from '@testing-library/angular';
+import { Primary } from './basic-dropdown.component.stories';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@nx-workspace/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//
+// describe('SelectComponent', () => {
+//   let component: BasicDropdownComponent;
+//   let fixture: ComponentFixture<BasicDropdownComponent>;
+//
+//   beforeEach(waitForAsync(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [BasicDropdownComponent],
+//       imports: [BrowserAnimationsModule, MaterialModule, FormsModule, ReactiveFormsModule]
+//     })
+//       .compileComponents();
+//   }));
+//
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(BasicDropdownComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
+//
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
 
-import {DropdownComponent} from './dropdown.component';
-
-describe('SelectComponent', () => {
-  let component: DropdownComponent;
-  let fixture: ComponentFixture<DropdownComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [DropdownComponent]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DropdownComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+test('renders the button in the primary state ', async () => {
+  await render(BasicDropdownComponent, {
+    imports: [BrowserAnimationsModule, MaterialModule, FormsModule, ReactiveFormsModule],
+    componentProperties: Primary.args,
   });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  console.log(screen.queryAllByText('Select a thing').length);
+  expect(screen.queryAllByText('Select a thing').length);
+  // fireEvent.click(screen.getByText('Select a thing'));
+  // console.log(screen);
+  // expect(screen.getByRole('button').classList.contains('storybook-button--primary')).toBeTruthy();
 });

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { BasicDropdownComponent, DropdownOptions } from '@nx-workspace/forms';
-import { DynamicDialogComponent } from '../../dynamic-dialog/dynamic-dialog.component';
+import { DynamicDialogService } from '../../services/dynamic-dialog.service';
+import { ExampleComponent } from '../../../forms/components/example/example.component';
 
 @Component({
   selector: 'pg-layout-open-dialog',
@@ -11,36 +11,22 @@ import { DynamicDialogComponent } from '../../dynamic-dialog/dynamic-dialog.comp
 })
 export class OpenDialogComponent {
 
-  num!: string;
   placeholder?: string;
   control!: FormControl;
   options!: Array<DropdownOptions>;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dynamicDialogService: DynamicDialogService) {}
 
   showForm() {
-    const dialogRef = this.dialog.open(BasicDropdownComponent, {
-      data: {
-        placeholder: this.placeholder,
-        control: this.control,
-        options: this.options
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.num = result;
-    });
+    const result = this.dynamicDialogService.createDialog(ExampleComponent, {});
+    result.subscribe((data => console.log(data)));
   }
 
   showForm2ElectricBoogaloo() {
-    const dialogRef = this.dialog.open(DynamicDialogComponent, {
-      data: {
-        component: BasicDropdownComponent,
-        placeholder: this.placeholder,
-        control: this.control,
-        options: this.options
-      }
+    this.dynamicDialogService.createDialog(BasicDropdownComponent, {
+      placeholder: this.placeholder,
+      control: this.control,
+      options: this.options
     });
 
   }
