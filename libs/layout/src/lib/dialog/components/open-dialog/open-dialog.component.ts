@@ -18,7 +18,7 @@ export class OpenDialogComponent {
   constructor(private dynamicDialogService: DynamicDialogService) {}
 
   showForm() {
-    const result = this.dynamicDialogService.createDialog(ExampleComponent, {});
+    const result = this.dynamicDialogService.createDialog(ExampleComponent);
     result.subscribe((data => console.log(data)));
   }
 

@@ -19,6 +19,7 @@ export class ExampleComponent {
   ]
 
   close($event: any) {
-    this.close$.next($event);
+    if ($event) this.close$.next(this.control.value);
+    else this.close$.next(undefined)
   }
 }
