@@ -9,7 +9,7 @@ import { CardModule } from './cards/card.module';
 import { ExpansionPanelModule } from './expansion-panels/expansion-panel.module';
 import { TabModule } from './tabs/tab.module';
 import { SubmitCloseWrapperComponent } from './forms/wrappers/submit-close-wrapper/submit-close-wrapper.component';
-import { ExampleComponent } from './forms/components/example/example.component';
+import { LanguageDropdownComponent } from './forms/components/language-dropdown/language-dropdown.component';
 import { PGFormsModule } from '@nx-workspace/forms';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { PGFormsModule } from '@nx-workspace/forms';
   declarations: [
     NavbarComponent,
     SubmitCloseWrapperComponent,
-    ExampleComponent
+    LanguageDropdownComponent
   ],
   exports: [
     NavbarComponent,
@@ -35,7 +35,7 @@ import { PGFormsModule } from '@nx-workspace/forms';
     CardModule,
     ExpansionPanelModule,
     TabModule,
-    ExampleComponent
+    LanguageDropdownComponent
   ]
 })
 export class LayoutModule {}

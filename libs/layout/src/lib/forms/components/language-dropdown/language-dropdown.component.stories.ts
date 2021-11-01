@@ -1,19 +1,19 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { MaterialModule } from '../../../../../../material/src';
-import { ExampleComponent } from './example.component';
-import { PGFormsModule } from '../../../../../../forms/src';
+import { LanguageDropdownComponent } from './language-dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubmitCloseWrapperComponent } from '../../wrappers/submit-close-wrapper/submit-close-wrapper.component';
+import { MaterialModule } from '@nx-workspace/material';
+import { PGFormsModule } from '@nx-workspace/forms';
 
 export default {
-  title: 'Example',
-  component: ExampleComponent,
+  title: 'Language Dropdown',
+  component: LanguageDropdownComponent,
   decorators: [
     moduleMetadata({
       imports: [MaterialModule, PGFormsModule, BrowserAnimationsModule],
       declarations: [SubmitCloseWrapperComponent]
     })
   ],
-} as Meta<ExampleComponent>;
+} as Meta<LanguageDropdownComponent>;
 
 export const Primary = () => ({});

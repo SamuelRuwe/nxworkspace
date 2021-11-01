@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { BasicDropdownComponent, DropdownOptions } from '@nx-workspace/forms';
+import { DropdownOptions } from '@nx-workspace/forms';
 import { DynamicDialogService } from '../../services/dynamic-dialog.service';
-import { ExampleComponent } from '../../../forms/components/example/example.component';
+import { LanguageDropdownComponent } from '../../../forms/components/language-dropdown/language-dropdown.component';
 
 @Component({
   selector: 'pg-layout-open-dialog',
@@ -18,16 +18,8 @@ export class OpenDialogComponent {
   constructor(private dynamicDialogService: DynamicDialogService) {}
 
   showForm() {
-    const result = this.dynamicDialogService.createDialog(ExampleComponent);
+    const result = this.dynamicDialogService.createDialog(LanguageDropdownComponent);
     result.subscribe((data => console.log(data)));
   }
 
-  showForm2ElectricBoogaloo() {
-    this.dynamicDialogService.createDialog(BasicDropdownComponent, {
-      placeholder: this.placeholder,
-      control: this.control,
-      options: this.options
-    });
-
-  }
 }
