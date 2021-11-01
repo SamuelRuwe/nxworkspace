@@ -1,7 +1,4 @@
 mat-list {
   margin: auto;
-  width: 400px;
-  /*text-align: center;*/
-  border: 2px solid blue;
   display: block;
 }

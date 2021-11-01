@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { DropdownOptions } from '@nx-workspace/forms';
 import { DynamicDialogService } from '../../services/dynamic-dialog.service';
 import { LanguageDropdownComponent } from '../../../forms/components/language-dropdown/language-dropdown.component';
@@ -11,8 +10,6 @@ import { LanguageDropdownComponent } from '../../../forms/components/language-dr
 })
 export class OpenDialogComponent {
 
-  placeholder?: string;
-  control!: FormControl;
   options!: Array<DropdownOptions>;
 
   constructor(private dynamicDialogService: DynamicDialogService) {}

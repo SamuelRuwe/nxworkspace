@@ -3,7 +3,7 @@ import { BasicDialogComponent } from './basic-dialog.component';
 import { DialogModule } from '../../dialog.module';
 
 export default {
-  title: 'Basic Dialog',
+  title: 'Dialogs/Basic Dialog',
   component: BasicDialogComponent,
   decorators: [
     moduleMetadata({

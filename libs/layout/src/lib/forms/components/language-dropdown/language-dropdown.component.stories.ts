@@ -17,3 +17,6 @@ export default {
 } as Meta<LanguageDropdownComponent>;
 
 export const Primary = () => ({});
+Primary.args = {
+
+}

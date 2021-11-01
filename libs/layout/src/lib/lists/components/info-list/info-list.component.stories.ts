@@ -1,4 +1,4 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { InfoListComponent } from './info-list.component';
 import { ListModule } from '../../list.module';
 
@@ -12,4 +12,21 @@ export default {
   ],
 } as Meta<InfoListComponent>;
 
-export const Primary = () => ({});
+export const Primary = (args: any) => ({
+  props: args
+});
+
+Primary.args = {
+  data: [
+    {
+      icon: 'phone',
+      field: 'Phone Number',
+      data: '(336) 577-2062'
+    },
+    {
+      icon: 'email',
+      field: 'Email',
+      data: 'ruwesam@gmail.com'
+    },
+  ]
+}

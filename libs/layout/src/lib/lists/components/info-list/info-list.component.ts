@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ListData } from '../list-data.interface';
 
 @Component({
   selector: 'pg-layout-info-list',
@@ -6,20 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./info-list.component.css']
 })
 export class InfoListComponent {
-
-  messages = [
-    {
-      icon: 'phone',
-      from: 'Phone Number',
-      subject: '(336) 577-2062',
-      content: 'Message Content 1'
-    },
-    {
-      icon: 'email',
-      from: 'Email',
-      subject: 'ruwesam@gmail.com',
-      content: 'Message Content 2'
-    },
-  ]
-
+  @Input() data!: Array<ListData>;
 }

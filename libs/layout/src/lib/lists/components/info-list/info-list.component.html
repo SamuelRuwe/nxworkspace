@@ -1,8 +1,10 @@
 <mat-list>
-  <mat-list-item *ngFor="let message of messages">
-    <button mat-mini-fab class="mat-elevation-z8"><mat-icon>{{message.icon}}</mat-icon></button>
-    <h3 matLine> {{message.from}} </h3>
+  <mat-list-item *ngFor="let message of data">
+    <button mat-mini-fab class="mat-elevation-z8">
+      <mat-icon>{{message.icon}}</mat-icon>
+    </button>
+    <h3 matLine> {{message.field}} </h3>
     <mat-divider></mat-divider>
-    <span matLine>{{message.subject}}</span>
+    <span matLine>{{message.data}}</span>
   </mat-list-item>
 </mat-list>

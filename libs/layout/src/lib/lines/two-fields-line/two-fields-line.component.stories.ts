@@ -30,3 +30,16 @@ EmailPhone.args = {
   data1: {field: 'Email', value: 'ruwesam@gmail.com'},
   data2: {field: 'Phone', value: '(111)-222-3344'}
 }
+
+export const MultipleLines = (args: any) => ({
+  props: args,
+  template: `
+            <pg-layout-two-fields-line [data1]="data1" [data2]="data2"></pg-layout-two-fields-line>
+            <pg-layout-two-fields-line [data1]="data1" [data2]="data2"></pg-layout-two-fields-line>
+    `
+});
+
+MultipleLines.args = {
+  data1: {field: 'Email', value: 'ruwesam@gmail.com'},
+  data2: {field: 'Phone', value: '(111)-222-3344'}
+}

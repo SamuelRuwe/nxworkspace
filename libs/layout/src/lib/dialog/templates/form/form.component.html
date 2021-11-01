@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+  <pg-forms-basic-dropdown [control]="form" [options]="options" placeholder="Label Boii">
+  </pg-forms-basic-dropdown>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close(false)">Close</button>
+  <button mat-raised-button [disabled]="!form.valid" (click)="close(true)">Submit</button>
+</mat-dialog-actions>

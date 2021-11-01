@@ -7,12 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OpenDialogComponent } from './components/open-dialog/open-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicDialogComponent } from './dynamic-dialog/dynamic-dialog.component';
+import { FormComponent } from './templates/form/form.component';
+import { CardModule } from '../cards/card.module';
 
 @NgModule({
   declarations: [
     BasicDialogComponent,
     OpenDialogComponent,
     DynamicDialogComponent,
+    FormComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +23,8 @@ import { DynamicDialogComponent } from './dynamic-dialog/dynamic-dialog.componen
     PGFormsModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule
   ],
   exports: [
     BasicDialogComponent,

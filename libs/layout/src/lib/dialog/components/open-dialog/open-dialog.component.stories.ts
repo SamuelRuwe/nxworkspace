@@ -7,15 +7,16 @@ import { DynamicDialogService } from '../../services/dynamic-dialog.service';
 import { CommonModule } from '@angular/common';
 import { LanguageDropdownComponent } from '../../../forms/components/language-dropdown/language-dropdown.component';
 import { SubmitCloseWrapperComponent } from '../../../forms/wrappers/submit-close-wrapper/submit-close-wrapper.component';
-import { MaterialModule } from '@nx-workspace/material';
+import { MaterialModule } from '../../../../../../material/src';
+import { CardModule } from '../../../cards/card.module';
 
 export default {
-  title: 'Open Dialog',
+  title: 'Dialogs/Open Dialog',
   component: OpenDialogComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, DialogModule, PGFormsModule, FormsModule, ReactiveFormsModule, MaterialModule],
-      declarations: [LanguageDropdownComponent, SubmitCloseWrapperComponent],
+      imports: [CommonModule, DialogModule, PGFormsModule, FormsModule, ReactiveFormsModule, MaterialModule, CardModule],
+      declarations: [SubmitCloseWrapperComponent, LanguageDropdownComponent],
       providers: [DynamicDialogService]
     })
   ],
