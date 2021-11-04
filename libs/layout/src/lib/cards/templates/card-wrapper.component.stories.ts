@@ -27,10 +27,9 @@ export const InfoExample = () => ({
   },
   template: `
     <pg-layout-card-wrapper [title]="title">
-    <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
-    <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
-    <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
-
+        <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
+        <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
+        <pg-layout-two-fields-line [data1]="data1" [data2]="data2" content></pg-layout-two-fields-line>
     </pg-layout-card-wrapper>
   `
 });

@@ -1,0 +1,14 @@
+<button (click)="dispatchOrder()">Order Durum</button>
+<hr/>
+<button (click)="_flatBread.next('flat bread')">Add Flat Bread</button>
+<button (click)="_meat.next('meat')">Add Meat</button>
+<button (click)="_sauce.next('sauce')">Add Sauce</button>
+<button (click)="_tomato.next('tomato')">Add Tomato</button>
+<button (click)="_cabbage.next('cabbage')">Add Cabbage</button>
+<ng-container *ngIf="delivery$ | async as product">
+  <section *ngIf="product?.product">
+    <h4>Enjoy</h4>
+    <h5>Ingredients:</h5>
+    <pre>{{ product | json }}</pre>
+  </section>
+</ng-container>
