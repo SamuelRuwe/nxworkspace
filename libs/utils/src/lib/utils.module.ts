@@ -6,6 +6,6 @@ import { SsnFormatPipe } from './pipes/ssn-format.pipe';
 @NgModule({
   imports: [CommonModule],
   declarations: [DaysPipe, SsnFormatPipe],
-  exports: [DaysPipe]
+  exports: [DaysPipe, SsnFormatPipe]
 })
 export class UtilsModule {}
