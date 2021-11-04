@@ -5,7 +5,7 @@ import { DurumComponent } from './durum/durum.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [
-    DurumComponent
+    DurumComponent,
   ],
 })
 export class ExamplesModule {}
