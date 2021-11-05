@@ -9,7 +9,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/examples"],
+          "outputs": [
+            "coverage/libs/examples"
+          ],
           "options": {
             "jestConfig": "libs/examples/jest.config.js",
             "passWithNoTests": true
@@ -41,7 +43,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/examples",
@@ -66,7 +70,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/forms"],
+          "outputs": [
+            "coverage/libs/forms"
+          ],
           "options": {
             "jestConfig": "libs/forms/jest.config.js",
             "passWithNoTests": true
@@ -80,7 +86,9 @@
               "libs/forms/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -99,7 +107,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/forms",
@@ -124,7 +134,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/gameoflife",
             "index": "apps/gameoflife/src/index.html",
@@ -200,11 +212,15 @@
               "apps/gameoflife/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/gameoflife"],
+          "outputs": [
+            "coverage/apps/gameoflife"
+          ],
           "options": {
             "jestConfig": "apps/gameoflife/jest.config.js",
             "passWithNoTests": true
@@ -221,7 +237,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/layout"],
+          "outputs": [
+            "coverage/libs/layout"
+          ],
           "options": {
             "jestConfig": "libs/layout/jest.config.js",
             "passWithNoTests": true
@@ -235,7 +253,9 @@
               "libs/layout/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -254,7 +274,9 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/layout",
@@ -279,7 +301,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/material"],
+          "outputs": [
+            "coverage/libs/material"
+          ],
           "options": {
             "jestConfig": "libs/material/jest.config.js",
             "passWithNoTests": true
@@ -293,7 +317,9 @@
               "libs/material/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -306,14 +332,19 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/ngrx",
             "index": "apps/ngrx/src/index.html",
             "main": "apps/ngrx/src/main.ts",
             "polyfills": "apps/ngrx/src/polyfills.ts",
             "tsConfig": "apps/ngrx/tsconfig.app.json",
-            "assets": ["apps/ngrx/src/favicon.ico", "apps/ngrx/src/assets"],
+            "assets": [
+              "apps/ngrx/src/favicon.ico",
+              "apps/ngrx/src/assets"
+            ],
             "styles": [
               "apps/ngrx/src/custom-theme.scss",
               "apps/ngrx/src/styles.css"
@@ -379,14 +410,64 @@
               "apps/ngrx/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ngrx"],
+          "outputs": [
+            "coverage/apps/ngrx"
+          ],
           "options": {
             "jestConfig": "apps/ngrx/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "pg-layout": {
+      "projectType": "library",
+      "root": "libs/pg-layout",
+      "sourceRoot": "libs/pg-layout/src",
+      "prefix": "pg-",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/pg-layout"
+          ],
+          "options": {
+            "project": "libs/pg-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/pg-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/pg-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/pg-layout"
+          ],
+          "options": {
+            "jestConfig": "libs/pg-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pg-layout/src/**/*.ts",
+              "libs/pg-layout/src/**/*.html"
+            ]
           }
         }
       },
@@ -400,7 +481,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/utils"],
+          "outputs": [
+            "coverage/libs/utils"
+          ],
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
