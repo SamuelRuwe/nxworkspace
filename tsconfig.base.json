@@ -20,7 +20,12 @@
       "@nx-workspace/layout": ["libs/layout/src/index.ts"],
       "@nx-workspace/material": ["libs/material/src/index.ts"],
       "@nx-workspace/utils": ["libs/utils/src/index.ts"],
-      "@puregeniusness/pg-layout": ["libs/pg-layout/src/index.ts"]
+      "@puregeniusness/pg-layout": [
+        "dist/libs/pg-layout",
+        "dist/libs/pg-layout/*"
+      ],
+      "@puregeniusness/pg-layout/*": ["libs/pg-layout", "libs/pg-layout/*"],
+      "@puregeniusness/pg-layout/tables": ["libs/pg-layout/tables/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -14,6 +14,7 @@ import { effects, reducers } from './state';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { metaReducers } from './meta-reducers/meta-reducer';
 
 @NgModule({
   declarations: [AppComponent, UserDialogComponent],
@@ -26,9 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
      * Store API
      * Mainly two methods used: Select (for querying for state) and Dispatch (for handling commands)
      */
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
-    StoreDevtoolsModule.instrument({maxAge: 10}),
+    StoreDevtoolsModule.instrument({ maxAge: 10 }),
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
