@@ -25,8 +25,8 @@ export class AppComponent {
 
   NavOptions = {
     routes: [
-      {name: 'Counter', route: '/counter'},
-      {name: 'Users', route: '/users'}
+      { name: 'Counter', route: '/counter' },
+      { name: 'Users', route: '/users' }
     ]
   }
 

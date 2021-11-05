@@ -515,6 +515,50 @@
       },
       "tags": []
     },
+    "pg-layout": {
+      "projectType": "library",
+      "root": "libs/pg-layout",
+      "sourceRoot": "libs/pg-layout/src",
+      "prefix": "pg",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/pg-layout"],
+          "options": {
+            "project": "libs/pg-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/pg-layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/pg-layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pg-layout"],
+          "options": {
+            "jestConfig": "libs/pg-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pg-layout/src/**/*.ts",
+              "libs/pg-layout/src/**/*.html",
+              "libs/pg-layout/tables/**/*.ts",
+              "libs/pg-layout/tables/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "utils": {
       "projectType": "library",
       "root": "libs/utils",
