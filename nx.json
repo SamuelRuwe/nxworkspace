@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-workspace",
+  "npmScope": "pg",
   "affected": {
     "defaultBase": "main"
   },
