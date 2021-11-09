@@ -539,7 +539,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/sam-ngrx-colors",
+            "outputPath": "server/dist/apps/sam-ngrx-colors",
             "index": "apps/sam-ngrx-colors/src/index.html",
             "main": "apps/sam-ngrx-colors/src/main.ts",
             "polyfills": "apps/sam-ngrx-colors/src/polyfills.ts",
