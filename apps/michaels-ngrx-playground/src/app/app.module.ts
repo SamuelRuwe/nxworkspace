@@ -10,6 +10,10 @@ import { collectionReducer } from './state/collection.reducer';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { BooksEffects } from './state/books.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CollectionEffects } from './state/collection.effects';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
       books: booksReducer,
       collection: collectionReducer
     }),
-    HttpClientModule
+    HttpClientModule,
+    EffectsModule.forRoot([BooksEffects, CollectionEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 10 }),
   ],
   providers: [],
   bootstrap: [AppComponent],

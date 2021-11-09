@@ -1,10 +1,10 @@
-<nx-workspace-my-counter></nx-workspace-my-counter>
+<div class="books">
+    <nx-workspace-my-counter></nx-workspace-my-counter>
+    <h1>Books</h1>
+    <nx-workspace-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></nx-workspace-book-list>
+</div>
 
-<h1>Books</h1>
-<nx-workspace-book-list class="book-list" [books]="books$ | async" (add)="onAdd($event)"></nx-workspace-book-list>
-
-<h1>My Collection</h1>
-<nx-workspace-book-collection class="book-collection" [books]="bookCollection$ | async" (remove)="onRemove($event)"></nx-workspace-book-collection>
-
-<h1>Collection State?</h1>
-<p>{{ collection$ | async }}</p>
+<div class="collection">
+    <h1>My Collection</h1>
+    <nx-workspace-book-collection class="book-collection" [books]="bookCollection$ | async" (remove)="onRemove($event)"></nx-workspace-book-collection>
+</div>
