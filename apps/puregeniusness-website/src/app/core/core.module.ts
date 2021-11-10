@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SettingsEffects } from './settings/settings.effects';
 import { environment } from '../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PgWasmModule } from '@puregeniusness/wasm/script-loader';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ]),
     environment.production ? [] : StoreDevtoolsModule.instrument({
       name: 'Pure Geniusness'
-    })
+    }),
+    environment.wasmAssetsPath ? PgWasmModule.forRoot({ environment }) : []
   ]
 })
 export class CoreModule {

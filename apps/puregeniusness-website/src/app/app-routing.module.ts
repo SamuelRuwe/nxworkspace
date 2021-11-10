@@ -13,6 +13,11 @@ const routes: Routes = [
       import('./features/about/about.module').then((m) => m.AboutModule)
   },
   {
+    path: 'wasm',
+    loadChildren: () =>
+      import('./features/console-log-wasm/console-log-wasm.module').then((m) => m.ConsoleLogWasmModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }

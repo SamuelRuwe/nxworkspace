@@ -25,7 +25,13 @@
         "dist/libs/pg-layout/*"
       ],
       "@puregeniusness/pg-layout/*": ["libs/pg-layout", "libs/pg-layout/*"],
-      "@puregeniusness/pg-layout/tables": ["libs/pg-layout/tables/src/index.ts"]
+      "@puregeniusness/pg-layout/tables": [
+        "libs/pg-layout/tables/src/index.ts"
+      ],
+      "@puregeniusness/utils/*": ["libs/pg-utils, libs/pg-utils/*"],
+      "@puregeniusness/utils/environment": ["libs/pg-utils/environment/src/index.ts"],
+      "@puregeniusness/wasm/*": ["libs/pg-wasm, libs/pg-wasm/*"],
+      "@puregeniusness/wasm/script-loader": ["libs/pg-wasm/script-loader/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

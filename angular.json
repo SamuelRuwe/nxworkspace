@@ -529,6 +529,90 @@
       },
       "tags": []
     },
+    "pg-utils": {
+      "projectType": "library",
+      "root": "libs/pg-utils",
+      "sourceRoot": "libs/pg-utils/src",
+      "prefix": "pg",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/pg-utils"],
+          "options": {
+            "project": "libs/pg-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/pg-utils/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/pg-utils/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pg-utils"],
+          "options": {
+            "jestConfig": "libs/pg-utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pg-utils/src/**/*.ts",
+              "libs/pg-utils/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "pg-wasm": {
+      "projectType": "library",
+      "root": "libs/pg-wasm",
+      "sourceRoot": "libs/pg-wasm/src",
+      "prefix": "pg",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/pg-wasm"],
+          "options": {
+            "project": "libs/pg-wasm/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/pg-wasm/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/pg-wasm/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pg-wasm"],
+          "options": {
+            "jestConfig": "libs/pg-wasm/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pg-wasm/src/**/*.ts",
+              "libs/pg-wasm/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "puregeniusness-website": {
       "projectType": "application",
       "root": "apps/puregeniusness-website",
