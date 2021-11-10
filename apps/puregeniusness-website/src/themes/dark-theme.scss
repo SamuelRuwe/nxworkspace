@@ -1,0 +1,11 @@
+@use '~@angular/material' as mat;
+
+$pg-dark-primary: mat.define-palette(mat.$grey-palette, 700, 300, 900);
+$pg-dark-accent: mat.define-palette(mat.$blue-grey-palette, 400);
+$pg-dark-warn: mat.define-palette(mat.$red-palette, 500);
+
+$pg-dark-theme: mat.define-dark-theme(
+    $pg-dark-primary,
+    $pg-dark-accent,
+    $pg-dark-warn
+);

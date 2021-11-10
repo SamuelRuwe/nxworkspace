@@ -548,7 +548,7 @@
               "apps/puregeniusness-website/src/favicon.ico",
               "apps/puregeniusness-website/src/assets"
             ],
-            "styles": ["apps/puregeniusness-website/src/styles.css"],
+            "styles": ["apps/puregeniusness-website/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
