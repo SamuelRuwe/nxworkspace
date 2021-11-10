@@ -1,24 +1,31 @@
-import { Component, NgZone } from '@angular/core';
-import { EmscriptenWasmDirective } from '@puregeniusness/wasm/script-loader';
-import { environment } from '../../../../environments/environment';
+import { AfterViewInit, Component, NgZone } from '@angular/core';
+import {
+  EmscriptenLoaderService,
+  EmscriptenModule,
+  EmscriptenModuleDecorator
+} from '@puregeniusness/wasm/script-loader';
 
 @Component({
   selector: 'pg-console-log-wasm',
   templateUrl: './console-log-wasm.component.html',
   styleUrls: ['./console-log-wasm.component.css']
 })
-export class ConsoleLogWasmComponent extends EmscriptenWasmDirective {
+export class ConsoleLogWasmComponent<M> implements AfterViewInit {
 
   logItems: string[] = [];
+  moduleDecorator: EmscriptenModuleDecorator<M>;
 
-  constructor(ngZone: NgZone) {
-    super('ConsoleLoggerModule', 'console-logger.js', { environment });
+  constructor(ngZone: NgZone, private loader: EmscriptenLoaderService) {
 
-    this.moduleDecorator = (mod) => {
+    this.moduleDecorator = (mod: EmscriptenModule) => {
       mod.print = (arg: string) => {
         ngZone.run(() => this.logItems.push(arg));
       };
     };
+  }
+
+  ngAfterViewInit(): void {
+    this.loader.loadScript('ConsoleLoggerModule', 'console-logger.js', this.moduleDecorator);
   }
 
 }

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ENV_CONFIG, EnvironmentConfig } from '@puregeniusness/utils/environment';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule]
+
 })
 export class PgWasmModule {
   static forRoot(config: EnvironmentConfig): ModuleWithProviders<PgWasmModule> {
@@ -18,6 +19,6 @@ export class PgWasmModule {
           useValue: config
         }
       ]
-    }
+    };
   }
 }

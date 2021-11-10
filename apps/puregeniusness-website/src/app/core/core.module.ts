@@ -9,7 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PgWasmModule } from '@puregeniusness/wasm/script-loader';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     StoreModule.forRoot(reducers, { metaReducers }),

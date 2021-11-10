@@ -1,11 +1,7 @@
 import { AfterViewInit, Directive, Inject } from '@angular/core';
 import { ENV_CONFIG, EnvironmentConfig } from '@puregeniusness/utils/environment';
 import { loadScript } from './load-script';
-import { EmscriptenModule } from './emscripten.module.model';
-
-type EmscriptenModuleDecorator<M extends EmscriptenModule> = (module: M) => void;
-
-const noopModuleDecorator = (mod: EmscriptenModule) => mod;
+import { EmscriptenModule, EmscriptenModuleDecorator, noopModuleDecorator } from './emscripten.module.model';
 
 @Directive()
 export abstract class EmscriptenWasmDirective<M extends EmscriptenModule = EmscriptenModule> implements AfterViewInit {

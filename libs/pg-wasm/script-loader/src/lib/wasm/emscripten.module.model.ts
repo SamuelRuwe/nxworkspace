@@ -1,3 +1,7 @@
+export type EmscriptenModuleDecorator<M extends EmscriptenModule> = (module: M) => void;
+
+export const noopModuleDecorator = (mod: EmscriptenModule) => mod;
+
 export interface EmscriptenReadFileOptions {
   encoding?: 'utf8' | 'binary';
   flags?: string;
