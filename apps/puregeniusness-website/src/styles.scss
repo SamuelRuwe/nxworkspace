@@ -5,6 +5,8 @@
 
 @import './themes/default-theme';
 @import './themes/dark-theme';
+@import './themes/light-theme';
+@import './themes/nature-theme';
 
 .default-theme {
   @include mat.all-component-themes($pg-theme);
@@ -12,4 +14,12 @@
 
 .dark-theme {
   @include mat.all-component-themes($pg-dark-theme);
+}
+
+.light-theme {
+  @include mat.all-component-themes($pg-light-theme);
+}
+
+.nature-theme {
+  @include mat.all-component-themes($pg-nature-theme);
 }

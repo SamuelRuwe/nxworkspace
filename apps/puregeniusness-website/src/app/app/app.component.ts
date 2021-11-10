@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { AppState } from '../core/core.state';
 import { Observable } from 'rxjs';
-import { selectEffectiveTheme, selectTheme } from '../core/settings/settings.selectors';
+import { selectEffectiveTheme } from '../core/settings/settings.selectors';
 import { actionSettingsChangeTheme } from '../core/settings/settings.actions';
 
 @Component({
@@ -21,6 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   changeTheme(theme: string) {
-    this.store.dispatch(actionSettingsChangeTheme({theme}));
+    this.store.dispatch(actionSettingsChangeTheme({ theme }));
   }
 }

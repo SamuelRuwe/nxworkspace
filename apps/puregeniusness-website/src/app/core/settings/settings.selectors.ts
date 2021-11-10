@@ -12,7 +12,31 @@ export const selectTheme = createSelector(
   (settings) => settings.theme
 );
 
+export const selectAutoNightMode = createSelector(
+  selectSettings,
+  (settings) => settings.autoNightMode
+);
+
+export const selectNightTheme = createSelector(
+  selectSettings,
+  (settings) => settings.nightTheme
+);
+
+export const selectHour = createSelector(
+  selectSettings,
+  (settings) => settings.hour
+);
+
+export const selectIsNightHour = createSelector(
+  selectAutoNightMode,
+  selectHour,
+  (autoNightMode, hour) => autoNightMode && (hour >= 21 || hour <= 7)
+);
+
 export const selectEffectiveTheme = createSelector(
   selectTheme,
-  (theme) => theme.toLowerCase()
+  selectNightTheme,
+  selectIsNightHour,
+  (theme, nightTheme, isNightHour) =>
+    (isNightHour ? nightTheme : theme).toLowerCase()
 );
