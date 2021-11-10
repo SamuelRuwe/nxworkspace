@@ -1,6 +1,6 @@
 {
-  "name": "nx-workspace",
-  "version": "0.0.0",
+  "name": "puregeniusness",
+  "version": "0.0.1",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0 <17.0.0",
@@ -11,7 +11,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "node server/server.js",
-    "heroku-postbuild": "nx run sam-ngrx-colors:build",
+    "heroku-postbuild": "nx run puregeniusness-website:build",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",

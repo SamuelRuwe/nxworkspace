@@ -1,0 +1,10 @@
+<div [class]="'theme-wrapper ' + (theme$ | async)">
+  <mat-card>
+    This is a test card
+  </mat-card>
+  <button mat-raised-button color='primary' (click)="changeTheme('DEFAULT-THEME')">change to default theme</button>
+  <button mat-raised-button color='accent' (click)="changeTheme('DARK-THEME')">change to dark theme</button>
+  <button mat-raised-button color='warn' (click)="changeTheme('NATURE-THEME')">change to nature theme</button>
+  <button mat-raised-button color='accent' (click)="changeTheme('LIGHT-THEME')">change to light theme</button>
+  <router-outlet></router-outlet>
+</div>

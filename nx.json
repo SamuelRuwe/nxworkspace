@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-workspace",
+  "npmScope": "pg",
   "affected": {
     "defaultBase": "main"
   },
@@ -27,7 +27,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "defaultProject": "gameoflife",
+  "defaultProject": "puregeniusness-website",
   "generators": {
     "@nrwl/angular": {
       "application": {

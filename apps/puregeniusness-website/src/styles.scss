@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+@import './themes/default-theme';
+@import './themes/dark-theme';
+@import './themes/light-theme';
+@import './themes/nature-theme';
+
+.default-theme {
+  @include mat.all-component-themes($pg-theme);
+}
+
+.dark-theme {
+  @include mat.all-component-themes($pg-dark-theme);
+}
+
+.light-theme {
+  @include mat.all-component-themes($pg-light-theme);
+}
+
+.nature-theme {
+  @include mat.all-component-themes($pg-nature-theme);
+}

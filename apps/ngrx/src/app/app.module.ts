@@ -15,6 +15,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { MaterialModule } from '@nx-workspace/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { metaReducers } from './meta-reducers/meta-reducer';
+import { TablesModule } from '@puregeniusness/pg-layout/tables';
 
 @NgModule({
   declarations: [AppComponent, UserDialogComponent],
@@ -34,7 +35,8 @@ import { metaReducers } from './meta-reducers/meta-reducer';
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TablesModule
   ],
   bootstrap: [AppComponent],
 })
