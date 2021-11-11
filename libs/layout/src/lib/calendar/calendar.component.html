@@ -1,0 +1,16 @@
+<mat-form-field>
+
+  <!--  <mat-label *ngIf="!!label">{{label}}</mat-label>-->
+
+  <input
+    #inputEl
+    matInput
+    mask="00/00/0000"
+    [matDatepicker]="simpleDate"
+    (dateChange)="setValue($event)"
+  >
+  <mat-datepicker-toggle matSuffix [for]="simpleDate"></mat-datepicker-toggle>
+  <mat-datepicker #simpleDate></mat-datepicker>
+
+</mat-form-field>
+<!--<pre>{{control.value | json}}</pre>-->
