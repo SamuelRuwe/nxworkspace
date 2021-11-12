@@ -18,8 +18,9 @@ export class CalendarComponent implements ControlValueAccessor {
 
   @ViewChild('inputEl') elRef!: ElementRef;
 
-  value = null;
+  value: any = null;
   disabled = false;
+  label = "label"
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 
@@ -34,7 +35,8 @@ export class CalendarComponent implements ControlValueAccessor {
   registerOnChange(fn: any): void {
     this.propagateChange = fn;
   }
-
+  
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   registerOnTouched(fn: any): void {}
 
   setDisabledState?(isDisabled: boolean): void {
@@ -43,10 +45,9 @@ export class CalendarComponent implements ControlValueAccessor {
   }
 
   // add logic here to clear the input if it is invalid
-  setValue(evt: any) {
-    if (this.disabled) {
-      return;
-    }
+  setValue(event: Event) {
+    console.log(event);
+    if (this.disabled) return;
     const momentDateObj = moment(this.elRef.nativeElement.value);
     const dateObj = {
       year: momentDateObj.year(),
@@ -56,5 +57,4 @@ export class CalendarComponent implements ControlValueAccessor {
     this.value = dateObj;
     this.propagateChange(this.value);
   }
-
 }
