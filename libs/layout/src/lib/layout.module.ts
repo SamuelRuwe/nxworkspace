@@ -11,6 +11,7 @@ import { TabModule } from './tabs/tab.module';
 import { SubmitCloseWrapperComponent } from './forms/wrappers/submit-close-wrapper/submit-close-wrapper.component';
 import { LanguageDropdownComponent } from './forms/components/language-dropdown/language-dropdown.component';
 import { PGFormsModule } from '@nx-workspace/forms';
+import { CalendarModule } from './calendar/calendar.module';
 
 @NgModule({
   imports: [
@@ -21,12 +22,13 @@ import { PGFormsModule } from '@nx-workspace/forms';
     ListModule,
     CardModule,
     ExpansionPanelModule,
-    PGFormsModule
+    PGFormsModule,
+    CalendarModule
   ],
   declarations: [
     NavbarComponent,
     SubmitCloseWrapperComponent,
-    LanguageDropdownComponent
+    LanguageDropdownComponent,
   ],
   exports: [
     NavbarComponent,
@@ -35,7 +37,7 @@ import { PGFormsModule } from '@nx-workspace/forms';
     CardModule,
     ExpansionPanelModule,
     TabModule,
-    LanguageDropdownComponent
+    LanguageDropdownComponent,
   ]
 })
 export class LayoutModule {}

@@ -46,7 +46,6 @@ export class CalendarComponent implements ControlValueAccessor {
 
   // add logic here to clear the input if it is invalid
   setValue(event: Event) {
-    console.log(event);
     if (this.disabled) return;
     const momentDateObj = moment(this.elRef.nativeElement.value);
     const dateObj = {
