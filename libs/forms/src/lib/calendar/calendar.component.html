@@ -5,8 +5,12 @@
         matInput
         [matDatepicker]="picker"
         mask="00/00/0000"
-        (dateChange)="setValue($event)"
-    >
+        />
+        <!-- [formControl]="dateInput" -->
+        <!-- (dateChange)="emitValue($event)" -->
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
+
+<!-- <p>{{dateInput.value}}</p> -->
+<h6>{{ value }}</h6>
