@@ -1,65 +1,31 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-
-export const CALENDAR_VALUE_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => CalendarComponent),
-  multi: true
-};
-
-// interface CalendarOutput {
-//   userInput: string;
-//   date: Date | null;
-// }
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { map, Subscription, tap } from 'rxjs';
+import { MaskDateDirective } from './mask-date.directive';
+import { WATCHED_CONTROLLER, WATCHED_CONTROLLER_PROVIDER } from './factory-token';
 
 @Component({
   selector: 'pg-forms-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
-  providers: [CALENDAR_VALUE_ACCESSOR]
+  providers: [WATCHED_CONTROLLER_PROVIDER],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CalendarComponent implements ControlValueAccessor {
 
-  @ViewChild('inputEl') inputEl!: ElementRef;
-  // @Output() dateEmitter = new EventEmitter<CalendarOutput>();
-  @Input() formControl?: FormControl;
-  // dateInput = new FormControl('');
-  // userInput = '';
-  value: any;
-  _onChange?: (val: any) => void;
-  _onTouched?: (val: any) => void;
-  
-  writeValue(val: any) {
-    console.log("writeval");
-    // this.dateInput.setValue(val);
-    console.log(val)
-    // this.value = this.inputEl.nativeElement.value
-    this.value = val
+export class CalendarComponent implements OnInit {
+
+  @ViewChild('cal') cal!: HTMLInputElement & ElementRef;
+  control: FormControl = new FormControl();
+  obs$!: Subscription;
+
+  constructor(@Inject(WATCHED_CONTROLLER) readonly controller: MaskDateDirective) {}
+
+  ngOnInit(): void {
+    this.obs$ = this.control.valueChanges.pipe(
+      tap(console.log),
+      tap(() => console.log(this.cal.nativeElement)),
+      map((val) => this.cal.nativeElement.value = val)
+    ).subscribe();
   }
-
-  registerOnChange(callback: (val: any) => void) {
-    this._onChange = callback;
-    console.log("registeronchange");
-  }
-
-  registerOnTouched(callback: () => void) {
-    this._onTouched = callback;
-    console.log("registerontouched");
-  }
-
-  // _onChange(val: unknown) {
-  //   console.log("_onchange", val);
-  // }
-
-  // _onTouched() {
-  //   console.log("_ontouched");
-  // }
-
-  // emitValue(e: MatDatepickerInputEvent<Date, string>) {
-    // console.log(this.inputEl.nativeElement.value, e.value);
-    // this.userInput = this.inputEl.nativeElement.value
-    // this.dateEmitter.emit({ userInput: this.userInput, date: e.value })
-  // }
 
 }

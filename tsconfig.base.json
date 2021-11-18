@@ -20,6 +20,7 @@
       "@nx-workspace/layout": ["libs/layout/src/index.ts"],
       "@nx-workspace/material": ["libs/material/src/index.ts"],
       "@nx-workspace/utils": ["libs/utils/src/index.ts"],
+      "@puregeniusness/pg-forms": ["libs/pg-forms/src/index.ts"],
       "@puregeniusness/pg-layout": [
         "dist/libs/pg-layout",
         "dist/libs/pg-layout/*"
@@ -29,9 +30,13 @@
         "libs/pg-layout/tables/src/index.ts"
       ],
       "@puregeniusness/utils/*": ["libs/pg-utils, libs/pg-utils/*"],
-      "@puregeniusness/utils/environment": ["libs/pg-utils/environment/src/index.ts"],
+      "@puregeniusness/utils/environment": [
+        "libs/pg-utils/environment/src/index.ts"
+      ],
       "@puregeniusness/wasm/*": ["libs/pg-wasm, libs/pg-wasm/*"],
-      "@puregeniusness/wasm/script-loader": ["libs/pg-wasm/script-loader/src/index.ts"]
+      "@puregeniusness/wasm/script-loader": [
+        "libs/pg-wasm/script-loader/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -485,6 +485,48 @@
       },
       "tags": []
     },
+    "pg-forms": {
+      "projectType": "library",
+      "root": "libs/pg-forms",
+      "sourceRoot": "libs/pg-forms/src",
+      "prefix": "pg",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/pg-forms"],
+          "options": {
+            "project": "libs/pg-forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/pg-forms/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/pg-forms/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pg-forms"],
+          "options": {
+            "jestConfig": "libs/pg-forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pg-forms/src/**/*.ts",
+              "libs/pg-forms/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "pg-layout": {
       "projectType": "library",
       "root": "libs/pg-layout",

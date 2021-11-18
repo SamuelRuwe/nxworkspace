@@ -1,42 +1,19 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@nx-workspace/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar.component';
-import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
-import { NgxMaskModule } from 'ngx-mask';
-
+import { CalendarModule } from './calendar.module';
 
 export default {
-    title: 'Calendar',
-    component: CalendarComponent,
-    decorators: [
-        moduleMetadata({
-            imports: [
-                MaterialModule,
-                MatNativeDateModule,
-                BrowserAnimationsModule,
-                ReactiveFormsModule,
-                NgxMaskModule.forRoot(),
-            ],
-            providers: [
-                {
-                    provide: MAT_DATE_FORMATS,
-                    useValue: {
-                        parse: {
-                            dateInput: ['l', 'LL']
-                        },
-                        display: {
-                            dateInput: 'L',
-                            monthYearLabel: 'MMM YYYY',
-                            dateA11yLabel: 'LL',
-                            monthYearA11yLabel: 'MMMM YYYY'
-                        }
-                    }
-                }
-            ]
-        })
-    ],
+  title: 'Calendar',
+  component: CalendarComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [CalendarModule]
+    })
+  ]
 } as Meta<CalendarComponent>;
 
 export const Primary = () => ({});
+
+export const Secondary = () => ({
+  template: `<pg-forms-calendar pgVal></pg-forms-calendar>`
+});

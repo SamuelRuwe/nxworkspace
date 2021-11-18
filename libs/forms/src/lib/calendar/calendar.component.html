@@ -1,16 +1,11 @@
-<mat-form-field appearance="fill">
-    <mat-label>Type or choose a date</mat-label>
-    <input 
-        #inputEl
-        matInput
-        [matDatepicker]="picker"
-        mask="00/00/0000"
-        />
-        <!-- [formControl]="dateInput" -->
-        <!-- (dateChange)="emitValue($event)" -->
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+<mat-form-field appearance='fill'>
+  <mat-label>Type or choose a date</mat-label>
+  <input
+    #cal
+    matInput
+    [matDatepicker]='picker'
+  >
+  <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-
-<!-- <p>{{dateInput.value}}</p> -->
-<h6>{{ value }}</h6>
+<button>Click</button>

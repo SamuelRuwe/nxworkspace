@@ -27,7 +27,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "defaultProject": "puregeniusness-website",
+  "defaultProject": "ngrx",
   "generators": {
     "@nrwl/angular": {
       "application": {
