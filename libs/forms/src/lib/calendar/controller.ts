@@ -5,7 +5,6 @@ export abstract class Controller implements OnChanges {
   readonly change$ = new Subject<void>();
 
   ngOnChanges(): void {
-    console.log("in on changes");
     this.change$.next();
   }
 

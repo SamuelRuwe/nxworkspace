@@ -6,10 +6,10 @@ import { MaterialModule } from '@nx-workspace/material';
 import { MAT_DATE_FORMATS, MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaskModule } from 'ngx-mask';
-import { MaskDateDirective } from './mask-date.directive';
+import { CalendarControlDirective } from './calendar-controller/calendar-control.directive';
 
 @NgModule({
-  declarations: [CalendarComponent, MaskDateDirective],
+  declarations: [CalendarComponent, CalendarControlDirective],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +19,7 @@ import { MaskDateDirective } from './mask-date.directive';
     BrowserAnimationsModule,
     NgxMaskModule.forRoot()
   ],
-  exports: [CalendarComponent, MaskDateDirective],
+  exports: [CalendarComponent, CalendarControlDirective],
   providers: [
     {
       provide: MAT_DATE_FORMATS,
