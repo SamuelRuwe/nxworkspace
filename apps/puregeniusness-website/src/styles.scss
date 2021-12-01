@@ -8,18 +8,33 @@
 @import './themes/light-theme';
 @import './themes/nature-theme';
 
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/bootstrap-reboot';
+
+@import './app/features/about/about/about.component.scss-theme';
+@import './app/app/app.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+  @include pg-about-component-theme($theme);
+  @include pg-app-component-theme($theme);
+}
+
 .default-theme {
   @include mat.all-component-themes($pg-theme);
+  @include custom-components-theme($pg-theme);
 }
 
 .dark-theme {
   @include mat.all-component-themes($pg-dark-theme);
+  @include custom-components-theme($pg-dark-theme);
 }
 
 .light-theme {
   @include mat.all-component-themes($pg-light-theme);
+  @include custom-components-theme($pg-light-theme);
 }
 
 .nature-theme {
   @include mat.all-component-themes($pg-nature-theme);
+  @include custom-components-theme($pg-nature-theme);
 }

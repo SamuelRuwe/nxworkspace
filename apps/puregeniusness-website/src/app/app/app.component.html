@@ -1,10 +1,40 @@
 <div [class]="'theme-wrapper ' + (theme$ | async)">
-  <mat-card>
-    This is a test card
-  </mat-card>
-  <button mat-raised-button color='primary' (click)="changeTheme('DEFAULT-THEME')">change to default theme</button>
-  <button mat-raised-button color='accent' (click)="changeTheme('DARK-THEME')">change to dark theme</button>
-  <button mat-raised-button color='warn' (click)="changeTheme('NATURE-THEME')">change to nature theme</button>
-  <button mat-raised-button color='accent' (click)="changeTheme('LIGHT-THEME')">change to light theme</button>
-  <router-outlet></router-outlet>
+  <mat-sidenav-container>
+
+    <div class='wrapper'>
+      <div class='toolbar' [style.position]="'fixed'">
+        <mat-toolbar color='primary'>
+
+          <span routerLink='' class='branding spacer center d-inline d-sm-none'>
+            <img [src]='logo' [alt]='logo' /></span>
+          <span routerLink='' class='branding spacer d-none d-md-inline'><img [src]='logo'
+                                                                              [alt]='logo' /> Pure Geniusness </span>
+
+          <span class='d-none d-md-inline'>
+            <button mat-button class='nav-button' *ngFor='let item of navigation' [routerLink]='[item.link]'
+                    routerLinkActive='active'>
+              {{item.label | titlecase }}
+            </button>
+          </span>
+
+          <button mat-icon-button routerLink='settings' class='d-none d-sm-inline'>
+            <fa-icon icon='cog'></fa-icon>
+          </button>
+
+          <a matTooltip="Sam's github"
+             matTooltipPosition='before'
+             mat-icon-button
+             class='link d-none d-sm-inline'
+             href='https://github.com/SamuelRuwe'
+             target='_blank' rel='noopener noreferrer'>
+            <fa-icon [icon]="['fab','github']"></fa-icon>
+          </a>
+
+        </mat-toolbar>
+      </div>
+      <div class='content' [@routeAnimations]='o.isActivated && o.activatedRoute.routeConfig?.data?.title'>
+        <router-outlet #o='outlet'></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-container>
 </div>

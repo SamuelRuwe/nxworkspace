@@ -25,7 +25,7 @@ import { CalendarControlDirective } from './calendar-controller/calendar-control
       provide: MAT_DATE_FORMATS,
       useValue: {
         parse: {
-          dateInput: ['l', 'LL']
+          dateInput: ['L', 'LL']
         },
         display: {
           dateInput: 'L',

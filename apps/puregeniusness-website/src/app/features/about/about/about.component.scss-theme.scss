@@ -1,0 +1,17 @@
+@use '~@angular/material' as mat;
+
+@mixin pg-about-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $primary-color: mat.get-color-from-palette(map-get($theme, primary));
+
+  pg-about {
+    .pg-about {
+      color: $primary-color;
+    }
+
+    .wrn {
+      background-color: mat.get-color-from-palette($accent);
+    }
+  }
+}

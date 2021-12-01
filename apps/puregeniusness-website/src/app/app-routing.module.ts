@@ -13,9 +13,19 @@ const routes: Routes = [
       import('./features/about/about.module').then((m) => m.AboutModule)
   },
   {
+    path: 'settings',
+    loadChildren: () =>
+      import('./features/settings/settings.module').then((m) => m.SettingsModule)
+  },
+  {
     path: 'wasm',
     loadChildren: () =>
       import('./features/console-log-wasm/console-log-wasm.module').then((m) => m.ConsoleLogWasmModule)
+  },
+  {
+    path: 'queens',
+    loadChildren: () =>
+      import('./features/eight-queens/eight-queens.module').then((m) => m.EightQueensModule)
   },
   {
     path: '**',

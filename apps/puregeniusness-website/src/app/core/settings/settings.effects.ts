@@ -27,6 +27,7 @@ export class SettingsEffects {
     }, 60_000)
   );
 
+  // dialog/dropdown use overlay so without updating this the theme won't be applied
   updateTheme = createEffect(
     () =>
       merge(INIT, this.actions$.pipe(ofType(actionSettingsChangeTheme))).pipe(

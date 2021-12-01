@@ -1,4 +1,4 @@
-import { Directive, forwardRef, InjectionToken, Input } from '@angular/core';
+import { Directive, InjectionToken, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Controller } from '../controller';
 

@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { CalendarComponent } from './calendar.component';
 import { CalendarModule } from './calendar.module';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 export default {
   title: 'Calendar',
@@ -13,11 +13,9 @@ export default {
   ]
 } as Meta<CalendarComponent>;
 
-export const Primary = () => ({});
-
-export const Secondary = () => ({
+export const Primary = () => ({
   props: {
-    calendarControl: new FormControl()
+    calendarControl: new FormControl(null, Validators.required)
   },
-  template: `<pg-forms-calendar pgVal [calendarControl]='calendarControl'></pg-forms-calendar>`
+  template: `<pg-forms-calendar pgVal [control]='calendarControl'></pg-forms-calendar>`
 });

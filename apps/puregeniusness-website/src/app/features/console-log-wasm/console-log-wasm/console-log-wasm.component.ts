@@ -24,8 +24,10 @@ export class ConsoleLogWasmComponent<M> implements AfterViewInit {
     };
   }
 
-  ngAfterViewInit(): void {
-    this.loader.loadScript('ConsoleLoggerModule', 'console-logger.js', this.moduleDecorator);
+  async ngAfterViewInit() {
+    console.log("after view init");
+    const mod = await this.loader.loadScript('ConsoleLoggerModule', 'console-logger.js', this.moduleDecorator);
+    console.log(mod);
   }
 
 }

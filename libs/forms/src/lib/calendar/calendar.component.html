@@ -2,11 +2,17 @@
   <mat-label>Type or choose a date</mat-label>
   <input
     matInput
+    #matInput
     [matDatepicker]='picker'
     (dateChange)='change($event)'
     mask='00/00/0000'
   >
+  <mat-error>{{errorMessage}}</mat-error>
   <mat-datepicker-toggle matSuffix [for]='picker'></mat-datepicker-toggle>
+  <mat-datepicker-toggle matSuffix (click)="clearStartDate()">
+    <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+  </mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-<pre>{{calendarController.control.value}}</pre>
+<pre>{{control.value}}</pre>
+<pre>{{matInput.value.length}}</pre>
